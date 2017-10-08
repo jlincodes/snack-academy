@@ -1,57 +1,111 @@
 # README
+## Background and Overview
+### The Problem:
+Tight schedules at App Academy, limited in-house refreshments and prices at nearby stores make it inconvenient and expensive to buy quality coffee and snacks while at school.
 
-Database Schema
+### The Solution:
+Create a refreshments pop-up store powered by a native mobile app to manage orders and process payments via Stripe.
 
-## Users
-|column name|data type|details|
+## Functionality and MVP
+### User authentication & verification of payment credentials
+- Conveniently register users via emails and payment credentials
+- Integrate third party storage of payment credentials e.g. Stripe, Paypal, or other.
+
+### Products menu
+- Allow users to conveniently browse products
+- Adds products to cart
+
+### Shopping cart
+- Allow users to set quantities of items already existing in cart
+- Allow users to empty cart, and return to menu
+- Allow users to checkout
+
+### Checkout
+- Allow users to confirm orders prior to payment processing
+- Display items’ prices and total costs
+- Order submission and confirmation
+- Display confirmation page with confirmation number and pick-up directions
+- Payment processing via third-party
+
+### An admin dashboard
+- Allows Admin to add new products/update existing products
+- Display analytics
+  - Number of unique active users per day
+  - Items ordered and quantities of each item ordered => calculate expenses
+  - Revenue and profit (revenue - expenses)
+- Displays order statuses
+  - Received
+  - Prepared
+  - Picked-up
+
+## Technologies and Technical Challenges
+### Technologies:
+- Backend:
+  - Rails
+- Frontend
+  - Auth/CC:
+    - Stripe for both auth and cc info
+  - User Interface
+    - React Native
+    - Flexbox for layout
+    - Airbnb Navigation for react
+
+### Technical Challenges
+The most challenging part of this project will be the implementation of Stripe payment storage and processing into the application's Rails/React Native technologies.
+
+
+## Group Members and Work Breakdown
+Our flex project group consists of three members: Kenta Kodama, Logan Cooper,
+and Julie Lin. Each member will serve as the point-person for a specific area of the project.
+
+|Member Name|Primary responsibilities|Additional details|
 |---|---|---|
-|`id`|integer|not null, primary key|
-|`email`|string|not null, unique|
-|`stripe_token`|string|not null, unique|
-|`created_at`|datetime|not null|
-|`updated_at`|datetime|not null|
+|Kenta|React Native frontend|Primary focus will be the UI/UX of SnackAcademy App|
+|Logan|Stripe Payments|Focus is on Stripe integration into Rails/React Native|
+|Julie|Rails backend|Upon completion of backend, will hop onto frontend|
 
-User `has_many` orders.
+## Implementation Timeline
 
-User `has_many` ordered_items `through` orders.
+### Day 0: The weekend
+- All members:
+  - Created full proposal and project implementation plan
+  - Schema, component hierarchy, etc.
+- Kenta:
+  - Sample state
+  - Researched React Native through Getting Started Building Projects with Native Code tutorial
+  - Created React Native app skeleton with pages for each component and buttons for navigation
+- Julie:
+  - Wireframes/mockups
+  - Rails backend:
+    - skeleton
+    - models and table migrations with table- and model-level validations
+    - associations
+    - controllers and routes
+    - sample seed data
+- Logan:
+  - Researched React Native through Getting Started Building Projects with Native Code tutorial
+  - Researched Stripe secure payment storage and processing & how to integrate into Rails/React Native
 
+### Day 1:
+- Submit proposal for approval and feedback
+- Complete and finalize Rails backend and React Native frontend, if not yet completed/finalized
+- Start integration of Stripe
 
-## Products
-|column name|data type|details|
-|---|---|---|
-|`id`|integer|not null, primary key|
-|`name`|string|not null, unique|
-|`price`|float|not null|
-|`description`|string|not null|
-|`type`|string|not null, only "food", "drink"|
-|`inventory`|integer|not null|
-|`created_at`|datetime|not null|
-|`updated_at`|datetime|not null|
+### Day 2:
+- Complete integration of Stripe
+- Have basic prototype ready for extensive testing to ensure smooth, bug-free UI for products view/adding items to cart/checking out
 
-Product `has_many` ordered_items.
+### Day 3:
+- Continue testing and fix any found bugs
 
-## Orders
-|column name|data type|details|
-|---|---|---|
-|`id`|integer|not null, primary key|
-|`customer_id`|integer|not null|
-|`status`|string|not null only "ordered", "prepared", "picked up"|
-|`created_at`|datetime|not null|
-|`updated_at`|datetime|not null|
+### Day 4:
+- Style application
+- Publish on Xcode and Android Studio
 
-Order `belongs_to` user.
+### Day 5
+- Write out Production README.md
+- App launch
 
-Order `has_many` ordered_items.
-
-## Ordered_items
-|column name|data type|details|
-|---|---|---|
-|`id`|integer|not null, primary key|
-|`order_id`|integer|not null|
-|`product_id`|integer|not null|
-|`created_at`|datetime|not null|
-|`updated_at`|datetime|not null|
-
-Ordered_item `belongs_to` order.
-
-Ordered_item `belongs_to` product.
+## Plan for getting users and reviews
+- Promote app within App Academy
+- Launch pop-up cafe
