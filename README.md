@@ -50,10 +50,7 @@ Create a refreshments pop-up store powered by a native mobile app to manage orde
   - Received
   - Prepared
   - Picked-up
-
-## Wireframes:
-
-
+  
 ## Technologies and Technical Challenges
 ### Technologies:
 - Backend:
