@@ -1,4 +1,5 @@
-# README
+# SnackAcademy
+
 ## Background and Overview
 ### The Problem:
 Tight schedules at App Academy, limited in-house refreshments and prices at nearby stores make it inconvenient and expensive to buy quality coffee and snacks while at school.
@@ -11,21 +12,33 @@ Create a refreshments pop-up store powered by a native mobile app to manage orde
 - Conveniently register users via emails and payment credentials
 - Integrate third party storage of payment credentials e.g. Stripe, Paypal, or other.
 
+![SignUp][signup]
+
 ### Products menu
 - Allow users to conveniently browse products
 - Adds products to cart
+
+![Menu][menu]
 
 ### Shopping cart
 - Allow users to set quantities of items already existing in cart
 - Allow users to empty cart, and return to menu
 - Allow users to checkout
 
+![Cart][cart]
+
 ### Checkout
 - Allow users to confirm orders prior to payment processing
 - Display items’ prices and total costs
 - Order submission and confirmation
-- Display confirmation page with confirmation number and pick-up directions
 - Payment processing via third-party
+
+![Checkout][checkout]
+
+- Display confirmation page with confirmation number and pick-up directions
+
+![Confirmation][confirmation]
+
 
 ### An admin dashboard
 - Allows Admin to add new products/update existing products
@@ -37,6 +50,9 @@ Create a refreshments pop-up store powered by a native mobile app to manage orde
   - Received
   - Prepared
   - Picked-up
+
+## Wireframes:
+
 
 ## Technologies and Technical Challenges
 ### Technologies:
@@ -52,7 +68,6 @@ Create a refreshments pop-up store powered by a native mobile app to manage orde
 
 ### Technical Challenges
 The most challenging part of this project will be the implementation of Stripe payment storage and processing into the application's Rails/React Native technologies.
-
 
 ## Group Members and Work Breakdown
 Our flex project group consists of three members: Kenta Kodama, Logan Cooper,
@@ -109,3 +124,13 @@ and Julie Lin. Each member will serve as the point-person for a specific area of
 ## Plan for getting users and reviews
 - Promote app within App Academy
 - Launch pop-up cafe
+
+[signup]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%201.png?raw=true
+
+[menu]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%202.png?raw=true
+
+[cart]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%203.png?raw=true
+
+[checkout]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%204.png?raw=true
+
+[confirmation]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%205.png?raw=true
