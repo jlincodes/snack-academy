@@ -6,5 +6,13 @@ class Product < ApplicationRecord
   has_many :ordered_items,
   primary_key: :id,
   foreign_key: :product_id,
-  class_name: :OrderedItems
+  class_name: :OrderedItem
+
+  has_many :orders,
+  through: :ordered_items,
+  source: :order
+
+  has_many :buyers,
+  through: :orders,
+  source: :user
 end

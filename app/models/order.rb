@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  validates :status, presence: true
+  validates :status, inclusion: { in: ["ordered", "prepared", "picked up"] }, presence: true
 
   belongs_to :user,
   primary_key: :id,
@@ -9,5 +9,5 @@ class Order < ApplicationRecord
   has_many :ordered_items,
   primary_key: :id,
   foreign_key: :order_id,
-  class_name: :OrderedItems
+  class_name: :OrderedItem
 end
