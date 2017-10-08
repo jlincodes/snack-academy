@@ -125,8 +125,6 @@ and Julie Lin. Each member will serve as the point-person for a specific area of
 - Promote app within App Academy
 - Launch pop-up cafe
 
-## Wireframes
-
 [signup]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%201.png?raw=true
 
 [menu]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%202.png?raw=true
