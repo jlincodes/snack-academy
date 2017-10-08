@@ -2,7 +2,7 @@
 
 ## Background and Overview
 ### The Problem:
-Tight schedules at App Academy, limited in-house refreshments and prices at nearby stores make it inconvenient and expensive to buy quality coffee and snacks while at school.
+Tight schedules at App Academy, limited in-house refreshments, and prices at nearby stores make it inconvenient and expensive to buy quality coffee and snacks while at school.
 
 ### The Solution:
 Create a refreshments pop-up store powered by a native mobile app to manage orders and process payments via Stripe.
@@ -10,7 +10,7 @@ Create a refreshments pop-up store powered by a native mobile app to manage orde
 ## Functionality and MVP
 ### User authentication & verification of payment credentials
 - Conveniently register users via emails and payment credentials
-- Integrate third party storage of payment credentials e.g. Stripe, Paypal, or other.
+- Integrate third party storage of payment credentials through Stripe
 
 ![SignUp][signup]
 
@@ -21,8 +21,8 @@ Create a refreshments pop-up store powered by a native mobile app to manage orde
 ![Menu][menu]
 
 ### Shopping cart
-- Allow users to set quantities of items already existing in cart
-- Allow users to empty cart, and return to menu
+- Allow users to set quantities of items already in cart
+- Allow users to empty cart and return to menu
 - Allow users to checkout
 
 ![Cart][cart]
@@ -31,7 +31,7 @@ Create a refreshments pop-up store powered by a native mobile app to manage orde
 - Allow users to confirm orders prior to payment processing
 - Display items’ prices and total costs
 - Order submission and confirmation
-- Payment processing via third-party
+- Payment processing via Stripe
 
 ![Checkout][checkout]
 
@@ -60,11 +60,11 @@ Create a refreshments pop-up store powered by a native mobile app to manage orde
   - Rails
 - Frontend
   - Auth/CC:
-    - Stripe for both auth and cc info
+    - Stripe for both auth and credit card info
   - User Interface
     - React Native
     - Flexbox for layout
-    - Airbnb Navigation for react
+    - Airbnb Navigation for React
 
 ### Technical Challenges
 The most challenging part of this project will be the implementation of Stripe payment storage and processing into the application's Rails/React Native technologies.
@@ -111,7 +111,7 @@ and Julie Lin. Each member will serve as the point-person for a specific area of
 - Have basic prototype ready for extensive testing to ensure smooth, bug-free UI for products view/adding items to cart/checking out
 
 ### Day 3:
-- Continue testing and fix any found bugs
+- Continue testing and fix any bugs
 
 ### Day 4:
 - Style application
@@ -125,6 +125,8 @@ and Julie Lin. Each member will serve as the point-person for a specific area of
 - Promote app within App Academy
 - Launch pop-up cafe
 
+## Wireframes
+
 [signup]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%201.png?raw=true
 
 [menu]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%202.png?raw=true
@@ -134,3 +136,7 @@ and Julie Lin. Each member will serve as the point-person for a specific area of
 [checkout]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%204.png?raw=true
 
 [confirmation]: https://github.com/julielin0812/snack-academy/blob/master/docs/wireframe/iPhone%2067%20%E2%80%93%205.png?raw=true
+
+## State and Schema
+
+See the [project wiki](https://github.com/julielin0812/snack-academy/wiki) for our sample state and database schema.
