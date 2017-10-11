@@ -1,94 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, AppRegistry, ScrollView, View, Button, Image, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  AppRegistry,
+  ScrollView,
+  View,
+  Button,
+  Image,
+  TouchableOpacity
+} from 'react-native';
 import { StackNavigator, TabNavigator} from 'react-navigation';
 import { Container, Header, Left, Body, Right, Icon, Title } from 'native-base';
-import FooterTabsBadge from './screens/Footer.js';
+
 import DrinksScreen from './screens/DrinkScreen.js';
 import FoodScreen from './screens/FoodScreen.js';
+import Cart from './screens/Cart.js';
+import CheckOut from './screens/CheckOut.js';
+import Confirmation from './screens/Confirmation.js';
+import HeaderBanner from './screens/HeaderBanner.js';
+
 import NewCardPage from './stripe_page.js';
 
-
-
-class Cart extends React.Component {
-
-  render() {
-
-    const { goBack, navigate } = this.props.navigation;
-    let exampleCart = require('./images/cart.png');
-    return (
-      <View style={{flex: 1}}>
-        <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: .5, backgroundColor: 'orange', justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', color: 'white'}}>Your Cart</Text>
-        </View>
-        <Image style={{flex: 5, width: 400}} source={exampleCart}/>
-        <Container style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
-          <TouchableOpacity onPress={() => navigate('Index')}>
-            <Text style={{fontSize: 22}}>Back to Menu</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigate('CheckOut')}>
-            <Text style={{fontSize: 22}}>Check Out</Text>
-          </TouchableOpacity>
-        </Container>
-      </View>
-    );
-  }
-}
-
-
-class CheckOut extends React.Component {
-
-  render() {
-    const { goBack, navigate } = this.props.navigation;
-    let checkOutImage = require('./images/confirmation_screen.png');
-    return (
-      <View style={{flex: 1}}>
-        <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: .5, backgroundColor: 'orange', justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', color: 'white'}}>Confirm Order</Text>
-        </View>
-        <Image style={{flex: 5, width: 400}} source={checkOutImage}/>
-        <Container style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
-          <TouchableOpacity onPress={() => navigate('Cart')}>
-            <Text style={{fontSize: 22}}>View Cart</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigate('Confirmation')}>
-            <Text style={{fontSize: 22}}>Confirm Order</Text>
-          </TouchableOpacity>
-        </Container>
-      </View>
-    );
-  }
-}
-
-//note menu
-class Confirmation extends React.Component {
-
-  render() {
-    const { goBack, navigate } = this.props.navigation;
-    let orderConfirmed = require('./images/order_confirmed.png');
-    return (
-      <View style={{flex: 1}}>
-        <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: .5, backgroundColor: 'orange', justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', color: 'white'}}>Order Confirmed</Text>
-        </View>
-        <Image style={{flex: 5, width: 400}} source={orderConfirmed}/>
-        <Container style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
-          <TouchableOpacity onPress={() => navigate('Index')}>
-            <Text style={{fontSize: 22}}>Back to Menu</Text>
-          </TouchableOpacity>
-        </Container>
-      </View>
-    );
-  }
-}
-
-
-
 //routes
-
-
 const Menu = TabNavigator({
   Drinks: {
     screen: DrinksScreen
@@ -100,36 +33,34 @@ const Menu = TabNavigator({
 {
   tabBarPosition: 'top',
   tabBarOptions: {
-     activeTintColor: 'red',  // Color of tab when pressed
+     activeTintColor: '#000000',
      inactiveTintColor: '#b5b5b5',
      labelStyle: {
-        fontSize: 31,
+        fontSize: 18,
       },
-      backgroundColor: 'white'
    }
 }
 );
 
-
-
-//if flexing, the way to change heights of header and footer is by changing the height of the component between them
+// if flexing, the way to change heights of header and footer is by
+// changing the height of the component between them
 class SimpleApp extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
-        <NewCardPage />
+        <NewCardPage/>
         <HeaderBanner style={{flex: 1}}/>
-        <View style={{backgroundColor: 'white', flex: 8}}>
+        <View style={{backgroundColor: '#f7f7f7', flex: 8}}>
           <Menu />
         </View>
-        <Container style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
+        <Container style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: '#1485CC'}}>
             <TouchableOpacity onPress={() => navigate('Cart')}>
-              <Text style={{color: 'black',  fontSize: 18}}>Your Cart</Text>
+              <Text style={{color: '#FFFFFF', fontSize: 18}}>Your Cart</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigate('CheckOut')}>
-              <Text style={{color: 'black', fontSize: 18}}>Check Out</Text>
+              <Text style={{color: '#FFFFFF', fontSize: 18}}>Check Out</Text>
             </TouchableOpacity>
         </Container>
       </View>
@@ -171,36 +102,8 @@ const ActionBar = StackNavigator({
   }
 });
 
-
-
-
-
-
-
-class HeaderBanner extends React.Component {
-  render() {
-    return (
-      <Header style={{ backgroundColor: 'red'}}>
-          <Title style={{color: 'white', fontSize: 30,  justifyContent: 'center'}}>SnackAcademy</Title>
-      </Header>
-    );
-  }
-}
-
-
-
-
 export default class App extends React.Component {
   render() {
     return <AppNavigator />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
