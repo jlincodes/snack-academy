@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
+  require 'json_web_token'
   helper_method :current_user, :signed_up?
 
   def current_user
@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_up
-    
+
   end
 end
