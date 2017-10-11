@@ -21,16 +21,18 @@ class CheckOut extends React.Component {
     return (
       <View style={{flex: 1}}>
         <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: .5, backgroundColor: '#f7f7f7', justifyContent: 'center'}}>
+        <View style={{flex: 1, backgroundColor: '#f7f7f7', justifyContent: 'center'}}>
           <Text style={{alignSelf: 'center', color: 'white'}}>Confirm Order</Text>
         </View>
-        <Image style={{flex: 5, width: 400}} source={checkOutImage}/>
-        <Container style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
+        <Image style={{flex: 7, width: 400}} source={checkOutImage}/>
+        <Container style={
+          {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
+          alignItems: 'center', backgroundColor: '#1485CC'}}>
           <TouchableOpacity onPress={() => navigate('Cart')}>
-            <Text style={{fontSize: 22}}>View Cart</Text>
+            <Text style={{color: '#FFFFFF', fontSize: 18}}>View Cart</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigate('Confirmation')}>
-            <Text style={{fontSize: 22}}>Confirm Order</Text>
+            <Text style={{color: '#FFFFFF', fontSize: 18}}>Confirm Order</Text>
           </TouchableOpacity>
         </Container>
       </View>
