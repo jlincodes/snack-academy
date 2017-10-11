@@ -10,7 +10,9 @@ import { View } from 'react-native';
 import stripe from 'tipsi-stripe';
 stripe.init({
   // test key
-  publishableKey: 'pk_live_3dAdhS9inCpxPCD2pXJf8H2y',
+  publishableKey: 'pk_test_HjN8L9E5xZW12lWT4VBzKSWl',
+  // live key
+  // publishableKey: 'pk_live_3dAdhS9inCpxPCD2pXJf8H2y',
 });
 const theme = {
   primaryBackgroundColor: 'white',
