@@ -36,7 +36,6 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* ReactNavigation2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNavigation2Tests.m */; };
 		3991F6651F8D48320008627B /* TPSStripe in Resources */ = {isa = PBXBuildFile; fileRef = 3991F6421F8D48320008627B /* TPSStripe */; };
-		39B437E81F8FF23F00ED7F83 /* TPSStripe in Resources */ = {isa = PBXBuildFile; fileRef = 39B437E71F8FF23E00ED7F83 /* TPSStripe */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		70977A6F160AB7EDA3B2EB73 /* libPods-ReactNavigation2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F94AAB285E94B5379D1E05B6 /* libPods-ReactNavigation2.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -322,7 +321,6 @@
 		2D02E47B1E0B4A5D006451C7 /* ReactNavigation2-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactNavigation2-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ReactNavigation2-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNavigation2-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3991F6421F8D48320008627B /* TPSStripe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TPSStripe; path = "../node_modules/tipsi-stripe/ios/TPSStripe"; sourceTree = "<group>"; };
-		39B437E71F8FF23E00ED7F83 /* TPSStripe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TPSStripe; path = "../node_modules/tipsi-stripe/ios/TPSStripe"; sourceTree = "<group>"; };
 		3FBC4BC81B5B4EDFB0636A75 /* Pods-ReactNavigation2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNavigation2.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactNavigation2/Pods-ReactNavigation2.release.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -546,7 +544,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				39B437E71F8FF23E00ED7F83 /* TPSStripe */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -1058,7 +1055,6 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3991F6651F8D48320008627B /* TPSStripe in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				39B437E81F8FF23F00ED7F83 /* TPSStripe in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
