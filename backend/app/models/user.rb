@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :email, :name presence: true
+  validates :email, :name, :customer_id, presence: true
   validates_uniqueness_of :email, case_sensitive: false
   validates_format_of :email, with: /@/
   validates :stripe_token, presence: true, uniqueness: true
