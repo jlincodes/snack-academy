@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { StackNavigator, TabNavigator} from 'react-navigation';
 import { Container, Header, Left, Body, Right, Icon, Title } from 'native-base';
+import { Provider } from 'react-redux';
 
 import DrinksScreen from './screens/DrinkScreen.js';
 import FoodScreen from './screens/FoodScreen.js';
@@ -20,6 +21,9 @@ import Confirmation from './screens/Confirmation.js';
 import HeaderBanner from './screens/HeaderBanner.js';
 
 import NewCardPage from './stripe_page.js';
+
+import { getProducts } from './api_util/api_util.js';
+import configureStore from './store/store.js';
 
 //routes
 const Menu = TabNavigator({
@@ -34,10 +38,17 @@ const Menu = TabNavigator({
   tabBarPosition: 'top',
   tabBarOptions: {
      activeTintColor: '#000000',
-     inactiveTintColor: '#b5b5b5',
+     inactiveTintColor: '#666666',
+     inactiveBackgroundColor: '#bfbfbf',
      labelStyle: {
         fontSize: 18,
       },
+      style: {
+        backgroundColor: '#d3d3d3'
+      },
+      indicatorStyle: {
+        backgroundColor: '#1485CC'
+      }
    }
 }
 );
@@ -45,6 +56,9 @@ const Menu = TabNavigator({
 // if flexing, the way to change heights of header and footer is by
 // changing the height of the component between them
 class SimpleApp extends React.Component {
+  componentWillMount() {
+    getProducts();
+  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -57,7 +71,7 @@ class SimpleApp extends React.Component {
         </View>
         <Container style={
             {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
-            alignItems: 'center', backgroundColor: '#1485CC'}}>
+              alignItems: 'center', backgroundColor: '#1485CC'}}>
             <TouchableOpacity onPress={() => navigate('Cart')}>
               <Text style={{color: '#FFFFFF', fontSize: 18}}>Your Cart</Text>
             </TouchableOpacity>
@@ -106,6 +120,11 @@ const ActionBar = StackNavigator({
 
 export default class App extends React.Component {
   render() {
-    return <AppNavigator />;
+    const store = configureStore();
+    return (
+      <Provider store={store}>
+        <AppNavigator />
+      </Provider>
+    );
   }
 }
