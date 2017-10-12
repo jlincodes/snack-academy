@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :products, only: %i(index create new edit update destroy)
     resources :orders, only: %i(index show create update)
     resources :ordered_items, only: :create
-    resources :chaarges
+    resources :charges
   end
 end
