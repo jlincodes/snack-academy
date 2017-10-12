@@ -6,7 +6,7 @@ class HeaderBanner extends React.Component {
     return (
       <Header style={{ backgroundColor: '#C00A0A'}}>
           <Title style={{color: 'white', fontSize: 30,
-            justifyContent: 'center'}}>SnackAcademy</Title>
+            justifyContent: 'center', marginTop: 5}}>SnackAcademy</Title>
       </Header>
     );
   }
