@@ -14,7 +14,6 @@ import { Container } from 'native-base';
 import HeaderBanner from './HeaderBanner.js';
 
 class Cart extends React.Component {
-
   render() {
 
     const { goBack, navigate } = this.props.navigation;
