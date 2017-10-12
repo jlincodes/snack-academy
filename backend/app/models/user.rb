@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :email, presence: true
+  validates :email, :name presence: true
   validates_uniqueness_of :email, case_sensitive: false
   validates_format_of :email, with: /@/
   validates :stripe_token, presence: true, uniqueness: true
@@ -12,4 +12,12 @@ class User < ApplicationRecord
   has_many :ordered_items,
   through: :orders,
   source: :ordered_items
+
+  def assign_customer_id
+    customer = Stripe::Customer.create(
+      email: params[:user][:email],
+      name: params[:user][:name],
+      source: params[:user][:stripe_token]
+    )
+  end
 end
