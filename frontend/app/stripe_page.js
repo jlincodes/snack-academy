@@ -6,8 +6,12 @@
 
 
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import { View } from 'react-native';
 import stripe from 'tipsi-stripe';
+
+import {addTokenToUser, createNewUser} from './actions/user_actions.js';
+
 stripe.init({
   // test key
   publishableKey: 'pk_test_HjN8L9E5xZW12lWT4VBzKSWl',
@@ -31,10 +35,14 @@ class NewCardPage extends Component {
     //   theme
     // };
     stripe.paymentRequestWithCardForm()
-      .then(response => {
-        // collecting response
+      .then(responseToken => {
+        // collecting responseToken
         // sending to backend w/ fetch to store customer
-        console.log(response);
+        addTokenToUser(responseToken);
+        let completeUser = this.props.user
+        console.log(responseToken);
+        console.log(completeUser);
+        this.props.createNewUser(completeUser);
       })
       .catch(error => {
         console.log(error);
@@ -47,4 +55,13 @@ class NewCardPage extends Component {
   }
 }
 
-export default NewCardPage;
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addTokenToUser: (user) => dispatch(addTokenToUser(user)),
+  createNewUser: (user) => dispatch(createNewUser(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewCardPage);
