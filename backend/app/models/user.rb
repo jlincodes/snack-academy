@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id           :integer          not null, primary key
+#  email        :string           not null
+#  stripe_token :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  customer_id  :string
+#  name         :string
+#
+
 class User < ApplicationRecord
   validates :email, :name, :customer_id, presence: true
   validates_uniqueness_of :email, case_sensitive: false
