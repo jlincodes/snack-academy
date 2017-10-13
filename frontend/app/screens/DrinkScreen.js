@@ -25,7 +25,7 @@ class DrinksScreen extends React.Component {
       <View>
         <FlatList
           data={drinks}
-          renderItem={({item}) => <Text>{item.name}</Text>}
+          renderItem={({item}) => <Text>{item.price}</Text>}
         />
       </View>
     );

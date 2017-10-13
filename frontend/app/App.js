@@ -97,7 +97,7 @@ const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: DrinksScreen
+      screen: Signup
     },
     NewCardPage: {
       screen: NewCardPage
