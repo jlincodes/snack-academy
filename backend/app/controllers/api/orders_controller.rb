@@ -5,13 +5,9 @@ class Api::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    # customer_id == user's id
     user = User.find(params[:user][:customer_id])
-    charge = new_charge
-    
-    params[:user][:items].each do |product_id|
-      OrderedItem.new(product_id: product_id, order_id: @order.id)
-    end
+    charge = new_charge(user)
+    make_items
 
     if @order.save
       render :index
@@ -36,24 +32,25 @@ class Api::OrdersController < ApplicationController
   private
 
   def order_params
-    # customer_id == user's id
-    params.require(:order).permit(:customer_id, :status)
+    params.require(:order).permit(:user_id, :status)
   end
 
   def customer_id_params
     params.require
   end
 
-  def new_charge
+  def new_charge(user)
     Stripe::Charge.create(
       amount: params[:user][:total],
       currency: 'usd',
-      # customer_id == user.customer_id
-      customer: user.customer_id
+      customer: user.customer_id,
+      statement_descriptor: "Snack Overflow"
     )
   end
 
   def make_items
-
+    params[:user][:items].each do |product_id|
+      OrderedItem.new(product_id: product_id, order_id: @order.id).save
+    end
   end
 end
