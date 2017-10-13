@@ -4,7 +4,7 @@ export const RECEIVE_ALL_PRODUCTS = 'RECEIVE_ALL_PRODUCTS';
 
 export const receiveAllProducts = (products) => ({
   type: RECEIVE_ALL_PRODUCTS,
-  products
+  products: products.data
 });
 
 export const requestAllProducts = () => dispatch => (

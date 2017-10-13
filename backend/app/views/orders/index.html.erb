@@ -17,7 +17,7 @@
       <td><%= customer.email %></td>
       <td><%= order.status %></td>
       <td>
-        <form action="/orders" method="post">
+        <form action="orders_url" method="post">
           <%= auth_token_input %>
           <input type="hidden" name="_method" value="PATCH">
           <select name="order[status]">
