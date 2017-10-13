@@ -8,7 +8,6 @@ class Api::UsersController < ApplicationController
     )
     @user.customer_id = customer.id
     if @user.save
-      sign_up(@user)
       render 'api/products/index'
     else
       render json: @user.errors.full_messages, status: 422
