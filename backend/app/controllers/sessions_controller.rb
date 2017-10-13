@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     )
     if @admin
       login(@admin)
-      redirect_to '/orders'
+      redirect_to orders_url
     else
       flash[:errors] = ['Invalid Login Credentials']
       render :new
