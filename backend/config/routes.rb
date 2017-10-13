@@ -9,10 +9,10 @@ Rails.application.routes.draw do
       end
     end
     resources :products, only: %i(index create new edit update destroy)
-    # resources :orders, only: %i(index show create update)
+    resources :orders, only: :create
     resources :ordered_items, only: :create
     resources :charges
   end
-  resources :orders, only: %i(index show create update)
-  resource :session, only: %i(new create)
+  resources :orders, only: %i(index show update)
+  resource :session, only: %i(new create destroy)
 end
