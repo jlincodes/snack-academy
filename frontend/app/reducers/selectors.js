@@ -20,3 +20,11 @@ export const selectDrinks = (productsObj) => {
   return products.filter((product) => (product.category === "drink"))
 
 }
+
+export const selectFood = (productsObj) => {
+
+  let products =  _.valuesIn(productsObj)
+
+  return products.filter((product) => (product.category === "food"))
+
+}

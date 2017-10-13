@@ -5,10 +5,16 @@ export const DELETE_ITEM_FROM_CART = 'DELETE_ITEM_FROM_CART';
 export const RECEIVE_CONFIRMATION = 'RECEIVE_CONFIRMATION';
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-export const addItemToCart = (item) => ({
-  type: ADD_ITEM_TO_CART,
-  item
-});
+export const addItemToCart = (item) => {
+  console.log('inside action');
+  console.log(item);
+  return (
+    {
+      type: ADD_ITEM_TO_CART,
+      item
+    }
+  )
+};
 
 export const deleteItemFromCart = (item) => ({
   type: DELETE_ITEM_FROM_CART,

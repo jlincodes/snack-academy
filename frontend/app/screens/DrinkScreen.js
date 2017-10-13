@@ -10,6 +10,7 @@ import { selectDrinks } from '../reducers/selectors.js'
 import ProductItem from './ProductItem.js'
 
 class DrinksScreen extends React.Component {
+
   static navigationOptions = {
     title: 'Drinks', //refers to name of displayed button
   };
@@ -43,5 +44,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   requestAllProducts: () => dispatch(requestAllProducts())
 });
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrinksScreen);
