@@ -9,6 +9,7 @@ User.destroy_all
 Product.destroy_all
 Order.destroy_all
 OrderedItem.destroy_all
+Admin.destroy_all
 
 Product.create!(name: 'Cafe Americano', price: 2.00, description: 'great pick me up!', category: 'drink', inventory: rand(10))
 Product.create!(name: 'Red Bull', price: '3.00', description: 'get energized!', category: 'drink', inventory: rand(10))
@@ -23,3 +24,5 @@ Order.create!(customer_id: 1, status: "ordered")
 OrderedItem.create!(order_id: 1, product_id: 1)
 OrderedItem.create!(order_id: 1, product_id: 2)
 OrderedItem.create!(order_id: 1, product_id: 3)
+
+Admin.create!(username: 'admin', password: 'password1234')
