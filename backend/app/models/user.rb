@@ -25,12 +25,4 @@ class User < ApplicationRecord
   has_many :ordered_items,
   through: :orders,
   source: :ordered_items
-
-  def assign_customer_id
-    customer = Stripe::Customer.create(
-      email: params[:user][:email],
-      name: params[:user][:name],
-      source: params[:user][:stripe_token]
-    )
-  end
 end
