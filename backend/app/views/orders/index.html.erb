@@ -1,0 +1,33 @@
+<h1>Orders</h1>
+
+<% @orders.each do |order| %>
+<% customer = User.find_by(id: order.customer_id) %>
+  <table>
+    <tr>
+      <th>Order No.</th>
+      <th>Customer id</th>
+      <th>Customer</th>
+      <th>Order Status</th>
+      <th>Update Status</th>
+    </tr>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.customer_id %></td>
+      <!-- change customer.email to customer.name -->
+      <td><%= customer.email %></td>
+      <td><%= order.status %></td>
+      <td>
+        <form action="/orders" method="post">
+          <%= auth_token_input %>
+          <input type="hidden" name="_method" value="PATCH">
+          <select name="order[status]">
+            <option value="<%= order.status %>">Ordered</option>
+            <option value="<%= order.status %>">Prepared</option>
+            <option value="<%= order.status %>">Picked Up</option>
+          </select>
+          <input type="submit" name="" value="Update Order Status">
+        </form>
+      </td>
+    </tr>
+  </table>
+<% end %>
