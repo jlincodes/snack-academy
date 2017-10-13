@@ -1,9 +1,11 @@
 
 import React from 'react';
-import { StyleSheet, Text, AppRegistry, ScrollView, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, FlatList, AppRegistry, ScrollView, View, Button, Image } from 'react-native';
+
+import { requestAllProducts } from '../actions/product_actions.js'
 
 import {connect} from 'react-redux';
-
+import { selectDrinks } from '../reducers/selectors.js'
 
 class DrinksScreen extends React.Component {
   static navigationOptions = {
@@ -16,26 +18,26 @@ class DrinksScreen extends React.Component {
 
   render() {
 
-    let products = this.props.products
+    //creating array of product objects
+    let drinks = this.props.drinks
 
     return (
-      <View style={{width: 193, height: 390}}>
-        <Text>Some Drinks</Text>
-        <View>
-          <Image source={coffeePic} style={{width: 193, height: 110}}/>
-        </View>
+      <View>
+        <FlatList
+          data={drinks}
+          renderItem={({item}) => <Text>{item.name}</Text>}
+        />
       </View>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  products: selectDrinks(state.products),
-  food: selectFood(state.products)
+  drinks: selectDrinks(state.products)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   requestAllProducts: () => dispatch(requestAllProducts())
 });
 
-export default connect(null, mapDispatchToProps)(DrinksScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(DrinksScreen);
