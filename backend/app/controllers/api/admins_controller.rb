@@ -7,6 +7,9 @@ class Api::AdminsController < ApplicationController
     if @admin.save
       login(@admin)
       redirect_to orders_url
+    else
+      flash[:errors] = @admin.errors.full_messages
+      render :new
     end
   end
 
