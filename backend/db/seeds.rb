@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-Product.destroy_all
-Order.destroy_all
-OrderedItem.destroy_all
+# User.destroy_all
+# Product.destroy_all
+# Order.destroy_all
+# OrderedItem.destroy_all
 
 Product.create!(name: 'Cafe Americano', price: 200, description: 'great pick me up!', category: 'drink', inventory: rand(10))
 Product.create!(name: 'Red Bull', price: 300, description: 'get energized!', category: 'drink', inventory: rand(10))

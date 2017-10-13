@@ -38,11 +38,11 @@ class NewCardPage extends Component {
       .then(responseToken => {
         // collecting responseToken
         // sending to backend w/ fetch to store customer
-        this.props.addTokenToUser(responseToken);
-        let completeUser = this.props.user
-        console.log(responseToken);
+        this.props.addTokenToUser(responseToken.tokenId);
+        let completeUser = {user: this.props.user}
         console.log(completeUser);
-        this.props.createNewUser(completeUser);
+        this.props.createNewUser(completeUser).then(res => this.props.receiveNewUser(res));
+
       })
       .catch(error => {
         console.log(error);

@@ -12,7 +12,7 @@ const UserReducer = (state = defaultState, action) => {
       return Object.assign({}, state, action.user);
     case ADD_TOKEN_TO_USER:
       let user = Object.assign({}, state);
-      user.token = action.user
+      user.stripe_token = action.user
       return user
     default:
       return state;

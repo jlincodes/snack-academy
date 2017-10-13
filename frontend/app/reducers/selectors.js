@@ -1,3 +1,6 @@
+
+import * as _ from 'lodash';
+
 export const deleteItem = (cart, item ) => {
   let duplicate = cart.slice(0);
   let deleted = false;
@@ -9,3 +12,11 @@ export const deleteItem = (cart, item ) => {
   });
   return duplicate;
 };
+
+export const selectDrinks = (productsObj) => {
+
+  let products =  _.valuesIn(productsObj)
+
+  return products.filter((product) => (product.category === "drink"))
+
+}

@@ -9,5 +9,5 @@ export const postOrder = (order) => (
 );
 
 export const postUser = (user) => (
-  axios.post('https://snackappacademhy.herokuapp.com/api/users', user)
+  axios.post('http://192.168.2.150:3000/api/users', user)
 );

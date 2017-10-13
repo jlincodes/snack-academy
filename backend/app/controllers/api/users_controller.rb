@@ -1,12 +1,15 @@
 class Api::UsersController < ApplicationController
   def create
+    # debugger
+    Stripe.api_key = ENV['SECRET_KEY']
+
     @user = User.new(user_params)
     customer = Stripe::Customer.create(
       email: @user.email,
-      name: @user.name,
       source: @user.stripe_token
     )
     @user.customer_id = customer.id
+    debugger
     if @user.save
       render 'api/products/index'
     else

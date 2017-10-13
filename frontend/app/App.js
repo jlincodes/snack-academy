@@ -87,6 +87,12 @@ class SimpleApp extends React.Component {
 
 //this must be after simple app or wont work
 //top level navigator
+
+
+// Index: {
+//   screen: Signup
+// },
+
 const AppNavigator = StackNavigator(
 
   {
