@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   has_many :orders,
   primary_key: :id,
-  foreign_key: :customer_id,
+  foreign_key: :user_id,
   class_name: :Order
 
   has_many :ordered_items,
