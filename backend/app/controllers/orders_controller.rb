@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update_attributes(order_params)
-      render :index
+      redirect_to orders_url
     else
       render json: @order.errors.full_messages, status: 422
     end
