@@ -4,6 +4,7 @@ class Api::OrdersController < ApplicationController
   end
 
   def create
+    Stripe.api_key = ENV['SECRET_KEY']
     @order = Order.new(order_params)
     user = User.find(params[:user][:customer_id])
     charge = new_charge(user)
