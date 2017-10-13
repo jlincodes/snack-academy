@@ -25,6 +25,8 @@ import NewCardPage from './stripe_page.js';
 import { getProducts } from './api_util/api_util.js';
 import configureStore from './store/store.js';
 
+import Signup from './screens/Signup.js';
+
 //routes
 const Menu = TabNavigator({
   Drinks: {
@@ -64,7 +66,6 @@ class SimpleApp extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
-        <NewCardPage/>
         <HeaderBanner style={{flex: 1}}/>
         <View style={{backgroundColor: '#f7f7f7', flex: 8}}>
           <Menu />
@@ -90,7 +91,10 @@ const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: SimpleApp
+      screen: Signup
+    },
+    NewCardPage: {
+      screen: NewCardPage
     },
     Cart: {
       screen: Cart

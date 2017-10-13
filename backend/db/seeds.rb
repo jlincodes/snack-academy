@@ -19,7 +19,3 @@ Product.create!(name: 'Mints', price: 400, description: 'Good for pair programmi
 User.create!(email: "randomemail@email.com", stripe_token: "1")
 
 Order.create!(customer_id: 1, status: "ordered")
-
-OrderedItem.create!(order_id: 1, product_id: 1)
-OrderedItem.create!(order_id: 1, product_id: 2)
-OrderedItem.create!(order_id: 1, product_id: 3)
