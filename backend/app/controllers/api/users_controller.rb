@@ -1,6 +1,12 @@
 class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
+    customer = Stripe::Customer.create(
+      email: @user.email,
+      name: @user.name,
+      source: @user.stripe_token
+    )
+    @user.customer_id = customer.id
     if @user.save
       sign_up(@user)
       render 'api/products/index'
@@ -12,6 +18,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :stripe_token, :customer_id)
+    params.require(:user).permit(:email, :name, :stripe_token)
   end
 end
