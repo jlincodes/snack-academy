@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
       source: @user.stripe_token
     )
     @user.customer_id = customer.id
-    debugger
+
     if @user.save
       render 'api/products/index'
     else
