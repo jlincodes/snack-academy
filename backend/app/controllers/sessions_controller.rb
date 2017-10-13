@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  # for Dashboard login
   def new
   end
 

@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  # for Dashboard orders
   before_action :require_login
   def index
     @orders = Order.all
