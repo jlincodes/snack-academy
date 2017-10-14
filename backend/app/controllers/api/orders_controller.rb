@@ -1,7 +1,4 @@
 class Api::OrdersController < ApplicationController
-  # def index
-  #   @orders = Order.all
-  # end
 
   def create
     Stripe.api_key = ENV['SECRET_KEY']
@@ -11,33 +8,16 @@ class Api::OrdersController < ApplicationController
     make_items
 
     if @order.save
-      render :index
+      render :show
     else
       render json: @order.errors.full_messages, status: 422
     end
   end
 
-  # def show
-  #   @order = Order.find(params[:id])
-  # end
-  #
-  # def update
-  #   @order = Order.find(params[:id])
-  #   if @order.update_attributes(order_params)
-  #     render :index
-  #   else
-  #     render json: @order.errors.full_messages, status: 422
-  #   end
-  # end
-
   private
 
   def order_params
     params.require(:order).permit(:user_id, :status)
-  end
-
-  def customer_id_params
-    params.require
   end
 
   def new_charge(user)
