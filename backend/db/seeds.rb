@@ -5,12 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# User.destroy_all
-# Product.destroy_all
-# Order.destroy_all
-# OrderedItem.destroy_all
+User.destroy_all
+Product.destroy_all
+Order.destroy_all
+OrderedItem.destroy_all
+Admin.destroy_all
 
-Product.create!(name: 'Cafe Americano', price: 200, description: 'great pick me up!', category: 'drink', inventory: rand(10))
+Product.create!(name: 'Cafe Americano', price: 200, description: 'great pick me up!', category: 'drink', inventory: rand(10), img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Hokitika_Cheese_and_Deli%2C_Hokitika_%283526706594%29.jpg/160px-Hokitika_Cheese_and_Deli%2C_Hokitika_%283526706594%29.jpg')
 Product.create!(name: 'Red Bull', price: 300, description: 'get energized!', category: 'drink', inventory: rand(10))
 Product.create!(name: 'Doritos Nacho', price: 100, description: 'hungry?', category: 'food', inventory: rand(10))
 Product.create!(name: 'Cup Ramen', price: 150, description: 'it\'s more than just soup!', category: 'food', inventory: rand(10))
