@@ -33,8 +33,8 @@ export const receiveErrors = (errors) => {
   };
 };
 
-export const createOrder = (order) => dispatch => (
-  APIUtil.postOrder(order)
+export const createOrder = (cart) => dispatch => (
+  APIUtil.postOrder(cart)
     .then( (resp) => receiveConfirmation(resp)),
     errors => dispatch(receiveErrors(errors.responseJSON))
 );

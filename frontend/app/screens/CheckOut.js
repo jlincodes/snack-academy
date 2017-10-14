@@ -13,7 +13,15 @@ import { Container } from 'native-base';
 import Order from './Order.js'
 import HeaderBanner from './HeaderBanner.js';
 
+import {createOrder} from '../actions/cart_actions.js'
+import { formatOrder } from '../reducers/selectors.js'
+
 class CheckOut extends React.Component {
+
+  sendOrder(){
+    let order = this.props.formatOrder;
+    this.props.createOrder(order)
+  }
 
   render() {
     const { goBack, navigate } = this.props.navigation;
@@ -24,14 +32,14 @@ class CheckOut extends React.Component {
         <View style={{flex: 1, backgroundColor: '#f7f7f7', justifyContent: 'center'}}>
           <Text style={{alignSelf: 'center', color: 'white'}}>Confirm Order</Text>
         </View>
-        <Order style={{flex: 8}} />
+        <Order />
         <Container style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
           <TouchableOpacity onPress={() => navigate('Cart')}>
             <Text style={{color: '#FFFFFF', fontSize: 18}}>View Cart</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigate('Confirmation')}>
+          <TouchableOpacity onPress={() => sendOrder()}>
             <Text style={{color: '#FFFFFF', fontSize: 18}}>Confirm Order</Text>
           </TouchableOpacity>
         </Container>
@@ -40,4 +48,13 @@ class CheckOut extends React.Component {
   }
 }
 
-export default CheckOut;
+
+const mapStateToProps = (state) => ({
+  formatOrder: formatOrder(state.cart, state.user)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  createOrder: (order) => dispatch(createOrder(order))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckOut);

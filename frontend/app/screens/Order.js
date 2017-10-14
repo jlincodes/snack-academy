@@ -15,7 +15,7 @@ class Order extends React.Component {
     let order = this.props.order
 
     return (
-      <View>
+      <View style={{flex: 8}}>
         <FlatList
           data={order}
           renderItem={({item}) => <OrderItem key={item.id} product={item}/>}
