@@ -1,7 +1,4 @@
 class Api::OrdersController < ApplicationController
-  # def index
-  #   @orders = Order.all
-  # end
 
   def create
     Stripe.api_key = ENV['SECRET_KEY']
