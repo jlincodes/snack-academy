@@ -23,7 +23,7 @@ class FoodScreen extends React.Component {
       <View>
         <FlatList
           data={food}
-          renderItem={({item}) => <ProductItem product={item}/>}
+          renderItem={({item}) => <ProductItem key={item.id} product={item}/>}
         />
       </View>
     );

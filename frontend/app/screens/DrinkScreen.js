@@ -28,14 +28,12 @@ class DrinksScreen extends React.Component {
       <View>
         <FlatList
           data={drinks}
-          renderItem={({item}) => <ProductItem product={item}/>}
+          renderItem={({item}) => <ProductItem key={item.id} product={item}/>}
         />
       </View>
     );
   }
 }
-
-// <ProductItem key={product.id} product={item.price}/>
 
 const mapStateToProps = (state) => ({
   drinks: selectDrinks(state.products)

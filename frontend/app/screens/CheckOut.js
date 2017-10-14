@@ -10,7 +10,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Container } from 'native-base';
-
+import Order from './Order.js'
 import HeaderBanner from './HeaderBanner.js';
 
 class CheckOut extends React.Component {
@@ -24,7 +24,7 @@ class CheckOut extends React.Component {
         <View style={{flex: 1, backgroundColor: '#f7f7f7', justifyContent: 'center'}}>
           <Text style={{alignSelf: 'center', color: 'white'}}>Confirm Order</Text>
         </View>
-        <Image style={{flex: 7, width: 400}} source={checkOutImage}/>
+        <Order style={{flex: 8}} />
         <Container style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
