@@ -8,7 +8,7 @@ class Api::OrdersController < ApplicationController
     make_items
 
     if @order.save
-      render :index
+      render :show
     else
       render json: @order.errors.full_messages, status: 422
     end
@@ -18,10 +18,6 @@ class Api::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:user_id, :status)
-  end
-
-  def customer_id_params
-    params.require
   end
 
   def new_charge(user)
