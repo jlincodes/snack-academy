@@ -7,8 +7,13 @@ class Api::OrdersController < ApplicationController
     Stripe.api_key = ENV['SECRET_KEY']
     @order = Order.new(order_params)
     user = User.find(params[:user][:customer_id])
-    charge = new_charge(user)
-    make_items
+    begin
+      charge = new_charge(user)
+    rescue
+      render json: charge.errors.full_messages
+    else
+      make_items
+    end
 
     if @order.save
       render :index
