@@ -1,7 +1,7 @@
 import {
   ADD_ITEM_TO_CART,
   DELETE_ITEM_FROM_CART,
-  RECEIVE_CONFIRMATION } from '../actions/cart_actions.js';
+  CLEAR_CART } from '../actions/cart_actions.js';
 import merge from 'lodash/merge';
 
 import { deleteItem } from './selectors.js';
@@ -18,7 +18,7 @@ const CartReducer = (state = defaultState, action) => {
       return [...state, action.item];
     case DELETE_ITEM_FROM_CART:
       return deleteItem(state, action.item);
-    case RECEIVE_CONFIRMATION:
+    case CLEAR_CART:
       return [];
     default:
       return state;

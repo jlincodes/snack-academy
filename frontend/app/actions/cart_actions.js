@@ -26,6 +26,10 @@ export const receiveConfirmation = (confirmation) => ({
   confirmation
 });
 
+export const clearCart = () => ({
+  type: CLEAR_CART
+});
+
 export const receiveErrors = (errors) => {
   return {
     type: RECEIVE_ERRORS,
@@ -35,6 +39,6 @@ export const receiveErrors = (errors) => {
 
 export const createOrder = (cart) => dispatch => (
   APIUtil.postOrder(cart)
-    .then( (resp) => receiveConfirmation(resp)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    // .then( (resp) => receiveConfirmation(resp)),
+    // errors => dispatch(receiveErrors(errors.responseJSON))
 );

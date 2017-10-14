@@ -10,22 +10,30 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Container } from 'native-base';
-import Order from './Order.js'
+import Order from './Order.js';
 import HeaderBanner from './HeaderBanner.js';
+import {connect} from 'react-redux';
 
-import {createOrder} from '../actions/cart_actions.js'
+import {createOrder, receiveConfirmation} from '../actions/cart_actions.js'
+import {receiveOrderErrors} from '../actions/errors_actions.js'
 import { formatOrder } from '../reducers/selectors.js'
 
 class CheckOut extends React.Component {
 
   sendOrder(){
     let order = this.props.formatOrder;
-    this.props.createOrder(order)
+    console.log(order);
+    this.props.createOrder(order).then(resp => this.handleSuccess(resp)), errors => this.props.receiveOrderErrors(errors)
   }
 
+  handleSuccess(res){
+    this.props.receiveConfirmation(resp);
+    const { navigate } = this.props.navigation;
+    navigate('Confirmation');
+  }
+
+
   render() {
-    const { goBack, navigate } = this.props.navigation;
-    let checkOutImage = require('../images/confirmation_screen.png');
     return (
       <View style={{flex: 1}}>
         <HeaderBanner style={{flex: 1}}/>
@@ -39,7 +47,7 @@ class CheckOut extends React.Component {
           <TouchableOpacity onPress={() => navigate('Cart')}>
             <Text style={{color: '#FFFFFF', fontSize: 18}}>View Cart</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => sendOrder()}>
+          <TouchableOpacity onPress={() => this.sendOrder()}>
             <Text style={{color: '#FFFFFF', fontSize: 18}}>Confirm Order</Text>
           </TouchableOpacity>
         </Container>
@@ -54,7 +62,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createOrder: (order) => dispatch(createOrder(order))
+  createOrder: (order) => dispatch(createOrder(order)),
+  receiveConfirmation: () => dispatch(receiveConfirmation()),
+  receiveOrderErrors: (errors) => dispatch(receiveOrderErrors(errors))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckOut);

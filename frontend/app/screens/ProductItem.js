@@ -14,10 +14,10 @@ class ProductItem extends React.Component {
       let product = this.props.product
       return (
         <View>
-          <Image style={{height: 150, width: '100%' }} source={require('../images/coffee.jpg')}/>
-          <Text>{this.props.product.name}</Text>
-          <Text>{this.props.product.description}</Text>
-          <Text>{this.props.product.price}</Text>
+          <Image style={{height: 150, width: '100%' }} source={{uri: product.img_url}} />
+          <Text>{product.name}</Text>
+          <Text>{product.description}</Text>
+          <Text>{product.price}</Text>
           <Button title='add' onPress={() => this.props.addItemToCart(product)}/>
         </View>
       );
