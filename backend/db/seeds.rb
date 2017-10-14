@@ -16,6 +16,15 @@ Product.create!(name: 'Doritos Nacho', price: 100, description: 'hungry?', categ
 Product.create!(name: 'Cup Ramen', price: 150, description: 'it\'s more than just soup!', category: 'food', inventory: rand(10))
 Product.create!(name: 'Mints', price: 400, description: 'Good for pair programming', category: 'food', inventory: rand(10))
 
-User.create!(email: "randomemail@email.com", stripe_token: "1")
+User.create({
+  stripe_token: "tok_1BCWbnCFD1Si8pup3qX4hRMS",
+  customer_id: "cus_BZfxB0hz2vKKno",
+  name: "Kenta",
+  email: "kentakodama@gmail.com"
+  })
 
-Order.create!(customer_id: 1, status: "ordered")
+sample_user = User.find_by(name: "Kenta")
+
+Order.create!(user_id: 1, status: 'ordered')
+
+Admin.create!(username: 'admin', password: 'password123')

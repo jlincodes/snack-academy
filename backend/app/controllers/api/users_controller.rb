@@ -1,6 +1,9 @@
 class Api::UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+  
   def create
-    # debugger
     Stripe.api_key = ENV['SECRET_KEY']
 
     @user = User.new(user_params)
