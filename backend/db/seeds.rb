@@ -24,5 +24,3 @@ User.create({
   })
 
 sample_user = User.find_by(name: "Kenta")
-
-Order.create()
