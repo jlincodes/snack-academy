@@ -47,7 +47,6 @@ class NewCardPage extends Component {
         this.props.createNewUser(completeUser)
         .then(res => this.props.receiveNewUser(res))
         .then(navigate('SimpleApp'));
-
       })
       .catch(error => {
         console.log(error);

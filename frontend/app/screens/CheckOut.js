@@ -25,19 +25,21 @@ class CheckOut extends React.Component {
     this.state = { buttonClicked: false };
   }
 
-
+// make sure to reset back to true
   sendOrder(){
-    this.setState({buttonClicked: true});
+    this.setState({buttonClicked: false});
+    let { navigate } = this.props.navigation;
     let order = this.props.formatOrder;
     console.log(order);
-    this.props.createOrder(order).then(resp => this.handleSuccess(resp)), errors => this.props.receiveOrderErrors(errors);
+    this.props.createOrder(order)
+    navigate('Confirmation')
   }
 
-  handleSuccess(res){
-    this.props.receiveConfirmation(res);
-    let { navigate } = this.props.navigation;
-    navigate('Confirmation');
-  }
+  // handleSuccess(res){
+  //   this.props.receiveConfirmation(res);
+  //   let { navigate } = this.props.navigation;
+  //   navigate('Confirmation');
+  // }
 
 
   render() {
