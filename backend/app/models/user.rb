@@ -28,10 +28,15 @@ class User < ApplicationRecord
   through: :orders,
   source: :ordered_items
 
-  # JWT
-  before_save :downcase_email
+  before_validation :assign_auth_key
 
-  def downcase_email
-    self.email = self.email.delete(' ').downcase
+  def assign_auth_key
+    current_key = SecureRandom.urlsafe_base64
+    keys = User.all.map { |e| e.auth_key }
+    until !keys.include?(current_key)
+      current_key = SecureRandom.urlsafe_base64
+    end
+    self.auth_key = current_key
   end
+
 end
