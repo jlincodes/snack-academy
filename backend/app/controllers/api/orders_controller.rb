@@ -3,14 +3,15 @@ class Api::OrdersController < ApplicationController
   def create
     Stripe.api_key = ENV['SECRET_KEY']
     @order = Order.new(order_params)
-    user = User.find(params[:user][:customer_id])
-    charge = new_charge(user)
-    make_items
-
-    if @order.save
-      render :show
-    else
-      render json: @order.errors.full_messages, status: 422
+    user = User.find(params.require(:order).permit(:user_id))
+    if user.auth_key == params.require(:order).permit(:auth_key)
+      charge = new_charge(user)
+      make_items
+      if @order.save
+        render :show
+      else
+        render json: @order.errors.full_messages, status: 422
+      end
     end
   end
 
@@ -22,7 +23,7 @@ class Api::OrdersController < ApplicationController
 
   def new_charge(user)
     Stripe::Charge.create(
-      amount: params[:user][:total],
+      amount: params.require(:order).permit(:total),
       currency: 'usd',
       customer: user.customer_id,
       statement_descriptor: "Snack Overflow"
@@ -30,7 +31,7 @@ class Api::OrdersController < ApplicationController
   end
 
   def make_items
-    params[:user][:items].each do |product_id|
+    paramsparams.require(:order).permit(:items).each do |product_id|
       OrderedItem.new(product_id: product_id, order_id: @order.id).save
     end
   end

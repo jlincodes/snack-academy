@@ -9,7 +9,7 @@ import {initializeUser} from '../actions/user_actions.js';
 class Signup extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: 'Kenta', email: 'kentakodama@gmail.com' };
+    this.state = { name: '', email: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 

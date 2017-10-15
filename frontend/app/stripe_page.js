@@ -42,7 +42,7 @@ class NewCardPage extends Component {
         // collecting responseToken
         // sending to backend w/ fetch to store customer
         this.props.addTokenToUser(responseToken.tokenId);
-        let completeUser = {user: this.props.user}
+        let completeUser = {user: this.props.user};
         console.log(completeUser);
         this.props.createNewUser(completeUser)
         .then(res => this.props.receiveNewUser(res))
