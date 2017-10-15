@@ -7,7 +7,7 @@ class Api::OrdersController < ApplicationController
     if user.auth_key == params[:order][:auth_key]
       charge = new_charge(user)
       make_items
-      if @order.save
+      if @order.save!
         render :show
       else
         render json: @order.errors.full_messages, status: 422
