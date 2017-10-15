@@ -9,6 +9,7 @@
 #  updated_at   :datetime         not null
 #  customer_id  :string
 #  name         :string
+#  auth_key     :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
