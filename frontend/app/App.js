@@ -7,7 +7,8 @@ import {
   View,
   Button,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  WebView
 } from 'react-native';
 import { StackNavigator, TabNavigator} from 'react-navigation';
 import { Container, Header, Left, Body, Right, Icon, Title } from 'native-base';
@@ -59,30 +60,24 @@ const Menu = TabNavigator({
 // changing the height of the component between them
 class SimpleApp extends React.Component {
 
-
   constructor(props){
     super(props)
-    this.state = {loaded: true}
-  }
-
-  componentDidMount(){
-    this.setState({loading: false})
+    this.state = {loaded: false}
   }
 
   componentWillMount() {
     getProducts();
   }
 
+  componentDidMount(){
+    this.setState({loaded: true})
+  }
+
+
   render() {
     const { navigate } = this.props.navigation;
-    //
-    // if(this.state.loading) {
-    //   return (
-    //     <View style={{flex: 1, backgroundColor: 'red'}}>
-    //       <Text style={{fontSize: 50}}>Loading</Text>
-    //     </View>
-    //   )
-    // } else {
+
+    if(this.state.loaded) {
 
       return (
         <View style={{flex: 1, justifyContent: 'center'}}>
@@ -93,17 +88,23 @@ class SimpleApp extends React.Component {
           <Container style={
               {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
                 alignItems: 'center', backgroundColor: '#1485CC'}}>
-              <TouchableOpacity onPress={() => navigate('Cart')}>
-                <Text style={{color: '#FFFFFF', fontSize: 18}}>Your Cart</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigate('CheckOut')}>
-                <Text style={{color: '#FFFFFF', fontSize: 18}}>Check Out</Text>
-              </TouchableOpacity>
-          </Container>
+                <TouchableOpacity onPress={() => navigate('Cart')}>
+                  <Text style={{color: '#FFFFFF', fontSize: 18}}>Your Cart</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigate('CheckOut')}>
+                  <Text style={{color: '#FFFFFF', fontSize: 18}}>Check Out</Text>
+                </TouchableOpacity>
+              </Container>
+            </View>
+          );
+
+    } else {
+      return (
+        <View style={{flex: 1, height: '100%', width: '100%', backgroundColor: 'red'}}>
         </View>
-      );
+      )
     }
-  // }
+  }
 }
 
 //this must be after simple app or wont work
@@ -117,13 +118,13 @@ const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: Signup
+      screen: SimpleApp
     },
     NewCardPage: {
       screen: NewCardPage
     },
-    SimpleApp: {
-      screen: SimpleApp
+    Signup: {
+      screen: Signup
     },
     Cart: {
       screen: Cart
