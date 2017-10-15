@@ -5,18 +5,18 @@ export default class InitialScreen extends React.Component {
 
   constructor() {
     super();
-    this.state = {hasToken: false, isLoaded: false};
+    this.state = {token: null, isLoaded: false};
   }
 
   componentDidMount() {
     AsyncStorage.getItem('@snackOverflowAuthKey:key').then( (token) => {
-      this.setState({hasToken: token !== null, isLoaded: true});
+      this.setState({token: token, isLoaded: true});
     });
   }
 
   componentWillUpdate(){
     const { navigate } = this.props.navigate;
-    if (this.state.hasToken) {
+    if (this.state.token) {
       // send token to backend to get user info
       navigate('SimpleApp');
     } else {
