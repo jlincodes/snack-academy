@@ -9,17 +9,35 @@ import OrderItem from './OrderItem.js'
 
 class Order extends React.Component {
 
+  handleUSDConversion(cents){
+    var dollars = cents / 100;
+    return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
+  }
+
+  calculateTotal(cart) {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.price
+    })
+    return total
+  }
+
   render() {
 
     //creating array of product objects
     let order = this.props.order
+    let total = this.handleUSDConversion(this.calculateTotal(order))
 
     return (
       <View style={{flex: 8}}>
         <FlatList
+          style={{flex: 6}}
           data={order}
           renderItem={({item}) => <OrderItem key={item.id} product={item}/>}
         />
+        <View style={{flex: 2}}>
+          <Text>{total}</Text>
+        </View>
       </View>
     );
   }

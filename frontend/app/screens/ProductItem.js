@@ -10,6 +10,11 @@ class ProductItem extends React.Component {
     console.log(this.props);
   }
 
+  handleUSDConversion(cents){
+    var dollars = cents / 100;
+    return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
+  }
+
   render() {
       let product = this.props.product
       return (
@@ -17,7 +22,7 @@ class ProductItem extends React.Component {
           <Image style={{height: 150, width: '100%' }} source={{uri: product.img_url}} />
           <Text>{product.name}</Text>
           <Text>{product.description}</Text>
-          <Text>{product.price}</Text>
+          <Text>{this.handleUSDConversion(product.price)}</Text>
           <Button title='add' onPress={() => this.props.addItemToCart(product)}/>
         </View>
       );

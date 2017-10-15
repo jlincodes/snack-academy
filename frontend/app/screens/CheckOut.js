@@ -34,6 +34,7 @@ class CheckOut extends React.Component {
 
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={{flex: 1}}>
         <HeaderBanner style={{flex: 1}}/>

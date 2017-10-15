@@ -8,15 +8,20 @@ class OrderItem extends React.Component {
     super(props);
   }
 
+  handleUSDConversion(cents){
+    var dollars = cents / 100;
+    return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
+  }
+
+
   render() {
       let product = this.props.product;
 
       return (
         <View>
-          <Image style={{height: 150, width: '100%' }} source={require('../images/coffee.jpg')}/>
-          <Text>{this.props.product.name}</Text>
-          <Text>{this.props.product.description}</Text>
-          <Text>{this.props.product.price}</Text>
+          <Text>{product.name}</Text>
+          <Text>{product.description}</Text>
+          <Text>{this.handleUSDConversion(product.price)}</Text>
         </View>
       );
     }
