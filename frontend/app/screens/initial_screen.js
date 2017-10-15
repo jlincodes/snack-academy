@@ -2,7 +2,7 @@
 
 function isLoggedIn() {
 
-  let loggedIn = true
+  let loggedIn = false
 
   if(loggedIn) {
     return true
