@@ -5,7 +5,7 @@ export const getProducts = () => (
 );
 
 export const postOrder = (order) => (
-  axios.post('https://snackacademy.herokuapp.com/api/charges', order)
+  axios.post('https://snackacademy.herokuapp.com/api/orders', order)
 );
 
 export const postUser = (user) => (

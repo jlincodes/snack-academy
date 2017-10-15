@@ -15,14 +15,14 @@ export const deleteItem = (cart, item ) => {
 
 export const formatOrder = (cart, user) => {
 
-  let order = { total: 0, items: [], user_id: user.id };
+  let order = { total: 0, items: [], user_id: user.id, auth_key: user.auth_key };
 
   cart.forEach((item) => {
-    order.total += (item.price * 100);
+    order.total += (item.price);
     order.items.push(item.id);
   });
 
-  return order
+  return {order: order}
 
 }
 

@@ -75,14 +75,14 @@ class SimpleApp extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
-
-    if(this.state.loading) {
-      return (
-        <View style={{flex: 1, backgroundColor: 'red'}}>
-          <Text style={{fontSize: 50}}>Loading</Text>
-        </View>
-      )
-    } else {
+    //
+    // if(this.state.loading) {
+    //   return (
+    //     <View style={{flex: 1, backgroundColor: 'red'}}>
+    //       <Text style={{fontSize: 50}}>Loading</Text>
+    //     </View>
+    //   )
+    // } else {
 
       return (
         <View style={{flex: 1, justifyContent: 'center'}}>
@@ -103,25 +103,27 @@ class SimpleApp extends React.Component {
         </View>
       );
     }
-  }
+  // }
 }
 
 //this must be after simple app or wont work
 //top level navigator
 
-
-// Index: {
+// Signup: {
 //   screen: Signup
-// },
+// }
 
 const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: SimpleApp
+      screen: Signup
     },
     NewCardPage: {
       screen: NewCardPage
+    },
+    SimpleApp: {
+      screen: SimpleApp
     },
     Cart: {
       screen: Cart

@@ -7,7 +7,7 @@ const UserReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_NEW_USER:
-      return action.user;
+      return action.user.data;
     case INITIALIZE_USER:
       return Object.assign({}, state, action.user);
     case ADD_TOKEN_TO_USER:

@@ -14,9 +14,9 @@ import {addTokenToUser, createNewUser} from './actions/user_actions.js';
 
 stripe.init({
   // test key
-  // publishableKey: 'pk_test_HjN8L9E5xZW12lWT4VBzKSWl',
+  publishableKey: 'pk_test_HjN8L9E5xZW12lWT4VBzKSWl',
   // live key
-  publishableKey: 'pk_live_3dAdhS9inCpxPCD2pXJf8H2y',
+  // publishableKey: 'pk_live_3dAdhS9inCpxPCD2pXJf8H2y',
 });
 const theme = {
   primaryBackgroundColor: 'white',
@@ -34,6 +34,9 @@ class NewCardPage extends Component {
     //   requiredBillingAddressFields: 'zip',
     //   theme
     // };
+
+    const { navigate } = this.props.navigation;
+
     stripe.paymentRequestWithCardForm()
       .then(responseToken => {
         // collecting responseToken
@@ -41,7 +44,9 @@ class NewCardPage extends Component {
         this.props.addTokenToUser(responseToken.tokenId);
         let completeUser = {user: this.props.user}
         console.log(completeUser);
-        this.props.createNewUser(completeUser).then(res => this.props.receiveNewUser(res));
+        this.props.createNewUser(completeUser)
+        .then(res => this.props.receiveNewUser(res))
+        .then(navigate('SimpleApp'));
 
       })
       .catch(error => {
