@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
   def create
     Stripe.api_key = ENV['SECRET_KEY']
 
@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     @user.customer_id = customer.id
 
     if @user.save
-      render 'api/products/index'
+      render json: @user.id
     else
       render json: @user.errors.full_messages, status: 422
     end
