@@ -58,30 +58,51 @@ const Menu = TabNavigator({
 // if flexing, the way to change heights of header and footer is by
 // changing the height of the component between them
 class SimpleApp extends React.Component {
+
+
+  constructor(props){
+    super(props)
+    this.state = {loaded: true}
+  }
+
+  componentDidMount(){
+    this.setState({loading: false})
+  }
+
   componentWillMount() {
     getProducts();
   }
 
   render() {
     const { navigate } = this.props.navigation;
-    return (
-      <View style={{flex: 1, justifyContent: 'center'}}>
-        <HeaderBanner style={{flex: 1}}/>
-        <View style={{backgroundColor: '#f7f7f7', flex: 8}}>
-          <Menu />
+
+    if(this.state.loading) {
+      return (
+        <View style={{flex: 1, backgroundColor: 'red'}}>
+          <Text style={{fontSize: 50}}>Loading</Text>
         </View>
-        <Container style={
-            {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
-              alignItems: 'center', backgroundColor: '#1485CC'}}>
-            <TouchableOpacity onPress={() => navigate('Cart')}>
-              <Text style={{color: '#FFFFFF', fontSize: 18}}>Your Cart</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigate('CheckOut')}>
-              <Text style={{color: '#FFFFFF', fontSize: 18}}>Check Out</Text>
-            </TouchableOpacity>
-        </Container>
-      </View>
-    );
+      )
+    } else {
+
+      return (
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <HeaderBanner style={{flex: 1}}/>
+          <View style={{backgroundColor: '#f7f7f7', flex: 8}}>
+            <Menu />
+          </View>
+          <Container style={
+              {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
+                alignItems: 'center', backgroundColor: '#1485CC'}}>
+              <TouchableOpacity onPress={() => navigate('Cart')}>
+                <Text style={{color: '#FFFFFF', fontSize: 18}}>Your Cart</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigate('CheckOut')}>
+                <Text style={{color: '#FFFFFF', fontSize: 18}}>Check Out</Text>
+              </TouchableOpacity>
+          </Container>
+        </View>
+      );
+    }
   }
 }
 
@@ -119,14 +140,6 @@ const AppNavigator = StackNavigator(
   }
 );
 
-const ActionBar = StackNavigator({
-  Index: {
-    screen: CheckOut
-  },
-  Confirmation: {
-    screen: Confirmation
-  }
-});
 
 export default class App extends React.Component {
   render() {
