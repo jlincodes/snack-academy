@@ -1,7 +1,16 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import { StyleSheet, TextInput, TouchableOpacity, Text, AppRegistry, View, Button, Image } from 'react-native';
+import {
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  AppRegistry, 
+  View,
+  Button,
+  Image
+} from 'react-native';
 import HeaderBanner from './HeaderBanner.js';
 import {initializeUser} from '../actions/user_actions.js';
 
@@ -24,30 +33,59 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', backgroundColor: '#C00A0A'}}>
+      <View style={{flex: 1, justifyContent: 'center', backgroundColor: '#f7f7f7'}}>
         <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: 4, justifyContent: 'space-around', width: '80%'}}>
+        <View style={{flex: 8, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
           <TextInput
-            style={{borderColor: 'gray', height: '20%', fontSize: 26, borderWidth: 1}}
+            style={styles.textInput}
             onChangeText={(name) => this.setState({name})}
             value={this.state.name}
+            placeholder="First and Last Name"
+            underlineColorAndroid="#f7f7f7"
           />
           <TextInput
-            style={{borderColor: 'gray',  height: '20%', fontSize: 26, borderWidth: 1}}
+            style={styles.textInput}
             onChangeText={(email) => this.setState({email})}
             value={this.state.email}
+            keyboardType='email-address'
+            placeholder="Email Address"
+            underlineColorAndroid="#f7f7f7"
           />
+        <Text>
+          {`Enter your full name and email address. \n
+            Then, hit 'Sign Up' below.`}
+          </Text>
         </View>
-        <View style={{flex: 4}}>
-          <Text>hello this is an explanation of our app and how to sign up</Text>
+        <View style={{flex: 1}}>
+          <TouchableOpacity
+            style={styles.signUpBtn}
+            onPress={() => this.handleSubmit()}>
+            <Text style={{color: '#FFFFFF', fontSize: 20 }}>Sign Up</Text>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={{flex: 1, justifyContent: 'center', alignContent: 'center', backgroundColor: 'blue'}} onPress={() => this.handleSubmit()}>
-          <Text style={{color: '#FFFFFF', fontSize: 18,}}>Sign Up</Text>
-        </TouchableOpacity>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  textInput: {
+    borderColor: 'gray',
+    width: '80%',
+    height: 45,
+    fontSize: 20,
+    borderWidth: 1,
+    paddingLeft: 10,
+    borderRadius: 3,
+    margin: 10
+  },
+  signUpBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1485CC'}
+});
 
 const mapDispatchToProps = (dispatch) => ({
   initializeUser: (user) => dispatch(initializeUser(user))
