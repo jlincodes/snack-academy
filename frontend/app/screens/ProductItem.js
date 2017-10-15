@@ -15,18 +15,29 @@ class ProductItem extends React.Component {
     return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
   }
 
+  // <Image style={{height: 150, width: '100%' }} source={{uri: product.img_url}} />
+  // <Text>{product.name}</Text>
+  // <Text>{product.description}</Text>
+  // <Text>{this.handleUSDConversion(product.price)}</Text>
   render() {
-      let product = this.props.product
-      return (
-        <View>
-          <Image style={{height: 150, width: '100%' }} source={{uri: product.img_url}} />
-          <Text>{product.name}</Text>
-          <Text>{product.description}</Text>
-          <Text>{this.handleUSDConversion(product.price)}</Text>
-          <Button title='add' onPress={() => this.props.addItemToCart(product)}/>
+    let product = this.props.product;
+    let name = product.name;
+    let description = product.description;
+    let price = this.handleUSDConversion(product.price);
+    return (
+      <View>
+        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-start', marginBottom: 10}}>
+          <Image
+            style={{height: 125, width: 125, marginRight: 15 }}
+            source={{uri: product.img_url}} />
+          <Text>
+            {`${name}\n${description}\n${this.handleUSDConversion(product.price)}`}
+          </Text>
         </View>
-      );
-    }
+        <Button title='add' onPress={() => this.props.addItemToCart(product)}/>
+      </View>
+    );
+  }
 
   }
 
