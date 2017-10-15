@@ -118,13 +118,13 @@ const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: SimpleApp
+      screen: Signup
     },
     NewCardPage: {
       screen: NewCardPage
     },
-    Signup: {
-      screen: Signup
+    SimpleApp: {
+      screen: SimpleApp
     },
     Cart: {
       screen: Cart
