@@ -33,7 +33,8 @@ class Order extends React.Component {
         <FlatList
           style={{flex: 6}}
           data={order}
-          renderItem={({item}) => <OrderItem key={item.id} product={item}/>}
+          renderItem={({item}) => <OrderItem product={item}/>}
+          keyExtractor={(item, index) => index}
         />
         <View style={{flex: 2}}>
           <Text>{total}</Text>
