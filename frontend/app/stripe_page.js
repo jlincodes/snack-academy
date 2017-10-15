@@ -14,9 +14,9 @@ import {addTokenToUser, createNewUser} from './actions/user_actions.js';
 
 stripe.init({
   // test key
-  publishableKey: 'pk_test_HjN8L9E5xZW12lWT4VBzKSWl',
+  // publishableKey: 'pk_test_HjN8L9E5xZW12lWT4VBzKSWl',
   // live key
-  // publishableKey: 'pk_live_3dAdhS9inCpxPCD2pXJf8H2y',
+  publishableKey: 'pk_live_3dAdhS9inCpxPCD2pXJf8H2y',
 });
 const theme = {
   primaryBackgroundColor: 'white',
@@ -29,17 +29,12 @@ const theme = {
 
 class NewCardPage extends Component {
   componentDidMount() {
-    // const options = {
-    //   smsAutofillDisabled: true,
-    //   requiredBillingAddressFields: 'zip',
-    //   theme
-    // };
     stripe.paymentRequestWithCardForm()
       .then(responseToken => {
         // collecting responseToken
         // sending to backend w/ fetch to store customer
         this.props.addTokenToUser(responseToken.tokenId);
-        let completeUser = {user: this.props.user}
+        let completeUser = {user: this.props.user};
         console.log(completeUser);
         this.props.createNewUser(completeUser).then(res => this.props.receiveNewUser(res));
 

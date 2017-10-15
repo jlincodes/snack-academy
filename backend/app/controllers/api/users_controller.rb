@@ -12,9 +12,8 @@ class Api::UsersController < ApplicationController
       source: @user.stripe_token
     )
     @user.customer_id = customer.id
-    
     if @user.save
-      render 'api/products/index'
+      render :show
     else
       render json: @user.errors.full_messages, status: 422
     end

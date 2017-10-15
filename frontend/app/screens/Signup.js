@@ -2,14 +2,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { StyleSheet, TextInput, TouchableOpacity, Text, AppRegistry, View, Button, Image } from 'react-native';
-import HeaderBanner from './HeaderBanner.js'
+import HeaderBanner from './HeaderBanner.js';
 import {initializeUser} from '../actions/user_actions.js';
 
 
 class Signup extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: 'Kenta', email: 'kentakodama@gmail.com' };
+    this.state = { name: '', email: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,7 +17,7 @@ class Signup extends React.Component {
     const { navigate } = this.props.navigation;
     let user = this.state;
     console.log(user);
-    this.props.initializeUser(user)
+    this.props.initializeUser(user);
     navigate('NewCardPage');
   }
 

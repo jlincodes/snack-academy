@@ -1,22 +1,45 @@
-import React from 'react';
-import { StyleSheet, Text, AppRegistry, ScrollView, View, Button, Image } from 'react-native';
 
+
+import React from 'react';
+import { StyleSheet, Text, FlatList, AppRegistry, ScrollView, View, Button, Image } from 'react-native';
+
+import {connect} from 'react-redux';
+import { selectFood } from '../reducers/selectors.js'
+
+import ProductItem from './ProductItem.js'
 
 class FoodScreen extends React.Component {
   static navigationOptions = {
-    title: 'Food',
-    headerStyle: { backgroundColor: 'red' },
-    headerTitleStyle: { color: 'white' }
+    title: 'Food', //refers to name of displayed button
   };
+
+
   render() {
-    let doritosPic = require('../images/doritos.jpg');
+
+    //creating array of product objects
+    let food = this.props.food
+
     return (
-      <View style={{width: 193, height: 390}}>
-        <Text>Some Food</Text>
-        <Image source={doritosPic} style={{width: 193, height: 110}}/>
+      <View>
+        <FlatList
+          data={food}
+          renderItem={({item}) => <ProductItem key={item.id} product={item}/>}
+        />
       </View>
     );
   }
 }
 
-export default FoodScreen;
+// <ProductItem key={product.id} product={item.price}/>
+
+const mapStateToProps = (state) => ({
+  food: selectFood(state.products)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  requestAllProducts: () => dispatch(requestAllProducts())
+});
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FoodScreen);

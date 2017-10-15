@@ -9,6 +9,7 @@
 #  updated_at   :datetime         not null
 #  customer_id  :string
 #  name         :string
+#  auth_key     :string
 #
 
 require 'test_helper'
