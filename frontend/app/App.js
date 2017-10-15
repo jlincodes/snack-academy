@@ -28,6 +28,8 @@ import configureStore from './store/store.js';
 
 import Signup from './screens/Signup.js';
 
+import InitialScreen from './screen/initial_screen.js';
+
 //routes
 const Menu = TabNavigator({
   Drinks: {
@@ -61,8 +63,8 @@ const Menu = TabNavigator({
 class SimpleApp extends React.Component {
 
   constructor(props){
-    super(props)
-    this.state = {loaded: false}
+    super(props);
+    this.state = {loaded: false};
   }
 
   componentWillMount() {
@@ -70,7 +72,7 @@ class SimpleApp extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({loaded: true})
+    this.setState({loaded: true});
   }
 
 
@@ -102,7 +104,7 @@ class SimpleApp extends React.Component {
       return (
         <View style={{flex: 1, height: '100%', width: '100%', backgroundColor: 'red'}}>
         </View>
-      )
+      );
     }
   }
 }
@@ -118,7 +120,7 @@ const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: Signup
+      screen: InitialScreen
     },
     NewCardPage: {
       screen: NewCardPage

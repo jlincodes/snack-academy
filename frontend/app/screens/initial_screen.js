@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, AsyncStorage } from 'react-native';
 
-class InitialScreen extends React.Component {
+export default class InitialScreen extends React.Component {
 
   constructor() {
     super();
@@ -18,7 +18,7 @@ class InitialScreen extends React.Component {
     const { navigate } = this.props.navigate;
     if (this.state.hasToken) {
       // send token to backend to get user info
-      navigate('Index');
+      navigate('SimpleApp');
     } else {
       navigate('Signup');
     }

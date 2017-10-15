@@ -29,11 +29,6 @@ const theme = {
 
 class NewCardPage extends Component {
   componentDidMount() {
-    // const options = {
-    //   smsAutofillDisabled: true,
-    //   requiredBillingAddressFields: 'zip',
-    //   theme
-    // };
 
     const { navigate } = this.props.navigation;
 
@@ -47,7 +42,7 @@ class NewCardPage extends Component {
         this.props.createNewUser(completeUser)
         .then(res => this.props.receiveNewUser(res))
         .then( AsyncStorage.setItem('@snackOverflowAuthKey:key', this.props.user.auth_key))
-        .then(navigate('SimpleApp'));
+        .then(navigate('Index'));
       })
       .catch(error => {
         console.log(error);
