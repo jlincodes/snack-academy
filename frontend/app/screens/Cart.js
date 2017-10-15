@@ -30,7 +30,8 @@ class Cart extends React.Component {
         <View style={{flex: 8}}>
           <FlatList
             data={cart}
-            renderItem={({item}) => <CartItem key={item.id} product={item}/>}
+            renderItem={({item}) => <CartItem product={item}/>}
+            keyExtractor={(item, index) => index}
           />
         </View>
         <Container style={
