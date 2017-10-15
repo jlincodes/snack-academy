@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20171015034258) do
 
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
-    t.float "price", null: false
+    t.integer "price", null: false
     t.string "description", null: false
     t.string "category", null: false
     t.integer "inventory", null: false
