@@ -3,8 +3,8 @@ class Api::OrdersController < ApplicationController
   def create
     Stripe.api_key = ENV['SECRET_KEY']
     @order = Order.new(order_params)
-    user = User.find(params[:order][:customer_id])
-    # if user.auth_key == params[:order][:auth_key]
+    user = User.find(params[:order][:user_id])
+    if user.auth_key == params[:order][:auth_key]
       charge = new_charge(user)
       make_items
       if @order.save
@@ -12,7 +12,7 @@ class Api::OrdersController < ApplicationController
       else
         render json: @order.errors.full_messages, status: 422
       end
-    # end
+    end
   end
 
   private
