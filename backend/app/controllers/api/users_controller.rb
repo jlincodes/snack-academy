@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     @user.customer_id = customer.id
 
     if @user.save
-      render json: @user.id
+      render :show
     else
       render json: @user.errors.full_messages, status: 422
     end

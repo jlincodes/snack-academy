@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "static_pages#root"
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: %i(index create) do
+    resources :users, only: %i(index create show) do
       collection do
         post 'login'
       end
