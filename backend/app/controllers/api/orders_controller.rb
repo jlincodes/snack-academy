@@ -32,7 +32,7 @@ class Api::OrdersController < ApplicationController
 
   def make_items
     params[:order][:items].each do |product_id|
-      OrderedItem.create({product_id: product_id, order_id: @order.id})
+      OrderedItem.create({product_id: product_id.to_i, order_id: @order.id})
     end
   end
 end
