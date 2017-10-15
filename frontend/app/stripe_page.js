@@ -7,7 +7,7 @@
 
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { View } from 'react-native';
+import { View, AsyncStorage } from 'react-native';
 import stripe from 'tipsi-stripe';
 
 import {addTokenToUser, createNewUser} from './actions/user_actions.js';
@@ -46,6 +46,7 @@ class NewCardPage extends Component {
         console.log(completeUser);
         this.props.createNewUser(completeUser)
         .then(res => this.props.receiveNewUser(res))
+        .then( AsyncStorage.setItem('@snackOverflowAuthKey:key', this.props.user.auth_key))
         .then(navigate('SimpleApp'));
       })
       .catch(error => {
