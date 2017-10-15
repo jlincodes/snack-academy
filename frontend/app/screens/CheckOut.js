@@ -14,15 +14,15 @@ import Order from './Order.js';
 import HeaderBanner from './HeaderBanner.js';
 import {connect} from 'react-redux';
 
-import {createOrder, receiveConfirmation} from '../actions/cart_actions.js'
-import {receiveOrderErrors} from '../actions/errors_actions.js'
-import { formatOrder } from '../reducers/selectors.js'
+import {createOrder, receiveConfirmation} from '../actions/cart_actions.js';
+import {receiveOrderErrors} from '../actions/errors_actions.js';
+import { formatOrder } from '../reducers/selectors.js';
 
 class CheckOut extends React.Component {
 
   constructor(props){
-    super(props)
-    this.state = { buttonClicked: false }
+    super(props);
+    this.state = { buttonClicked: false };
   }
 
 
@@ -30,11 +30,11 @@ class CheckOut extends React.Component {
     this.setState({buttonClicked: true});
     let order = this.props.formatOrder;
     console.log(order);
-    this.props.createOrder(order).then(resp => this.handleSuccess(resp)), errors => this.props.receiveOrderErrors(errors)
+    this.props.createOrder(order).then(resp => this.handleSuccess(resp)), errors => this.props.receiveOrderErrors(errors);
   }
 
   handleSuccess(res){
-    this.props.receiveConfirmation(resp);
+    this.props.receiveConfirmation(res);
     let { navigate } = this.props.navigation;
     navigate('Confirmation');
   }
