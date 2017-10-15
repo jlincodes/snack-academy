@@ -7,14 +7,19 @@
       <th>Order No.</th>
       <th>Customer id</th>
       <th>Customer</th>
+      <th>Ordered items</th>
       <th>Order Status</th>
       <th>Update Status</th>
     </tr>
     <tr>
       <td><%= order.id %></td>
       <td><%= order.user_id %></td>
-      <!-- change customer.email to customer.name -->
       <td><%= customer.name %></td>
+      <td>
+        <% order.ordered_items.each do |item| %>
+        <% item.product_id %>
+        <% end %>
+      </td>
       <td><%= order.status %></td>
       <td>
         <form action="/orders/<%= order.id %>" method="post">

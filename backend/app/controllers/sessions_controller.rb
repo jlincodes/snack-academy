@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    debugger
     @admin = Admin.find_by_credentials(
       params[:admin][:username],
       params[:admin][:password]
