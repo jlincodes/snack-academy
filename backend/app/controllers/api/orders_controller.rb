@@ -6,8 +6,8 @@ class Api::OrdersController < ApplicationController
     user = User.find(params[:order][:user_id])
     if user.auth_key == params[:order][:auth_key]
       charge = new_charge(user)
-      make_items
       if @order.save!
+        make_items
         render :show
       else
         render json: @order.errors.full_messages, status: 422
