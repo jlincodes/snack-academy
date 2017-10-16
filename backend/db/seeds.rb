@@ -12,5 +12,3 @@ Product.create!(name: 'Doritos Nacho', price: 100, description: 'Hungry?', categ
 Product.create!(name: 'Cup Ramen', price: 150, description: 'It\'s more than just soup!', category: 'food', inventory: rand(10), img_url: 'https://i.pinimg.com/originals/c4/df/49/c4df4970e13dcd0db7d4c84cffb15cd7.jpg')
 Product.create!(name: 'Sour Patch Kids', price: 200, description: 'Sour. Sweet. Gone.', category: 'food', inventory: rand(10), img_url: 'https://petraacademy.com/wp-content/uploads/2016/02/Sour-patch-kids-image.jpg')
 Product.create!(name: 'Mints', price: 400, description: 'Great for pair programming!', category: 'food', inventory: rand(10), img_url: 'https://target.scene7.com/is/image/Target/13304773?wid=325&hei=325&qlt=80&fmt=pjpeg')
-
-Admin.create!(username: 'admin', password: 'password123')
