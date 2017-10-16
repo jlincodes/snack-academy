@@ -10,10 +10,17 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Container } from 'native-base';
+import { connect } from 'react-redux';
 
 import HeaderBanner from './HeaderBanner.js';
+import { clearCart } from '../actions/cart_actions.js'
 
 class Confirmation extends React.Component {
+
+  componentWillMount(){
+    this.props.clearCart()
+  }
+
 
   render() {
     const { goBack, navigate } = this.props.navigation;
@@ -28,7 +35,7 @@ class Confirmation extends React.Component {
         <Container style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
-          <TouchableOpacity onPress={() => navigate('Index')}>
+          <TouchableOpacity onPress={() => navigate('SimpleApp')}>
             <Text style={{color: '#FFFFFF', fontSize: 18}}>Back to Menu</Text>
           </TouchableOpacity>
         </Container>
@@ -37,4 +44,10 @@ class Confirmation extends React.Component {
   }
 }
 
-export default Confirmation;
+
+
+const mapDispatchToProps = (dispatch) => ({
+  clearCart: () => dispatch(clearCart())
+});
+
+export default connect(null, mapDispatchToProps)(Confirmation);

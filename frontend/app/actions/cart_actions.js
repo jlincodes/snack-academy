@@ -4,6 +4,7 @@ export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART';
 export const DELETE_ITEM_FROM_CART = 'DELETE_ITEM_FROM_CART';
 export const RECEIVE_CONFIRMATION = 'RECEIVE_CONFIRMATION';
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const CLEAR_CART = "CLEAR_CART"
 
 export const addItemToCart = (item) => {
 
@@ -38,7 +39,6 @@ export const receiveErrors = (errors) => {
 
 export const createOrder = (cart) => dispatch => (
   APIUtil.postOrder(cart)
-    .then(resp => dispatch(receiveConfirmation(resp)))
-    ,
+    .then(resp => dispatch(receiveConfirmation(resp))),
     errors => dispatch(receiveErrors(errors.responseJSON))
 );

@@ -42,7 +42,7 @@ class NewCardPage extends Component {
         .then(() => {
           AsyncStorage.setItem('@snackOverflowAuthKey:key', this.props.user.auth_key)
         })
-        .then(navigate('Index'));
+        .then(navigate('SimpleApp'));
       })
       .catch(error => {
         console.log(error);

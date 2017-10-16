@@ -37,7 +37,7 @@ class Cart extends React.Component {
         <Container style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
-          <TouchableOpacity onPress={() => navigate('Index')}>
+          <TouchableOpacity onPress={() => navigate('SimpleApp')}>
             <Text style={{color: '#FFFFFF', fontSize: 18}}>Back to Menu</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigate('CheckOut')}>
