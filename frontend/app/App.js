@@ -28,7 +28,9 @@ import configureStore from './store/store.js';
 
 import Signup from './screens/Signup.js';
 
-import InitialScreen from './screen/initial_screen.js';
+import './reactotronconfig.js';
+
+import InitialScreen from './screens/initial_screen.js';
 
 //routes
 const Menu = TabNavigator({
@@ -127,6 +129,9 @@ const AppNavigator = StackNavigator(
     },
     SimpleApp: {
       screen: SimpleApp
+    },
+    Signup: {
+      screen: Signup
     },
     Cart: {
       screen: Cart
