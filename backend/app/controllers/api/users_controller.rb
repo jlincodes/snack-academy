@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
   end
 
   def verify
-    @user = User.find_by(:customer_id, params[:user][:customer_id])
+    @user = User.find_by(:auth_key, params[:user][:auth_key])
     if @user
       render :show
     else
