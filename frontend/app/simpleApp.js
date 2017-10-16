@@ -23,9 +23,6 @@ import { requestAllProducts } from './actions/product_actions.js';
 import { connect } from 'react-redux';
 
 
-import './reactotronconfig.js';
-
-
 //routes
 const Menu = TabNavigator({
   Drinks: {
@@ -81,17 +78,17 @@ class SimpleApp extends React.Component {
       return (
         <View style={{flex: 1, justifyContent: 'center'}}>
           <HeaderBanner style={{flex: 1}}/>
-          <View style={{backgroundColor: '#f7f7f7', flex: 8}}>
+          <View style={{backgroundColor: '#f7f7f7', flex: 10}}>
             <Menu />
           </View>
           <Container style={
               {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
                 alignItems: 'center', backgroundColor: '#1485CC'}}>
                 <TouchableOpacity onPress={() => navigate('Cart')}>
-                  <Text style={{color: '#FFFFFF', fontSize: 18}}>Your Cart</Text>
+                  <Text style={styles.menuTabText}>Your Cart</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigate('CheckOut')}>
-                  <Text style={{color: '#FFFFFF', fontSize: 18}}>Check Out</Text>
+                  <Text style={styles.menuTabText}>Check Out</Text>
                 </TouchableOpacity>
               </Container>
             </View>
@@ -99,12 +96,19 @@ class SimpleApp extends React.Component {
 
     } else {
       return (
-        <View style={{flex: 1, height: '100%', width: '100%', backgroundColor: 'red'}}>
+        <View style={{flex: 1, height: '100%', width: '100%', backgroundColor: 'grey'}}>
         </View>
       );
     }
   }
 }
+
+const styles = StyleSheet.create({
+  menuTabText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+  }
+});
 
 
 
