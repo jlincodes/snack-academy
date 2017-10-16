@@ -26,6 +26,7 @@ class Confirmation extends React.Component {
 
   render() {
     const { goBack, navigate } = this.props.navigation;
+<<<<<<< HEAD
     let confirmationId = this.props.confirmation.id;
     return (
       <View style={{flex: 1}}>
@@ -40,6 +41,17 @@ class Confirmation extends React.Component {
               at 3:45 PM.`
             }
           </Text>
+=======
+    let confirmation = this.props.confirmation;
+    return (
+      <View style={{flex: 1}}>
+        <HeaderBanner style={{flex: 1}}/>
+        <View style={{flex: 10, backgroundColor: '#f7f7f7', flexDirection: 'column', justifyContent: 'center'}}>
+          <Text style={styles.text}>Your order has been confirmed.</Text>
+          <Text style={styles.text}>{`Your order number is: #${confirmation}`}</Text>
+          <Text style={styles.text}>{`\nPick Up Instructions:\nYour order will be ready for pick up during your break at 3:45 PM.`}</Text>
+
+>>>>>>> app-styling
         </View>
 
         <Container style={
