@@ -15,18 +15,27 @@ class CartItem extends React.Component {
   }
 
   render() {
-      let product = this.props.product
+      let product = this.props.product;
       return (
         <View>
-          <Text>{product.name}</Text>
-          <Text>{product.description}</Text>
-          <Text>{this.handleUSDConversion(product.price)}</Text>
+          <View style={styles.cartItem}>
+            <Text>{product.name}</Text>
+            <Text>{this.handleUSDConversion(product.price)}</Text>
+          </View>
           <Button title='Remove' onPress={() => this.props.deleteItemFromCart(product)}/>
         </View>
       );
     }
-
   }
+
+  const styles = StyleSheet.create({
+    cartItem: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      margin: "10 25 15 25"
+    }
+  });
 
 
 const mapDispatchToProps = (dispatch) => (

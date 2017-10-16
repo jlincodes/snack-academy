@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   Text,
@@ -14,20 +14,24 @@ import {
 import { Container } from 'native-base';
 
 import HeaderBanner from './HeaderBanner.js';
-import CartItem from './CartItem.js'
+import CartItem from './CartItem.js';
 
 class Cart extends React.Component {
   render() {
     let cart = this.props.cart;
     const { goBack, navigate } = this.props.navigation;
-    let exampleCart = require('../images/cart.png');
+
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
         <HeaderBanner style={{flex: 1}}/>
         <View style={{flex: 1, justifyContent: 'center'}}>
           <Text style={{alignSelf: 'center', color: 'black'}}>Your Cart</Text>
         </View>
-        <View style={{flex: 8}}>
+        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginRight: 25, marginLeft: 25}}>
+          <Text>Item Name</Text>
+          <Text>Price</Text>
+        </View>
+        <View style={{flex: 9}}>
           <FlatList
             data={cart}
             renderItem={({item}) => <CartItem product={item}/>}
