@@ -6,8 +6,7 @@ export const RECEIVE_CONFIRMATION = 'RECEIVE_CONFIRMATION';
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const addItemToCart = (item) => {
-  console.log('inside action');
-  console.log(item);
+
   return (
     {
       type: ADD_ITEM_TO_CART,

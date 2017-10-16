@@ -9,9 +9,6 @@ import { deleteItem } from './selectors.js';
 const defaultState = [];
 
 const CartReducer = (state = defaultState, action) => {
-  console.log('state in cart reducer', state);
-  console.log('action in cart reducer', action);
-  console.log('HERE@@!!@');
   Object.freeze(state);
   switch (action.type) {
     case ADD_ITEM_TO_CART:
