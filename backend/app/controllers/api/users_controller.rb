@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
+  def verify
     @user = User.find_by(:customer_id, params[:user][:customer_id])
     if @user
       render :show
