@@ -23,9 +23,6 @@ import { requestAllProducts } from './actions/product_actions.js';
 import { connect } from 'react-redux';
 
 
-import './reactotronconfig.js';
-
-
 //routes
 const Menu = TabNavigator({
   Drinks: {
