@@ -25,16 +25,18 @@ class Cart extends React.Component {
       <View style={{flex: 1, justifyContent: 'center'}}>
         <HeaderBanner style={{flex: 1}}/>
         <View style={{flex: 1, justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', color: 'black'}}>Your Cart</Text>
+          <Text style={{alignSelf: 'center', color: 'black', fontSize: 18}}>
+            Your Cart
+          </Text>
         </View>
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginRight: 25, marginLeft: 25}}>
-          <Text>Item Name</Text>
-          <Text>Price</Text>
+        <View style={styles.cartHead}>
+          <Text style={styles.cartHeadText}>Item Name</Text>
+          <Text style={styles.cartHeadText}>Price</Text>
         </View>
         <View style={{flex: 9}}>
           <FlatList
             data={cart}
-            renderItem={({item}) => <CartItem product={item}/>}
+            renderItem={({item}) => <CartItem style={styles.text} product={item}/>}
             keyExtractor={(item, index) => index}
           />
         </View>
@@ -52,6 +54,25 @@ class Cart extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  cartHead: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginRight: 30,
+    marginLeft: 30
+  },
+  cartHeadText: {
+    fontSize: 16,
+    color: '#444444',
+    fontWeight: 'bold'
+  },
+  text: {
+    fontSize: 16,
+    color: '#555555'
+  }
+});
 
 const mapStateToProps = (state) => ({
   cart: state.cart

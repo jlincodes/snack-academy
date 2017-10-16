@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TextInput, TouchableOpacity, Text, AppRegistry, View, Button, Image } from 'react-native';
 import {connect} from 'react-redux';
 
-import { deleteItemFromCart } from '../actions/cart_actions.js'
+import { deleteItemFromCart } from '../actions/cart_actions.js';
 
 class CartItem extends React.Component {
   constructor(props) {
@@ -33,14 +33,16 @@ class CartItem extends React.Component {
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'space-between',
-      margin: "10 25 15 25"
+      margin: 10,
+      marginLeft: 30,
+      marginRight: 30
     }
   });
 
 
 const mapDispatchToProps = (dispatch) => (
   {deleteItemFromCart: (item) => dispatch(deleteItemFromCart(item))
-})
+});
 
 
 export default connect(null, mapDispatchToProps)(CartItem);
