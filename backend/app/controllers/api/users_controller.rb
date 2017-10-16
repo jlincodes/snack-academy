@@ -3,11 +3,12 @@ class Api::UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-    @user = User.find_by(:customer_id, params[:user][:customer_id])
+  def verify
+    @user = User.find_by(auth_key: params[:user][:auth_key])
     if @user
       render :show
     else
+      puts "ERROR HERE: #{@user.errors.full_messages}"
       render json: "No such user found!", status: 404
     end
   end
