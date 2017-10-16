@@ -28,8 +28,6 @@ import configureStore from './store/store.js';
 
 import Signup from './screens/Signup.js';
 
-import './reactotronconfig.js';
-
 import InitialScreen from './screens/initial_screen.js';
 
 //routes
