@@ -33,19 +33,36 @@ class Order extends React.Component {
         <FlatList
           style={{flex: 6}}
           data={order}
-          renderItem={({item}) => <OrderItem product={item}/>}
+          renderItem={({item}) => <OrderItem style={styles.text} product={item}/>}
           keyExtractor={(item, index) => index}
         />
-      <View style={{flex: 2, flexDirection: 'row', justifyContent: 'space-around'}}>
-          <Text>Total Amount:</Text>
-          <Text>{total}</Text>
+      <View style={styles.orderTotal}>
+          <Text style={styles.totalText}>Total Amount:</Text>
+          <Text style={styles.totalText}>{total}</Text>
         </View>
       </View>
     );
   }
 }
-
-// <OrderItem key={product.id} product={item.price}/>
+const styles = StyleSheet.create({
+  orderTotal: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 10,
+    marginLeft: 30,
+    marginRight: 30,
+  },
+  totalText: {
+    fontSize: 16,
+    color: '#333333',
+    fontWeight: 'bold'
+  },
+  text: {
+    fontSize: 16,
+    color: '#555555'
+  }
+});
 
 const mapStateToProps = (state) => ({
   order: state.cart

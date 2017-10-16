@@ -18,15 +18,23 @@ class OrderItem extends React.Component {
       let product = this.props.product;
 
       return (
-        <View>
-          <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', margin: 10}}>
-            <Text>{product.name}</Text>
-            <Text>{this.handleUSDConversion(product.price)}</Text>
-          </View>
+        <View style={styles.orderItem}>
+          <Text>{product.name}</Text>
+          <Text>{this.handleUSDConversion(product.price)}</Text>
         </View>
       );
     }
-
   }
+
+  const styles = StyleSheet.create({
+    orderItem: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      margin: 10,
+      marginLeft: 30,
+      marginRight: 30
+    }
+  });
 
   export default OrderItem;

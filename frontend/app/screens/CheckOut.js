@@ -50,6 +50,10 @@ class CheckOut extends React.Component {
         <View style={{flex: 1, justifyContent: 'center'}}>
           <Text style={{alignSelf: 'center', color: 'black'}}>Confirm Order</Text>
         </View>
+        <View style={styles.checkOutHead}>
+          <Text style={styles.checkOutHeadText}>Item</Text>
+          <Text style={styles.checkOutHeadText}>Amount</Text>
+        </View>
         <Order />
         <Container style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
@@ -65,6 +69,25 @@ class CheckOut extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  checkOutHead: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginRight: 30,
+    marginLeft: 30
+  },
+  checkOutHeadText: {
+    fontSize: 16,
+    color: '#444444',
+    fontWeight: 'bold'
+  },
+  text: {
+    fontSize: 16,
+    color: '#555555'
+  }
+});
 
 
 const mapStateToProps = (state) => ({
