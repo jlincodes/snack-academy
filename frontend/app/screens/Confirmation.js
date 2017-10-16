@@ -13,25 +13,29 @@ import { Container } from 'native-base';
 import { connect } from 'react-redux';
 
 import HeaderBanner from './HeaderBanner.js';
-import { clearCart } from '../actions/cart_actions.js'
+import { clearCart } from '../actions/cart_actions.js';
 
 class Confirmation extends React.Component {
 
   componentWillMount(){
-    this.props.clearCart()
+    this.props.clearCart();
   }
 
+  // let orderConfirmed = require('../images/order_confirmed.png');
+  // <Image style={{flex: 7, width: 400}} source={orderConfirmed}/>
 
   render() {
     const { goBack, navigate } = this.props.navigation;
-    let orderConfirmed = require('../images/order_confirmed.png');
     return (
       <View style={{flex: 1}}>
         <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: 1, backgroundColor: '#f7f7f7', justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', color: 'white'}}>Order Confirmed</Text>
+        <View style={{flex: 10, backgroundColor: '#f7f7f7', justifyContent: 'center'}}>
+          <Text style={styles.text}>Order Confirmed.</Text>
+          <Text style={styles.text}>Your order number is: #</Text>
+          <Text style={styles.text}>{`Pick Up Instructions:\nYour order will be ready for pick up during your break at 3:45 PM.`}</Text>
+
         </View>
-        <Image style={{flex: 7, width: 400}} source={orderConfirmed}/>
+
         <Container style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
@@ -44,6 +48,11 @@ class Confirmation extends React.Component {
   }
 }
 
+const styles = StyleSheet.create({
+  text: {
+    color: '#444444'
+  }
+});
 
 
 const mapDispatchToProps = (dispatch) => ({
