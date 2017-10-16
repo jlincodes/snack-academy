@@ -26,15 +26,16 @@ class ProductItem extends React.Component {
     let price = this.handleUSDConversion(product.price);
     return (
       <View>
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-start', marginBottom: 10}}>
+        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-start', margin: 10}}>
           <Image
             style={{height: 125, width: 125, marginRight: 15 }}
             source={{uri: product.img_url}} />
           <Text>
-            {`${name}\n${description}\n${this.handleUSDConversion(product.price)}`}
+            {`${name}\n${description}\n${price}`}
           </Text>
         </View>
-        <Button title='add' onPress={() => this.props.addItemToCart(product)}/>
+
+        <Button title='add item to cart' onPress={() => this.props.addItemToCart(product)}/>
       </View>
     );
   }
