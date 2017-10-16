@@ -29,3 +29,7 @@ sample_user = User.find_by(name: "Kenta")
 Order.create!(user_id: 1, status: 'ordered')
 
 Admin.create!(username: 'admin', password: 'password123')
+
+OrderedItem.create!(order_id: 1, product_id: 1)
+OrderedItem.create!(order_id: 1, product_id: 2)
+OrderedItem.create!(order_id: 1, product_id: 3)
