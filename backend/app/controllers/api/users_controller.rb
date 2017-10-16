@@ -5,7 +5,11 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find_by(:customer_id, params[:user][:customer_id])
-    render :show
+    if @user
+      render :show
+    else
+      render json: "No such user found!", status: 404
+    end
   end
 
   def create
