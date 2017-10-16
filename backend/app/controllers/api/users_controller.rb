@@ -3,6 +3,15 @@ class Api::UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @user = User.find_by(:customer_id, params[:user][:customer_id])
+    if @user
+      render :show
+    else
+      render json: "No such user found!", status: 404
+    end
+  end
+
   def create
     Stripe.api_key = ENV['SECRET_KEY']
 

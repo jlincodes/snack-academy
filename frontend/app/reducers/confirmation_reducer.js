@@ -7,7 +7,6 @@ const ConfirmationReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CONFIRMATION:
-      console.log(action);
       return action.confirmation.data
     default:
       return state;

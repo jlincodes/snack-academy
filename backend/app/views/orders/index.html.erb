@@ -17,7 +17,9 @@
       <td><%= customer.name %></td>
       <td>
         <% order.ordered_items.each do |item| %>
-        <% item.product_id %>
+        <% prod_id = item.product_id %>
+        <%= Product.find_by(id: prod_id).name %>
+        <br/>
         <% end %>
       </td>
       <td><%= order.status %></td>
