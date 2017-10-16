@@ -85,10 +85,10 @@ class SimpleApp extends React.Component {
               {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
                 alignItems: 'center', backgroundColor: '#1485CC'}}>
                 <TouchableOpacity onPress={() => navigate('Cart')}>
-                  <Text style={styles.menuTabText}>Your Cart</Text>
+                  <Text style={styles.navText}>Your Cart</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigate('CheckOut')}>
-                  <Text style={styles.menuTabText}>Check Out</Text>
+                  <Text style={styles.navText}>Check Out</Text>
                 </TouchableOpacity>
               </Container>
             </View>
@@ -104,7 +104,7 @@ class SimpleApp extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  menuTabText: {
+  navText: {
     color: '#FFFFFF',
     fontSize: 18,
   }
