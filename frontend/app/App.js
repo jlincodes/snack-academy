@@ -1,19 +1,15 @@
-import React from 'react'
+import React from 'react';
 import { Provider } from 'react-redux';
-import SimpleApp from './simpleApp.js'
+import SimpleApp from './simpleApp.js';
 import configureStore from './store/store.js';
 
-// import DrinksScreen from './screens/DrinkScreen.js';
-// import FoodScreen from './screens/FoodScreen.js';
 import Cart from './screens/Cart.js';
 import CheckOut from './screens/CheckOut.js';
 import Confirmation from './screens/Confirmation.js';
 import HeaderBanner from './screens/HeaderBanner.js';
 import Signup from './screens/Signup.js';
-<<<<<<< HEAD
+
 import NewCardPage from './stripe_page.js';
-=======
->>>>>>> 1cb9b9dcfc3875873965ca5f594e4e74593e48e8
 
 import InitialScreen from './screens/initial_screen.js';
 import { StackNavigator} from 'react-navigation';
