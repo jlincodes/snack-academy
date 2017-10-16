@@ -3,6 +3,11 @@ class Api::UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @user = User.find_by(:customer_id, params[:user][:customer_id])
+    render :show
+  end
+
   def create
     Stripe.api_key = ENV['SECRET_KEY']
 
