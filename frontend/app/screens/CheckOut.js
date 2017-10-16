@@ -31,8 +31,8 @@ class CheckOut extends React.Component {
     let { navigate } = this.props.navigation;
     let order = this.props.formatOrder;
     console.log(order);
-    this.props.createOrder(order)
-    navigate('Confirmation')
+    this.props.createOrder(order);
+    navigate('Confirmation');
   }
 
   // handleSuccess(res){
@@ -47,8 +47,8 @@ class CheckOut extends React.Component {
     return (
       <View style={{flex: 1}}>
         <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: 1, backgroundColor: '#f7f7f7', justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', color: 'white'}}>Confirm Order</Text>
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <Text style={{alignSelf: 'center', color: 'black'}}>Confirm Order</Text>
         </View>
         <Order />
         <Container style={

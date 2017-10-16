@@ -19,9 +19,10 @@ class OrderItem extends React.Component {
 
       return (
         <View>
-          <Text>{product.name}</Text>
-          <Text>{product.description}</Text>
-          <Text>{this.handleUSDConversion(product.price)}</Text>
+          <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', margin: 10}}>
+            <Text>{product.name}</Text>
+            <Text>{this.handleUSDConversion(product.price)}</Text>
+          </View>
         </View>
       );
     }

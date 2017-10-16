@@ -5,7 +5,7 @@ import { StyleSheet, Text, FlatList, AppRegistry, ScrollView, View, Button, Imag
 
 import {connect} from 'react-redux';
 
-import OrderItem from './OrderItem.js'
+import OrderItem from './OrderItem.js';
 
 class Order extends React.Component {
 
@@ -17,16 +17,16 @@ class Order extends React.Component {
   calculateTotal(cart) {
     let total = 0;
     cart.forEach((item) => {
-      total += item.price
-    })
-    return total
+      total += item.price;
+    });
+    return total;
   }
 
   render() {
 
     //creating array of product objects
-    let order = this.props.order
-    let total = this.handleUSDConversion(this.calculateTotal(order))
+    let order = this.props.order;
+    let total = this.handleUSDConversion(this.calculateTotal(order));
 
     return (
       <View style={{flex: 8}}>
@@ -36,7 +36,8 @@ class Order extends React.Component {
           renderItem={({item}) => <OrderItem product={item}/>}
           keyExtractor={(item, index) => index}
         />
-        <View style={{flex: 2}}>
+      <View style={{flex: 2, flexDirection: 'row', justifyContent: 'space-around'}}>
+          <Text>Total Amount:</Text>
           <Text>{total}</Text>
         </View>
       </View>
