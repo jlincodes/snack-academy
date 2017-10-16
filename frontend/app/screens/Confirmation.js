@@ -27,6 +27,7 @@ class Confirmation extends React.Component {
   render() {
     const { goBack, navigate } = this.props.navigation;
     let confirmation = this.props.confirmation;
+    console.log(confirmation);
     return (
       <View style={{flex: 1}}>
         <HeaderBanner style={{flex: 1}}/>
