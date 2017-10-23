@@ -7,7 +7,7 @@
 
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { View } from 'react-native';
+import { View, AsyncStorage } from 'react-native';
 import stripe from 'tipsi-stripe';
 
 import {addTokenToUser, createNewUser} from './actions/user_actions.js';
@@ -29,20 +29,20 @@ const theme = {
 
 class NewCardPage extends Component {
   componentDidMount() {
-    // const options = {
-    //   smsAutofillDisabled: true,
-    //   requiredBillingAddressFields: 'zip',
-    //   theme
-    // };
+
+    const { navigate } = this.props.navigation;
+
     stripe.paymentRequestWithCardForm()
       .then(responseToken => {
         // collecting responseToken
         // sending to backend w/ fetch to store customer
         this.props.addTokenToUser(responseToken.tokenId);
-        let completeUser = {user: this.props.user}
-        console.log(completeUser);
-        this.props.createNewUser(completeUser).then(res => this.props.receiveNewUser(res));
-
+        let completeUser = {user: this.props.user};
+        this.props.createNewUser(completeUser)
+        .then(() => {
+          AsyncStorage.setItem('@snackOverflowAuthKey:key', this.props.user.auth_key)
+        })
+        .then(navigate('SimpleApp'));
       })
       .catch(error => {
         console.log(error);

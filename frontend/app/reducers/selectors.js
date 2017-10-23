@@ -13,10 +13,31 @@ export const deleteItem = (cart, item ) => {
   return duplicate;
 };
 
+export const formatOrder = (cart, user) => {
+
+  let order = { total: 0, items: [], user_id: user.id, auth_key: user.auth_key };
+
+  cart.forEach((item) => {
+    order.total += (item.price);
+    order.items.push(item.id);
+  });
+
+  return {order: order}
+
+}
+
 export const selectDrinks = (productsObj) => {
 
   let products =  _.valuesIn(productsObj)
 
   return products.filter((product) => (product.category === "drink"))
+
+}
+
+export const selectFood = (productsObj) => {
+
+  let products =  _.valuesIn(productsObj)
+
+  return products.filter((product) => (product.category === "food"))
 
 }

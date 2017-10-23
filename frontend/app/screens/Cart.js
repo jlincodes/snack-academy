@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   Text,
@@ -6,29 +7,43 @@ import {
   ScrollView,
   View,
   Button,
+  FlatList,
   Image,
   TouchableOpacity
 } from 'react-native';
 import { Container } from 'native-base';
 
 import HeaderBanner from './HeaderBanner.js';
+import CartItem from './CartItem.js';
 
 class Cart extends React.Component {
   render() {
-
+    let cart = this.props.cart;
     const { goBack, navigate } = this.props.navigation;
-    let exampleCart = require('../images/cart.png');
+
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
         <HeaderBanner style={{flex: 1}}/>
         <View style={{flex: 1, justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', color: 'black'}}>Your Cart</Text>
+          <Text style={{alignSelf: 'center', color: 'black', fontSize: 18}}>
+            Your Cart
+          </Text>
         </View>
-        <Image style={{flex: 7, width: 400}} source={exampleCart}/>
+        <View style={styles.cartHead}>
+          <Text style={styles.cartHeadText}>Item Name</Text>
+          <Text style={styles.cartHeadText}>Price</Text>
+        </View>
+        <View style={{flex: 9}}>
+          <FlatList
+            data={cart}
+            renderItem={({item}) => <CartItem style={styles.text} product={item}/>}
+            keyExtractor={(item, index) => index}
+          />
+        </View>
         <Container style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
-          <TouchableOpacity onPress={() => navigate('Index')}>
+          <TouchableOpacity onPress={() => navigate('SimpleApp')}>
             <Text style={{color: '#FFFFFF', fontSize: 18}}>Back to Menu</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigate('CheckOut')}>
@@ -40,4 +55,28 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart;
+const styles = StyleSheet.create({
+  cartHead: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginRight: 30,
+    marginLeft: 30
+  },
+  cartHeadText: {
+    fontSize: 16,
+    color: '#444444',
+    fontWeight: 'bold'
+  },
+  text: {
+    fontSize: 16,
+    color: '#555555'
+  }
+});
+
+const mapStateToProps = (state) => ({
+  cart: state.cart
+});
+
+
+export default connect(mapStateToProps, null)(Cart);

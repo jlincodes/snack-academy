@@ -1,13 +1,17 @@
 import * as axios from 'axios';
 
 export const getProducts = () => (
-  axios.get('https://snackappacademhy.herokuapp.com/api/products')
+  axios.get('https://snackacademy.herokuapp.com/api/products')
 );
 
 export const postOrder = (order) => (
-  axios.post('https://snackappacademhy.herokuapp.com/api/charges', order)
+  axios.post('https://snackacademy.herokuapp.com/api/orders', order)
 );
 
 export const postUser = (user) => (
-  axios.post('http://192.168.2.150:3000/api/users', user)
+  axios.post('https://snackacademy.herokuapp.com/api/users', user)
 );
+
+export const verifyUser = (user) => (
+  axios.get('https://snackacademy.herokuapp.com/api/users/verify', user)
+)

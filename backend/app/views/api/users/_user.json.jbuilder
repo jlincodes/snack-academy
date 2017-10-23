@@ -1,1 +1,1 @@
-json.extract! user, :id, :email, :stripe_token, :orders, :ordered_items
+json.extract! user, :id, :email, :auth_key, :name

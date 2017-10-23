@@ -7,7 +7,10 @@ import { requestAllProducts } from '../actions/product_actions.js'
 import {connect} from 'react-redux';
 import { selectDrinks } from '../reducers/selectors.js'
 
+import ProductItem from './ProductItem.js'
+
 class DrinksScreen extends React.Component {
+
   static navigationOptions = {
     title: 'Drinks', //refers to name of displayed button
   };
@@ -25,7 +28,8 @@ class DrinksScreen extends React.Component {
       <View>
         <FlatList
           data={drinks}
-          renderItem={({item}) => <Text>{item.price}</Text>}
+          renderItem={({item}) => <ProductItem product={item}/>}
+          keyExtractor={(item, index) => index}
         />
       </View>
     );
@@ -39,5 +43,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   requestAllProducts: () => dispatch(requestAllProducts())
 });
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrinksScreen);

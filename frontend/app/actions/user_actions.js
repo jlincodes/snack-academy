@@ -19,7 +19,10 @@ export const addTokenToUser = (user) => ({
   user
 });
 
-
 export const createNewUser = (user) => dispatch => (
   APIUtil.postUser(user).then(resp => dispatch(receiveNewUser(resp)))
+);
+
+export const verifyUser = (user) => dispatch => (
+  APIUtil.verifyUser(user).then(resp => dispatch(receiveNewUser(resp)))
 );
