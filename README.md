@@ -30,8 +30,9 @@ Technology-wise, we will further develop the administrative dashboard to assist 
   - Revenue and profit (revenue - expenses)
 
 
-[signup]:
-[menu]:
-[cart]:
-[checkout]:
+[signup]: https://github.com/julielin0812/snack-academy/blob/master/docs/sign_up_ex.png?raw=true
+[cc_auth]: https://github.com/julielin0812/snack-academy/blob/master/docs/cc_auth_ex.png?raw=true
+[menu]: https://github.com/julielin0812/snack-academy/blob/master/docs/menu_drinks.png?raw=true
+[cart]: https://github.com/julielin0812/snack-academy/blob/master/docs/cart_example.png?raw=true
+[checkout]: https://github.com/julielin0812/snack-academy/blob/master/docs/confirm_order.png?raw=true
 [confirmation]:
