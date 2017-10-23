@@ -15,6 +15,7 @@ The SnackAcademy mobile app is built on React Native and utilizes Stripe integra
 - Secure storage of users' sensitive information through Stripe integration
 
 <img src="https://github.com/julielin0812/snack-academy/blob/master/docs/sign_up_ex.png?raw=true" height="500">
+<img src="https://github.com/julielin0812/snack-academy/blob/master/docs/cc_auth_ex.png?raw=true" height="500">
 
 
 ## Future Plans
