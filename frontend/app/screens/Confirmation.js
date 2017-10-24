@@ -32,14 +32,11 @@ class Confirmation extends React.Component {
       <View style={{flex: 1}}>
         <HeaderBanner style={{flex: 1}}/>
         <View style={{flex: 10, backgroundColor: '#f7f7f7',
-          flexDirection: 'column', justifyContent: 'center'}}>
+          alignItems: 'center'}}>
           <Text style={styles.text}>Your order has been confirmed.</Text>
           <Text style={styles.text}>{`Your order number is: #${confirmationId}`}</Text>
-          <Text style={styles.text}>{
-              `\nPick Up Instructions:
-              \nYour order will be ready for pick up during your break
-              at 3:45 PM.`
-            }
+          <Text style={styles.text}>
+            Pick Up Instructions: Your order will be ready for pick up during your break at 3:45 PM.
           </Text>
         </View>
 
@@ -58,7 +55,8 @@ class Confirmation extends React.Component {
 const styles = StyleSheet.create({
   text: {
     fontSize: 16,
-    color: '#444444'
+    color: '#555555',
+    margin: 25
   }
 });
 
