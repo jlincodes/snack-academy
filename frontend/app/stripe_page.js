@@ -38,11 +38,11 @@ class NewCardPage extends Component {
         // sending to backend w/ fetch to store customer
         this.props.addTokenToUser(responseToken.tokenId);
         let completeUser = {user: this.props.user};
+        console.log(completeUser);
         this.props.createNewUser(completeUser)
-        .then(() => {
-          AsyncStorage.setItem('@snackOverflowAuthKey:key', this.props.user.auth_key)
-        })
-        .then(navigate('SimpleApp'));
+        .then(res => this.props.receiveNewUser(res))
+        .then( AsyncStorage.setItem('@snackOverflowAuthKey:key', this.props.user.auth_key))
+        .then(navigate('Index'));
       })
       .catch(error => {
         console.log(error);
