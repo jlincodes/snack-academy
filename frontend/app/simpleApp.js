@@ -22,6 +22,7 @@ import { requestAllProducts } from './actions/product_actions.js';
 // import configureStore from './store/store.js';
 import { connect } from 'react-redux';
 
+
 //routes
 const Menu = TabNavigator({
   Drinks: {

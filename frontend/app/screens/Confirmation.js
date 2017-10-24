@@ -31,7 +31,8 @@ class Confirmation extends React.Component {
     return (
       <View style={{flex: 1}}>
         <HeaderBanner style={{flex: 1}}/>
-        <View style={styles.textContainer}>
+        <View style={{flex: 10, backgroundColor: '#f7f7f7',
+          flexDirection: 'column', justifyContent: 'center'}}>
           <Text style={styles.text}>Your order has been confirmed.</Text>
           <Text style={styles.text}>{`Your order number is: #${confirmationId}`}</Text>
           <Text style={styles.text}>{
@@ -40,6 +41,7 @@ class Confirmation extends React.Component {
               at 3:45 PM.`
             }
           </Text>
+        </View>
 
         <Container style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
@@ -54,12 +56,6 @@ class Confirmation extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  textContainer: {
-    flex: 10,
-    backgroundColor: '#f7f7f7',
-    flexDirection: 'column',
-    justifyContent: 'center'
-  },
   text: {
     fontSize: 16,
     color: '#444444'
