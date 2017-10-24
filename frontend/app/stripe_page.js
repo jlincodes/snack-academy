@@ -40,7 +40,7 @@ class NewCardPage extends Component {
         let completeUser = {user: this.props.user};
         this.props.createNewUser(completeUser)
         .then(() => {
-          AsyncStorage.setItem('@snackOverflowAuthKey:key', this.props.user.auth_key)
+          AsyncStorage.setItem('@snackOverflowAuthKey:key', this.props.user.auth_key);
         })
         .then(navigate('SimpleApp'));
       })
