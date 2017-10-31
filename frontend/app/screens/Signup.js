@@ -6,14 +6,14 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
-  AppRegistry, 
+  AppRegistry,
   View,
   Button,
   Image
 } from 'react-native';
 import HeaderBanner from './HeaderBanner.js';
 import {initializeUser} from '../actions/user_actions.js';
-
+import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -34,35 +34,12 @@ class Signup extends React.Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center', backgroundColor: '#f7f7f7'}}>
-        <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: 8, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-          <TextInput
-            style={styles.textInput}
-            onChangeText={(name) => this.setState({name})}
-            value={this.state.name}
-            placeholder="First and Last Name"
-            underlineColorAndroid="#f7f7f7"
-          />
-          <TextInput
-            style={styles.textInput}
-            onChangeText={(email) => this.setState({email})}
-            value={this.state.email}
-            keyboardType='email-address'
-            placeholder="Email Address"
-            underlineColorAndroid="#f7f7f7"
-          />
-        <Text>
-          {`Enter your full name and email address. \n
-            Then, hit 'Sign Up' below.`}
-          </Text>
-        </View>
-        <View style={{flex: 1}}>
-          <TouchableOpacity
-            style={styles.signUpBtn}
-            onPress={() => this.handleSubmit()}>
-            <Text style={{color: '#FFFFFF', fontSize: 20 }}>Sign Up</Text>
-          </TouchableOpacity>
-        </View>
+          <GoogleSigninButton
+            style={{width: 48, height: 48}}
+            size={GoogleSigninButton.Size.Icon}
+            color={GoogleSigninButton.Color.Dark}
+            onPress={this._signIn.bind(this)}/>
+        }
       </View>
     );
   }
