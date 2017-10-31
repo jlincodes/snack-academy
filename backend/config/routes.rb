@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "static_pages#root"
+  get 'login', to: 'auth#fetch_code'
+  get 'oauth2callback', to: 'auth#oauth2callback'
 
   namespace :api, defaults: { format: :json } do
     get '/users/verify', to: 'users#verify'
