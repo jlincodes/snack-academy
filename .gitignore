@@ -27,5 +27,6 @@ bundle.js.map
 npm-debug.log
 application.yml
 secrets.yml
+client_secrets.json
 
 backend/.git
