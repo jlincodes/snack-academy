@@ -72,6 +72,4 @@ const mapDispatchToProps = (dispatch) => ({
   requestAllProducts: () => dispatch(requestAllProducts())
 });
 
-
-
 export default connect(mapStateToProps, mapDispatchToProps)(Order);
