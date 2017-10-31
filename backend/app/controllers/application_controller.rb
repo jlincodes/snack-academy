@@ -1,3 +1,5 @@
+require 'google/api_client/client_secrets'
+
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   helper_method :current_user, :signed_up?
@@ -28,5 +30,20 @@ class ApplicationController < ActionController::Base
 
   def require_login
     redirect_to new_session_url unless logged_in?
+  end
+
+  def setup_client(access_token = false, refresh_token = false)
+    client_options = {
+      web: {
+        client_id: ENV['GOOGLE_CLIENT_ID'],
+        redirect_uri: ENV['GOOGLE_REDIRECT_URI']
+      }
+    }
+
+    client_options[:web][:access_token] = access_token if access_token
+    client_options[:web][:refresh_token] = refresh_token if refresh_token
+
+    client_secrets = Google::APIClient::ClientSecrets.new(client_options)
+    @client = client_secrets.to_authorization
   end
 end
