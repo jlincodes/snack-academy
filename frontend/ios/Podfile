@@ -2,7 +2,6 @@
 # platform :ios, '9.0'
 
 target 'ReactNavigation2' do
-  pod 'Google/SignIn'
   pod 'Stripe', '~> 10.1.0'
   inherit! :search_paths
 end

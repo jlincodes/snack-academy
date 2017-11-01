@@ -30,7 +30,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'stripe'
 gem 'jwt'
 gem 'figaro'
-gem 'google-api-client'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
