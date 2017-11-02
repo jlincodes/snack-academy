@@ -19,7 +19,7 @@ const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: InitialScreen
+      screen: Signup
     },
     NewCardPage: {
       screen: NewCardPage

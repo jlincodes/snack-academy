@@ -36,10 +36,15 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* ReactNavigation2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNavigation2Tests.m */; };
 		3991F6651F8D48320008627B /* TPSStripe in Resources */ = {isa = PBXBuildFile; fileRef = 3991F6421F8D48320008627B /* TPSStripe */; };
+		399D65DC1FAA857900B0D27E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399D65B61FAA857600B0D27E /* Bolts.framework */; };
+		399D65DD1FAA857900B0D27E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399D65D91FAA857700B0D27E /* FBSDKShareKit.framework */; };
+		399D65DE1FAA857900B0D27E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399D65DA1FAA857800B0D27E /* FBSDKLoginKit.framework */; };
+		399D65DF1FAA857900B0D27E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399D65DB1FAA857900B0D27E /* FBSDKCoreKit.framework */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		70977A6F160AB7EDA3B2EB73 /* libPods-ReactNavigation2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F94AAB285E94B5379D1E05B6 /* libPods-ReactNavigation2.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		D154FC460418422B9930BDEC /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 497C680B98354D2A9F1F18A8 /* libRCTFBSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +173,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3A3A7F1A1DC27B520030F9DC;
 			remoteInfo = TPSStripe;
+		};
+		399D66121FAA874100B0D27E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 757219A418D7462BB2237857 /* RCTFBSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
+			remoteInfo = RCTFBSDK;
 		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -321,8 +333,14 @@
 		2D02E47B1E0B4A5D006451C7 /* ReactNavigation2-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactNavigation2-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ReactNavigation2-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNavigation2-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3991F6421F8D48320008627B /* TPSStripe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TPSStripe; path = "../node_modules/tipsi-stripe/ios/TPSStripe"; sourceTree = "<group>"; };
+		399D65B61FAA857600B0D27E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		399D65D91FAA857700B0D27E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		399D65DA1FAA857800B0D27E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		399D65DB1FAA857900B0D27E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3FBC4BC81B5B4EDFB0636A75 /* Pods-ReactNavigation2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNavigation2.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactNavigation2/Pods-ReactNavigation2.release.xcconfig"; sourceTree = "<group>"; };
+		497C680B98354D2A9F1F18A8 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		757219A418D7462BB2237857 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8B280D75D00F422D8A710AFE /* libTPSStripe.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libTPSStripe.a; sourceTree = "<group>"; };
@@ -346,10 +364,13 @@
 			files = (
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
+				399D65DE1FAA857900B0D27E /* FBSDKLoginKit.framework in Frameworks */,
+				399D65DD1FAA857900B0D27E /* FBSDKShareKit.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
+				399D65DF1FAA857900B0D27E /* FBSDKCoreKit.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
@@ -359,6 +380,8 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				2A0C80B0F7674A6AB825AFE7 /* libTPSStripe.a in Frameworks */,
 				70977A6F160AB7EDA3B2EB73 /* libPods-ReactNavigation2.a in Frameworks */,
+				399D65DC1FAA857900B0D27E /* Bolts.framework in Frameworks */,
+				D154FC460418422B9930BDEC /* libRCTFBSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +525,10 @@
 		32C39B05195B4A04D20F17B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				399D65B61FAA857600B0D27E /* Bolts.framework */,
+				399D65DB1FAA857900B0D27E /* FBSDKCoreKit.framework */,
+				399D65DA1FAA857800B0D27E /* FBSDKLoginKit.framework */,
+				399D65D91FAA857700B0D27E /* FBSDKShareKit.framework */,
 				F94AAB285E94B5379D1E05B6 /* libPods-ReactNavigation2.a */,
 			);
 			name = Frameworks;
@@ -511,6 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				8B280D75D00F422D8A710AFE /* libTPSStripe.a */,
+				497C680B98354D2A9F1F18A8 /* libRCTFBSDK.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -519,6 +547,14 @@
 			isa = PBXGroup;
 			children = (
 				3991F6341F8D3D7A0008627B /* libTPSStripe.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		399D660F1FAA874100B0D27E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				399D66131FAA874100B0D27E /* libRCTFBSDK.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -557,6 +593,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				BC3742E481774D92B99372DF /* TPSStripe.xcodeproj */,
+				757219A418D7462BB2237857 /* RCTFBSDK.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -749,6 +786,10 @@
 					ProjectRef = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
 				},
 				{
+					ProductGroup = 399D660F1FAA874100B0D27E /* Products */;
+					ProjectRef = 757219A418D7462BB2237857 /* RCTFBSDK.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -910,6 +951,13 @@
 			fileType = archive.ar;
 			path = libTPSStripe.a;
 			remoteRef = 3991F6331F8D3D7A0008627B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		399D66131FAA874100B0D27E /* libRCTFBSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFBSDK.a;
+			remoteRef = 399D66121FAA874100B0D27E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -1232,12 +1280,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/tipsi-stripe/ios/TPSStripe",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = ReactNavigation2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1258,12 +1308,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/tipsi-stripe/ios/TPSStripe",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = ReactNavigation2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1283,9 +1335,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = GK9JLK9ANC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"\"~/Documents/FacebookSDK\"",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/tipsi-stripe/ios/TPSStripe",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = ReactNavigation2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1306,9 +1364,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GK9JLK9ANC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"\"~/Documents/FacebookSDK\"",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/tipsi-stripe/ios/TPSStripe",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = ReactNavigation2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1338,11 +1402,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/tipsi-stripe/ios/TPSStripe",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = "ReactNavigation2-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1373,11 +1439,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/tipsi-stripe/ios/TPSStripe",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 				);
 				INFOPLIST_FILE = "ReactNavigation2-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1409,6 +1477,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNavigation2-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1434,6 +1503,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNavigation2-tvOSTests";
