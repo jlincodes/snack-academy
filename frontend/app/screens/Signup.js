@@ -31,7 +31,7 @@ class Signup extends React.Component {
     return (
       <View>
         <LoginButton
-          readPermissions={["public_profile"]}
+          readPermissions={["public_profile", "email"]}
           onLoginFinished={
             (error, result) => {
               if (error) {
