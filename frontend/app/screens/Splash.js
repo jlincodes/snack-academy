@@ -11,6 +11,7 @@ import {
 
 class Splash extends React.Component {
   componentDidMount() {
+
     AccessToken.getCurrentAccessToken().then(token => {
       if (token) {
         // firebase.database().ref(`/users/${token.userID}`)
@@ -31,5 +32,6 @@ class Splash extends React.Component {
   }
 
 }
+
 
 export default Splash;

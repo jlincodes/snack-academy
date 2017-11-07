@@ -9,6 +9,7 @@ import Confirmation from './screens/Confirmation.js';
 import HeaderBanner from './screens/HeaderBanner.js';
 import Signup from './screens/Signup.js';
 import Splash from './screens/Splash.js';
+import testSplash from './screens/testSplash.js';
 
 
 import NewCardPage from './stripe_page.js';
@@ -21,7 +22,7 @@ const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: Splash
+      screen: testSplash
     },
     NewCardPage: {
       screen: NewCardPage
