@@ -16,7 +16,7 @@ import {
   Image
 } from 'react-native';
 import HeaderBanner from './HeaderBanner.js';
-// import {initializeUser} from '../actions/user_actions.js';
+import {initializeUser} from '../actions/user_actions.js';
 
 
 
@@ -37,27 +37,13 @@ class Signup extends React.Component {
   }
 
   initUser(token) {
-    var self = this
 
     let user = fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
-      // // // Some user object has been set up somewhere, build that user here
-      // // // console.log(json);
-      // // this.setState({name: json.name})
-      // self.setState({id: json.id})
-      self.setState({email: json.email})
-      // self.setState({greeting: 'hello'})
-      // self.setState({name: json.name})
-      // // // user.user_friends = json.friends
-      // user.email = json.email
-      //
-      // // // user.username = json.name
-      // // // user.loading = false
-      // // // user.loggedIn = true
-      // // user.avatar = setAvatar(json.id)
-
+      this.setState({email: json.email, name: json.name, fbID: json.id})
+      console.log('we need this to work', this.state);
+      this.props.initializeUser({user: {this.state}})
     })
     .catch(() => {
       reject('ERROR GETTING DATA FROM FACEBOOK')
@@ -87,8 +73,8 @@ class Signup extends React.Component {
                     //                            .credential(data.accessToken);
                     // console.log(credential);
                     const token = data.accessToken;
-                    let user2 = this.initUser(token)
-                    console.log(user2);
+                    this.initUser(token)
+
 
                   }
                 )
@@ -102,79 +88,6 @@ class Signup extends React.Component {
 }
 
 
-//
-// class Signup extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { name: '', email: '' };
-//     this.handleSubmit = this.handleSubmit.bind(this);
-//   }
-//
-//   handleSubmit() {
-//     const { navigate } = this.props.navigation;
-//     let user = this.state;
-//     console.log(user);
-//     this.props.initializeUser(user);
-//     navigate('NewCardPage');
-//   }
-//
-//
-//   render() {
-//     return (
-//       <View style={{flex: 1, justifyContent: 'center', backgroundColor: '#f7f7f7'}}>
-//         <HeaderBanner style={{flex: 1}}/>
-//         <View style={{flex: 8, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-//           <TextInput
-//             style={styles.textInput}
-//             onChangeText={(name) => this.setState({name})}
-//             value={this.state.name}
-//             placeholder="First and Last Name"
-//             underlineColorAndroid="#f7f7f7"
-//           />
-//           <TextInput
-//             style={styles.textInput}
-//             onChangeText={(email) => this.setState({email})}
-//             value={this.state.email}
-//             keyboardType='email-address'
-//             placeholder="Email Address"
-//             underlineColorAndroid="#f7f7f7"
-//           />
-//         <Text>
-//           {`Enter your full name and email address. \n
-//             Then, hit 'Sign Up' below.`}
-//           </Text>
-//         </View>
-//         <View style={{flex: 1}}>
-//           <TouchableOpacity
-//             style={styles.signUpBtn}
-//             onPress={() => this.handleSubmit()}>
-//             <Text style={{color: '#FFFFFF', fontSize: 20 }}>Sign Up</Text>
-//           </TouchableOpacity>
-//         </View>
-//       </View>
-//     );
-//   }
-// }
-//
-// const styles = StyleSheet.create({
-//   textInput: {
-//     borderColor: 'gray',
-//     width: '80%',
-//     height: 45,
-//     fontSize: 20,
-//     borderWidth: 1,
-//     paddingLeft: 10,
-//     borderRadius: 3,
-//     margin: 10
-//   },
-//   signUpBtn: {
-//     flex: 1,
-//     flexDirection: 'row',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#1485CC'}
-// });
-//
 const mapDispatchToProps = (dispatch) => ({
   initializeUser: (user) => dispatch(initializeUser(user))
 });
