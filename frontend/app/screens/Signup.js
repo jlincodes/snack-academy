@@ -33,19 +33,22 @@ class Signup extends React.Component {
     super(props)
     this.state = {}
     this.initializeUser = this.initializeUser.bind(this)
+    // this.setState = this.setState.bind(this)
   }
 
   initializeUser(token) {
-    let user = {}
-    fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
+    var self = this
+
+    let user = fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
     .then((response) => response.json())
     .then((json) => {
       console.log(json);
       // // Some user object has been set up somewhere, build that user here
       // // console.log(json);
       // this.setState({name: json.name})
-      this.setState({id: json.id})
-      this.setState({email: json.email})
+      self.setState({id: json.id})
+      self.setState({email: json.email})
+      self.setState({greeting: 'hello'})
       // // user.user_friends = json.friends
       user.email = json.email
       // // user.username = json.name
@@ -57,8 +60,11 @@ class Signup extends React.Component {
     .catch(() => {
       reject('ERROR GETTING DATA FROM FACEBOOK')
     })
+    console.log('here');
     console.log(this.state);
   }
+
+  
 
   render() {
 
@@ -78,10 +84,8 @@ class Signup extends React.Component {
                     console.log(data);
 
                     const token = data.accessToken;
-                    let user2 = this.initializeUser
+                    this.initializeUser(token)
 
-                    console.log('below');
-                    console.log(this.state);
 
                   }
                 )
