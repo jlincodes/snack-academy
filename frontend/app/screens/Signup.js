@@ -31,40 +31,41 @@ class Signup extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = {}
-    this.initializeUser = this.initializeUser.bind(this)
+    this.state = {email: ''}
+    this.initUser = this.initUser.bind(this)
     // this.setState = this.setState.bind(this)
   }
 
-  initializeUser(token) {
+  initUser(token) {
     var self = this
 
     let user = fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
     .then((response) => response.json())
     .then((json) => {
       console.log(json);
-      // // Some user object has been set up somewhere, build that user here
-      // // console.log(json);
-      // this.setState({name: json.name})
-      self.setState({id: json.id})
+      // // // Some user object has been set up somewhere, build that user here
+      // // // console.log(json);
+      // // this.setState({name: json.name})
+      // self.setState({id: json.id})
       self.setState({email: json.email})
-      self.setState({greeting: 'hello'})
-      // // user.user_friends = json.friends
-      user.email = json.email
-      // // user.username = json.name
-      // // user.loading = false
-      // // user.loggedIn = true
-      // user.avatar = setAvatar(json.id)
+      // self.setState({greeting: 'hello'})
+      // self.setState({name: json.name})
+      // // // user.user_friends = json.friends
+      // user.email = json.email
+      //
+      // // // user.username = json.name
+      // // // user.loading = false
+      // // // user.loggedIn = true
+      // // user.avatar = setAvatar(json.id)
 
     })
     .catch(() => {
       reject('ERROR GETTING DATA FROM FACEBOOK')
     })
-    console.log('here');
-    console.log(this.state);
+
   }
 
-  
+
 
   render() {
 
@@ -81,11 +82,13 @@ class Signup extends React.Component {
               } else {
                 AccessToken.getCurrentAccessToken().then(
                   (data) => {
-                    console.log(data);
-
+                    // console.log(data);
+                    // const credential = firebase.auth.FacebookAuthProvider
+                    //                            .credential(data.accessToken);
+                    // console.log(credential);
                     const token = data.accessToken;
-                    this.initializeUser(token)
-
+                    let user2 = this.initUser(token)
+                    console.log(user2);
 
                   }
                 )
