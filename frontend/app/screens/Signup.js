@@ -38,12 +38,12 @@ class Signup extends React.Component {
 
   initUser(token) {
 
-    let user = fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
+    fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
     .then((response) => response.json())
     .then((json) => {
       this.setState({email: json.email, name: json.name, fbID: json.id})
-      console.log('we need this to work', this.state);
-      this.props.initializeUser({user: {this.state}})
+      const user = this.state
+      this.props.initializeUser({user: user})
     })
     .catch(() => {
       reject('ERROR GETTING DATA FROM FACEBOOK')
