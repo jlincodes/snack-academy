@@ -2,14 +2,13 @@
 #
 # Table name: users
 #
-#  id           :integer          not null, primary key
-#  email        :string           not null
-#  stripe_token :string           not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  customer_id  :string
-#  name         :string
-#  auth_key     :string
+#  id          :integer          not null, primary key
+#  email       :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  customer_id :string
+#  name        :string
+#  fbId        :integer
 #
 
 class User < ApplicationRecord
@@ -17,7 +16,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, case_sensitive: false
   validates_format_of :email, with: /@/
   validates :stripe_token, presence: true, uniqueness: true
-  validates :auth_key, presence: true, uniqueness: true
+  validates :fbId, presence: true, uniqueness: true
 
   has_many :orders,
   primary_key: :id,
@@ -27,16 +26,4 @@ class User < ApplicationRecord
   has_many :ordered_items,
   through: :orders,
   source: :ordered_items
-
-  before_validation :assign_auth_key
-
-  def assign_auth_key
-    current_key = SecureRandom.urlsafe_base64
-    keys = User.all.map { |e| e.auth_key }
-    until !keys.include?(current_key)
-      current_key = SecureRandom.urlsafe_base64
-    end
-    self.auth_key = current_key
-  end
-
 end
