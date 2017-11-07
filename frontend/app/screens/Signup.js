@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import HeaderBanner from './HeaderBanner.js';
 import {initializeUser} from '../actions/user_actions.js';
-
+import NewCardPage from '../stripe_page.js';
 
 
 import {
@@ -37,13 +37,15 @@ class Signup extends React.Component {
   }
 
   initUser(token) {
+    const { goBack, navigate } = this.props.navigation;
 
     fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
     .then((response) => response.json())
     .then((json) => {
-      this.setState({email: json.email, name: json.name, fbID: json.id})
+      this.setState({email: json.email, name: json.name, fbId: json.id})
       const user = this.state
-      this.props.initializeUser({user: user})
+      this.props.initializeUser(user)
+      navigate('NewCardPage')
     })
     .catch(() => {
       reject('ERROR GETTING DATA FROM FACEBOOK')
