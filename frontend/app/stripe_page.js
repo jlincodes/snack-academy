@@ -34,7 +34,7 @@ class NewCardPage extends Component {
     this.state = {timePassed: false}
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
 
     const { navigate } = this.props.navigation;
 
@@ -53,17 +53,10 @@ class NewCardPage extends Component {
 
   }
 
-  componentDidMount() {
-    setTimeout(() => { this.setState({ timePassed: true });}, 2000);
-
-  }
-
   render() {
 
       return(
-        <View style={{flex: 1, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center'}}>
-          <Image style={{ width: '70%', height: '18%'}} source={{uri: 'https://res.cloudinary.com/dql6mlrow/image/upload/v1510123211/stripe_logo.png'}} />
-        </View>
+        <View />
       );
     }
   }

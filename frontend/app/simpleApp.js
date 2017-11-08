@@ -73,7 +73,7 @@ class SimpleApp extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
-    if(this.state.loaded) {
+    // if(this.state.loaded) {
 
       return (
         <View style={{flex: 1, justifyContent: 'center'}}>
@@ -94,12 +94,12 @@ class SimpleApp extends React.Component {
         </View>
           );
 
-    } else {
-      return (
-        <View style={{flex: 1, height: '100%', width: '100%', backgroundColor: 'grey'}}>
-        </View>
-      );
-    }
+    // } else {
+    //   return (
+    //     <View style={{flex: 1, height: '100%', width: '100%', backgroundColor: 'grey'}}>
+    //     </View>
+    //   );
+    // }
   }
 }
 

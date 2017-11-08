@@ -28,7 +28,10 @@ class Splash extends React.Component {
     this.spring()
     AccessToken.getCurrentAccessToken().then(token => {
       if (token) {
-        this.props.verifyUser(token.userID)
+        console.log(token);
+        const userObject = {user: {fbId: token.userID}}
+        console.log(userObject);
+        this.props.verifyUser(userObject)
         // firebase.database().ref(`/users/${token.userID}`)
         //         .on('value', (snap) => this.props.receiveCurrentUser(snap.val()));
         setTimeout(()=>  this.props.navigation.navigate('SimpleApp'), 2000)
