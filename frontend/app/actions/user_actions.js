@@ -1,11 +1,11 @@
 import * as APIUtil from '../api_util/api_util.js';
 
-export const RECEIVE_NEW_USER = 'RECEIVE_NEW_USER';
+export const RECEIVE_USER = 'RECEIVE_USER';
 export const INITIALIZE_USER = 'INITIALIZE_USER';
 export const ADD_TOKEN_TO_USER = 'ADD_TOKEN_TO_USER';
 
-export const receiveNewUser = (user) => ({
-  type: RECEIVE_NEW_USER,
+export const receiveUser = (user) => ({
+  type: RECEIVE_USER,
   user
 });
 
@@ -20,9 +20,9 @@ export const addTokenToUser = (user) => ({
 });
 
 export const createNewUser = (user) => dispatch => (
-  APIUtil.postUser(user).then(resp => dispatch(receiveNewUser(resp)))
+  APIUtil.postUser(user).then(resp => dispatch(receiveUser(resp)))
 );
 
 export const verifyUser = (user) => dispatch => (
-  APIUtil.verifyUser(user).then(resp => dispatch(receiveNewUser(resp)))
+  APIUtil.verifyUser(user).then(resp => dispatch(receiveUser(resp)))
 );
