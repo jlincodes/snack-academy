@@ -12,7 +12,7 @@ export const postUser = (user) => (
   axios.post('https://snackacademy.herokuapp.com/api/users', user)
 );
 
-export const requestUser = (user) => (
+export const verifyUser = (user) => (
   axios.get('https://snackacademy.herokuapp.com/api/users/verify', user)
 )
 

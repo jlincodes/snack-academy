@@ -1,4 +1,4 @@
-import { RECEIVE_USER, INITIALIZE_USER, ADD_TOKEN_TO_USER, RECEIVE_CURRENT_USER } from '../actions/user_actions.js';
+import { RECEIVE_USER, INITIALIZE_USER, ADD_TOKEN_TO_USER } from '../actions/user_actions.js';
 // import merge from 'lodash/merge';
 
 const defaultState = {};

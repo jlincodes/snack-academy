@@ -23,6 +23,6 @@ export const createNewUser = (user) => dispatch => (
   APIUtil.postUser(user).then(resp => dispatch(receiveUser(resp)))
 );
 
-export const verifyUser = (user) => dispatch => (
-  APIUtil.verifyUser(user).then(resp => dispatch(receiveUser(resp)))
+export const verifyUser = (facebookID) => dispatch => (
+  APIUtil.verifyUser(facebookID).then(resp => dispatch(receiveUser(resp)))
 );

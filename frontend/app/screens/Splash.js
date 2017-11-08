@@ -9,9 +9,13 @@ import {
   StyleSheet
 } from 'react-native';
 
+import { connect } from 'react-redux';
+
 import {
   AccessToken
 } from 'react-native-fbsdk';
+
+import { verifyUser } from '../actions/user_actions.js'
 
 
 class Splash extends React.Component {
@@ -24,6 +28,7 @@ class Splash extends React.Component {
     this.spring()
     AccessToken.getCurrentAccessToken().then(token => {
       if (token) {
+        this.props.verifyUser(token.userID)
         // firebase.database().ref(`/users/${token.userID}`)
         //         .on('value', (snap) => this.props.receiveCurrentUser(snap.val()));
         setTimeout(()=>  this.props.navigation.navigate('SimpleApp'), 2000)
@@ -66,4 +71,8 @@ const styles = StyleSheet.create({
 })
 
 
-export default Splash
+const mapDispatchToProps = (dispatch) => ({
+  verifyUser: (facebookID) => dispatch(verifyUser(facebookID))
+});
+
+export default connect(null, mapDispatchToProps)(Splash);

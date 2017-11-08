@@ -67,9 +67,4 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => ({
   order: state.cart
 });
-
-const mapDispatchToProps = (dispatch) => ({
-  requestAllProducts: () => dispatch(requestAllProducts())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Order);
+export default connect(mapStateToProps, null)(Order);
