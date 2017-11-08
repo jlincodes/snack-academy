@@ -1,15 +1,10 @@
 class Api::UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
 
-  def verify
-    # p params
+  def index
     @user = User.find_by(fbId: params[:user][:fbId])
     if @user
       render :show
     else
-      # puts "ERROR HERE: #{@user.errors.full_messages}"
       render json: "No such user found!", status: 404
     end
   end
