@@ -7,7 +7,7 @@
 
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { View, AsyncStorage } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import stripe from 'tipsi-stripe';
 
 import {addTokenToUser, createNewUser} from './actions/user_actions.js';
@@ -28,29 +28,39 @@ const theme = {
 };
 
 class NewCardPage extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {timePassed: false}
+  }
+
   componentDidMount() {
 
     const { navigate } = this.props.navigation;
 
     stripe.paymentRequestWithCardForm()
-      .then(responseToken => {
-        // collecting responseToken
-        // sending to backend w/ fetch to store customer
-        this.props.addTokenToUser(responseToken.tokenId);
-        let completeUser = this.props.user
-        this.props.createNewUser(completeUser)
-        .then(navigate('SimpleApp'));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    .then(responseToken => {
+      // collecting responseToken
+      // sending to backend w/ fetch to store customer
+      this.props.addTokenToUser(responseToken.tokenId);
+      let completeUser = this.props.user
+      this.props.createNewUser(completeUser)
+      .then(navigate('SimpleApp'));
+    })
+    .catch(error => {
+      console.log(error);
+    })
+
   }
+
   render() {
-    return(
-      <View />
-    );
+
+      return(
+        <View />
+      );
+    }
   }
-}
+
 
 const mapStateToProps = (state) => ({
   user: state.user
