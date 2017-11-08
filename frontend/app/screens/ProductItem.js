@@ -16,7 +16,6 @@ import { addItemToCart } from '../actions/cart_actions.js';
 class ProductItem extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 
   handleUSDConversion(cents){
@@ -75,7 +74,6 @@ class ProductItem extends React.Component {
 
 
   const mapDispatchToProps = (dispatch) => {
-    console.log('dispatch', dispatch);
     return (
       {
         addItemToCart: (item) => dispatch(addItemToCart(item))

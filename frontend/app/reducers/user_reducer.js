@@ -1,4 +1,4 @@
-import { RECEIVE_NEW_USER, INITIALIZE_USER, ADD_TOKEN_TO_USER } from '../actions/user_actions.js';
+import { RECEIVE_USER, INITIALIZE_USER, ADD_TOKEN_TO_USER } from '../actions/user_actions.js';
 // import merge from 'lodash/merge';
 
 const defaultState = {};
@@ -6,7 +6,7 @@ const defaultState = {};
 const UserReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_NEW_USER:
+    case RECEIVE_USER:
       return action.user.data;
     case INITIALIZE_USER:
       return Object.assign({}, state, action.user);
