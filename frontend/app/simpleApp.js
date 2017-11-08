@@ -84,14 +84,14 @@ class SimpleApp extends React.Component {
           <Container style={
               {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
                 alignItems: 'center', backgroundColor: '#1485CC'}}>
-                <TouchableOpacity onPress={() => navigate('Cart')}>
-                  <Text style={styles.navText}>Your Cart</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigate('CheckOut')}>
-                  <Text style={styles.navText}>Check Out</Text>
-                </TouchableOpacity>
-              </Container>
-            </View>
+            <TouchableOpacity onPress={() => navigate('Cart')}>
+              <Text style={styles.navText}>Your Cart</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate('CheckOut')}>
+              <Text style={styles.navText}>Check Out</Text>
+            </TouchableOpacity>
+          </Container>
+        </View>
           );
 
     } else {

@@ -33,7 +33,6 @@ class Signup extends React.Component {
     super(props)
     this.state = {email: ''}
     this.initUser = this.initUser.bind(this)
-    // this.setState = this.setState.bind(this)
   }
 
   initUser(token) {
@@ -58,7 +57,9 @@ class Signup extends React.Component {
   render() {
 
     return (
-      <View>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <HeaderBanner style={{ flex: 1, width: '100%'}}/>
+        <View style={{flex:4}} />
         <LoginButton
           readPermissions={["public_profile", "email"]}
           onLoginFinished={
@@ -70,20 +71,15 @@ class Signup extends React.Component {
               } else {
                 AccessToken.getCurrentAccessToken().then(
                   (data) => {
-                    // console.log(data);
-                    // const credential = firebase.auth.FacebookAuthProvider
-                    //                            .credential(data.accessToken);
-                    // console.log(credential);
                     const token = data.accessToken;
                     this.initUser(token)
-
-
                   }
                 )
               }
             }
           }
           onLogoutFinished={() => alert("logout.")}/>
+        <View style={{flex: 2}} />
       </View>
     );
   }
