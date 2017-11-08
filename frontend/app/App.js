@@ -20,8 +20,11 @@ const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: Splash
+      screen: NewCardPage
     },
+    // Index: {
+    //   screen: Splash
+    // },
     NewCardPage: {
       screen: NewCardPage
     },

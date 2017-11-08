@@ -7,7 +7,7 @@
 
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { View, AsyncStorage } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import stripe from 'tipsi-stripe';
 
 import {addTokenToUser, createNewUser} from './actions/user_actions.js';
@@ -28,29 +28,46 @@ const theme = {
 };
 
 class NewCardPage extends Component {
-  componentDidMount() {
+
+  constructor(props){
+    super(props)
+    this.state = {timePassed: false}
+  }
+
+  componentDidUpdate() {
 
     const { navigate } = this.props.navigation;
 
     stripe.paymentRequestWithCardForm()
-      .then(responseToken => {
-        // collecting responseToken
-        // sending to backend w/ fetch to store customer
-        this.props.addTokenToUser(responseToken.tokenId);
-        let completeUser = this.props.user
-        this.props.createNewUser(completeUser)
-        .then(navigate('SimpleApp'));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    .then(responseToken => {
+      // collecting responseToken
+      // sending to backend w/ fetch to store customer
+      this.props.addTokenToUser(responseToken.tokenId);
+      let completeUser = this.props.user
+      this.props.createNewUser(completeUser)
+      .then(navigate('SimpleApp'));
+    })
+    .catch(error => {
+      console.log(error);
+    })
+
   }
+
+  componentDidMount() {
+    setTimeout(() => { this.setState({ timePassed: true });}, 2000);
+
+  }
+
   render() {
-    return(
-      <View />
-    );
+
+      return(
+        <View style={{flex: 1, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center'}}>
+          <Image style={{ width: '70%', height: '18%'}} source={{uri: 'https://res.cloudinary.com/dql6mlrow/image/upload/v1510123211/stripe_logo.png'}} />
+        </View>
+      );
+    }
   }
-}
+
 
 const mapStateToProps = (state) => ({
   user: state.user
