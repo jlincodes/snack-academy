@@ -15,7 +15,7 @@ export const deleteItem = (cart, item ) => {
 
 export const formatOrder = (cart, user) => {
 
-  let order = { total: 0, items: [], user_id: user.id, auth_key: user.auth_key };
+  let order = { total: 0, items: [], user_id: user.id, fbId: user.fbId };
 
   cart.forEach((item) => {
     order.total += (item.price);

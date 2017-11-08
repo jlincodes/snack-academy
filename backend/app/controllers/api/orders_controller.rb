@@ -3,7 +3,11 @@ class Api::OrdersController < ApplicationController
   def create
     Stripe.api_key = ENV['SECRET_KEY']
     @order = Order.new(order_params)
+<<<<<<< HEAD
     user = User.find_by(fbId: params[:order][:fbId])
+=======
+    user = User.find_by(fbId: params[:user][:fbId])
+>>>>>>> c8be5475ad40c65a069a00e9afe1dfa6a969d6b4
     if user.fbId == params[:order][:fbId]
       charge = new_charge(user)
       if @order.save!
@@ -18,7 +22,7 @@ class Api::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :status)
+    params.require(:order).permit(:user_id, :total, :status)
   end
 
   def new_charge(user)

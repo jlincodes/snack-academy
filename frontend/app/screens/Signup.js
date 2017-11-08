@@ -18,14 +18,12 @@ import {
 import HeaderBanner from './HeaderBanner.js';
 import {initializeUser} from '../actions/user_actions.js';
 import NewCardPage from '../stripe_page.js';
-
+import StripeLogoPage from './StripeLogoPage.js'
 
 import {
   LoginButton,
   AccessToken
 } from 'react-native-fbsdk';
-
-import * as firebase from 'firebase';
 
 class Signup extends React.Component {
 
@@ -33,7 +31,6 @@ class Signup extends React.Component {
     super(props)
     this.state = {email: ''}
     this.initUser = this.initUser.bind(this)
-    // this.setState = this.setState.bind(this)
   }
 
   initUser(token) {
@@ -45,7 +42,7 @@ class Signup extends React.Component {
       this.setState({email: json.email, name: json.name, fbId: json.id})
       const user = this.state
       this.props.initializeUser(user)
-      navigate('NewCardPage')
+      navigate('StripeLogoPage')
     })
     .catch(() => {
       reject('ERROR GETTING DATA FROM FACEBOOK')
@@ -58,7 +55,9 @@ class Signup extends React.Component {
   render() {
 
     return (
-      <View>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <HeaderBanner style={{ flex: 1, width: '100%'}}/>
+        <View style={{flex:4}} />
         <LoginButton
           readPermissions={["public_profile", "email"]}
           onLoginFinished={
@@ -70,20 +69,15 @@ class Signup extends React.Component {
               } else {
                 AccessToken.getCurrentAccessToken().then(
                   (data) => {
-                    // console.log(data);
-                    // const credential = firebase.auth.FacebookAuthProvider
-                    //                            .credential(data.accessToken);
-                    // console.log(credential);
                     const token = data.accessToken;
                     this.initUser(token)
-
-
                   }
                 )
               }
             }
           }
           onLogoutFinished={() => alert("logout.")}/>
+        <View style={{flex: 2}} />
       </View>
     );
   }
