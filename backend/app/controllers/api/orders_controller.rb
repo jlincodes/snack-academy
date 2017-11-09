@@ -18,7 +18,7 @@ class Api::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :total, :status)
+    params.require(:order).permit(:user_id, :status)
   end
 
   def new_charge(user)
