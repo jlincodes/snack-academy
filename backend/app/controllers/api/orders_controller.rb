@@ -3,8 +3,8 @@ class Api::OrdersController < ApplicationController
   def create
     Stripe.api_key = ENV['SECRET_KEY']
     @order = Order.new(order_params)
-    user = User.find(params[:order][:user_id])
-    if user.auth_key == params[:order][:auth_key]
+    user = User.find_by(fbId: params[:order][:fbId])
+    if user
       charge = new_charge(user)
       if @order.save!
         make_items

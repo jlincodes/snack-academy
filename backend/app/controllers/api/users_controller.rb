@@ -1,15 +1,10 @@
 class Api::UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
 
-  def verify
-    # p params
-    @user = User.find_by(auth_key: params[:user][:auth_key])
+  def index
+    @user = User.find_by(fbId: params[:user][:fbId])
     if @user
       render :show
     else
-      # puts "ERROR HERE: #{@user.errors.full_messages}"
       render json: "No such user found!", status: 404
     end
   end
@@ -33,6 +28,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :name, :stripe_token)
+    params.require(:user).permit(:email, :name, :stripe_token, :fbId)
   end
 end

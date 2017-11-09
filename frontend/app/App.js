@@ -8,7 +8,8 @@ import CheckOut from './screens/CheckOut.js';
 import Confirmation from './screens/Confirmation.js';
 import HeaderBanner from './screens/HeaderBanner.js';
 import Signup from './screens/Signup.js';
-
+import Splash from './screens/Splash.js';
+import StripeLogoPage from './screens/StripeLogoPage.js'
 import NewCardPage from './stripe_page.js';
 
 import InitialScreen from './screens/initial_screen.js';
@@ -19,7 +20,10 @@ const AppNavigator = StackNavigator(
 
   {
     Index: {
-      screen: Signup
+      screen: Splash
+    },
+    StripeLogoPage: {
+      screen: StripeLogoPage
     },
     NewCardPage: {
       screen: NewCardPage
