@@ -12,9 +12,14 @@ export const postUser = (user) => (
   axios.post('https://snackacademy.herokuapp.com/api/users', user)
 );
 
+
 export const verifyUser = (user) => (
-  axios.get('https://snackacademy.herokuapp.com/api/users/verify', user)
-)
+  axios.get(`https://snackacademy.herokuapp.com/api/users?user[fbId]=${user.fbId}`)
+);
+
+// export const verifyUser = (user) => (
+//   axios.get('https://snackacademy.herokuapp.com/api/users/verify', user)
+// )
 
 // export const getProducts = () => (
 //   axios.get('http://localhost:3000/api/products')

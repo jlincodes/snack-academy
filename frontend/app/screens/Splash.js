@@ -29,7 +29,8 @@ class Splash extends React.Component {
     AccessToken.getCurrentAccessToken().then(token => {
       if (token) {
         console.log(token);
-        const userObject = {user: {fbId: token.userID}}
+        const fbId = parseInt(token.userID)
+        const userObject = {fbId: fbId}
         console.log(userObject);
         this.props.verifyUser(userObject)
         // firebase.database().ref(`/users/${token.userID}`)
