@@ -9,7 +9,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-import { Container } from 'native-base';
+
 import Order from './Order.js';
 import HeaderBanner from './HeaderBanner.js';
 import {connect} from 'react-redux';

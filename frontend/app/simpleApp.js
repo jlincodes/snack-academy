@@ -10,8 +10,9 @@ import {
   TouchableOpacity,
   WebView
 } from 'react-native';
+import { Container } from 'native-base';
 import { TabNavigator} from 'react-navigation';
-import { Container, Header, Left, Body, Right, Icon, Title } from 'native-base';
+import { Header, Left, Body, Right, Icon, Title } from 'native-base';
 import HeaderBanner from './screens/HeaderBanner.js';
 
 // import { Provider } from 'react-redux';
@@ -21,6 +22,8 @@ import FoodScreen from './screens/FoodScreen.js';
 import { requestAllProducts } from './actions/product_actions.js';
 // import configureStore from './store/store.js';
 import { connect } from 'react-redux';
+
+import FooterNav from './screens/FooterNav.js';
 
 
 //routes
@@ -73,33 +76,15 @@ class SimpleApp extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
-    // if(this.state.loaded) {
-
-      return (
-        <View style={{flex: 1, justifyContent: 'center'}}>
-          <HeaderBanner style={{flex: 1}}/>
-          <View style={{backgroundColor: '#f7f7f7', flex: 10}}>
-            <Menu />
-          </View>
-          <Container style={
-              {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
-                alignItems: 'center', backgroundColor: '#1485CC'}}>
-            <TouchableOpacity onPress={() => navigate('Cart')}>
-              <Text style={styles.navText}>Your Cart</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigate('CheckOut')}>
-              <Text style={styles.navText}>Check Out</Text>
-            </TouchableOpacity>
-          </Container>
+    return (
+      <View style={{flex: 1, justifyContent: 'center'}}>
+        <HeaderBanner style={{flex: 1}}/>
+        <View style={{backgroundColor: '#f7f7f7', flex: 10}}>
+          <Menu />
         </View>
-          );
-
-    // } else {
-    //   return (
-    //     <View style={{flex: 1, height: '100%', width: '100%', backgroundColor: 'grey'}}>
-    //     </View>
-    //   );
-    // }
+        <FooterNav />
+      </View>
+    );
   }
 }
 

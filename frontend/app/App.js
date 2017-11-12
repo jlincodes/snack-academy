@@ -12,7 +12,6 @@ import Splash from './screens/Splash.js';
 import StripeLogoPage from './screens/StripeLogoPage.js'
 import NewCardPage from './stripe_page.js';
 
-import InitialScreen from './screens/initial_screen.js';
 import { StackNavigator} from 'react-navigation';
 
 
