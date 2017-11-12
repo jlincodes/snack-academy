@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 
 import HeaderBanner from './HeaderBanner.js';
 import ConfirmationInfo from './ConfirmationInfo.js'
-import { clearCart, clearConfirmation } from '../actions/cart_actions.js';
+import { clearCart } from '../actions/cart_actions.js';
 
 class Confirmation extends React.Component {
 
@@ -26,7 +26,6 @@ class Confirmation extends React.Component {
   handleBackToMenu() {
     const { goBack, navigate } = this.props.navigation;
     this.props.clearCart();
-    this.props.clearConfirmation();
     navigate('SimpleApp');
   }
   // let orderConfirmed = require('../images/order_confirmed.png');
@@ -66,8 +65,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  clearCart: () => dispatch(clearCart()),
-  clearConfirmation: () => dispatch(clearConfirmation())
+  clearCart: () => dispatch(clearCart())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Confirmation);

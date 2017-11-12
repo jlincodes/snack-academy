@@ -14,7 +14,7 @@ import Order from './Order.js';
 import HeaderBanner from './HeaderBanner.js';
 import {connect} from 'react-redux';
 
-import {createOrder, receiveConfirmation} from '../actions/cart_actions.js';
+import {createOrder, receiveConfirmation, clearConfirmation} from '../actions/cart_actions.js';
 import {receiveOrderErrors} from '../actions/errors_actions.js';
 import { formatOrder } from '../reducers/selectors.js';
 
@@ -27,10 +27,11 @@ class CheckOut extends React.Component {
 
 // make sure to reset back to true
   sendOrder(){
-    this.setState({buttonClicked: false});
+    this.setState({buttonClicked: true});
     let { navigate } = this.props.navigation;
     let order = this.props.formatOrder;
     console.log(order);
+    this.props.clearConfirmation();
     this.props.createOrder(order)
 
     navigate('Confirmation');
@@ -97,6 +98,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createOrder: (order) => dispatch(createOrder(order)),
+  clearConfirmation: () => dispatch(clearConfirmation()),
   receiveConfirmation: () => dispatch(receiveConfirmation()),
   receiveOrderErrors: (errors) => dispatch(receiveOrderErrors(errors))
 });
