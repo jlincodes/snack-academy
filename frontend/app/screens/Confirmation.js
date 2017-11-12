@@ -13,6 +13,7 @@ import { Container } from 'native-base';
 import { connect } from 'react-redux';
 
 import HeaderBanner from './HeaderBanner.js';
+import ConfirmationInfo from './ConfirmationInfo.js'
 import { clearCart, clearConfirmation } from '../actions/cart_actions.js';
 
 class Confirmation extends React.Component {
@@ -34,34 +35,21 @@ class Confirmation extends React.Component {
   render() {
     let confirmationId = this.props.confirmation.id;
 
-    if (confirmationId) {
 
-      return (
-        <View style={{flex: 1}}>
-          <HeaderBanner style={{flex: 1}}/>
-          <View style={{flex: 10, backgroundColor: '#f7f7f7',
-            alignItems: 'center'}}>
-            <Text style={styles.text}>Your order has been confirmed.</Text>
-            <Text style={styles.text}>{`Your order number is: #${confirmationId}`}</Text>
-            <Text style={styles.text}>
-              Pick Up Instructions: Your order will be ready for pick up during your break at 3:45 PM.
-            </Text>
-          </View>
+    return (
+      <View style={{flex: 1}}>
+        <HeaderBanner style={{flex: 1}}/>
 
-          <Container style={
-            {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
-            alignItems: 'center', backgroundColor: '#1485CC'}}>
-            <TouchableOpacity onPress={() => this.handleBackToMenu()}>
-              <Text style={{color: '#FFFFFF', fontSize: 18}}>Back to Menu</Text>
-            </TouchableOpacity>
-          </Container>
+        <ConfirmationInfo style={{flex: 10}}confirmationId={confirmationId} />
+        <View style={
+          {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
+          alignItems: 'center', backgroundColor: '#1485CC'}}>
+          <TouchableOpacity onPress={() => this.handleBackToMenu()}>
+            <Text style={{color: '#FFFFFF', fontSize: 18}}>Back to Menu</Text>
+          </TouchableOpacity>
         </View>
-      );
-    } else {
-      return(
-        <View />
-      )
-    }
+      </View>
+    )
   }
 }
 
