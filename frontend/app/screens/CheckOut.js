@@ -31,7 +31,8 @@ class CheckOut extends React.Component {
     let { navigate } = this.props.navigation;
     let order = this.props.formatOrder;
     console.log(order);
-    this.props.createOrder(order);
+    this.props.createOrder(order)
+
     navigate('Confirmation');
   }
 

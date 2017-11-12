@@ -3,6 +3,8 @@ import * as APIUtil from '../api_util/api_util.js';
 export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART';
 export const DELETE_ITEM_FROM_CART = 'DELETE_ITEM_FROM_CART';
 export const RECEIVE_CONFIRMATION = 'RECEIVE_CONFIRMATION';
+export const CLEAR_CONFIRMATION = 'CLEAR_CONFIRMATION';
+
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const CLEAR_CART = "CLEAR_CART";
 
@@ -20,6 +22,12 @@ export const receiveConfirmation = (confirmation) => ({
   type: RECEIVE_CONFIRMATION,
   confirmation
 });
+
+export const clearConfirmation = () => ({
+  type: CLEAR_CONFIRMATION
+});
+
+
 
 export const clearCart = () => ({
   type: CLEAR_CART
