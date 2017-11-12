@@ -67,22 +67,22 @@ class SimpleApp extends React.Component {
 
     this.props.requestAllProducts();
   }
-
-  componentDidMount(){
-    this.setState({loaded: true});
-  }
+  // 
+  // componentDidMount(){
+  //   this.setState({loaded: true});
+  // }
 
 
   render() {
     const { navigate } = this.props.navigation;
-
+    console.log('this is the menu', navigate);
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
         <HeaderBanner style={{flex: 1}}/>
         <View style={{backgroundColor: '#f7f7f7', flex: 10}}>
           <Menu />
         </View>
-        <FooterNav />
+        <FooterNav navigate={navigate}/>
       </View>
     );
   }

@@ -20,7 +20,7 @@ class Cart extends React.Component {
   render() {
     let cart = this.props.cart;
     const { goBack, navigate } = this.props.navigation;
-
+    console.log('these are the cart props', this.props);
     if (cart.length === 0) {
 
       return (

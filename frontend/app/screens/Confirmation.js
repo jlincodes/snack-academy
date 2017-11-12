@@ -17,12 +17,16 @@ import { clearCart } from '../actions/cart_actions.js';
 
 class Confirmation extends React.Component {
 
+
   componentWillMount(){
     this.props.clearCart();
+
   }
 
   // let orderConfirmed = require('../images/order_confirmed.png');
   // <Image style={{flex: 7, width: 400}} source={orderConfirmed}/>
+
+
 
   render() {
     const { goBack, navigate } = this.props.navigation;

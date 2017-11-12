@@ -2,6 +2,8 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
+  AppRegistry,
+  ScrollView,
   View,
   Button,
   Image,
@@ -10,7 +12,7 @@ import {
 } from 'react-native';
 import { TabNavigator} from 'react-navigation';
 import {connect} from 'react-redux';
-import { Container } from 'native-base';
+
 
 class FooterNav extends React.Component {
   constructor(props){
@@ -18,30 +20,26 @@ class FooterNav extends React.Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation;
+    //below is tricky, NOT navigation, but props being passed into it by parent component
+    const navigate = this.props.navigate;
 
-    console.log('these are the props', this.props);
     let cart = this.props.cart;
-
-    // return (
-    //   <View />
-    // );
 
     if(cart.length === 0) {
 
       return (
-        <Container style={
+        <View style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
           <TouchableOpacity onPress={() => navigate('Cart')}>
           <Text style={styles.navText}>Your Cart</Text>
           </TouchableOpacity>
-        </Container>
+        </View>
       );
     } else {
 
       return (
-        <Container style={
+        <View style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
           <TouchableOpacity onPress={() => navigate('Cart')}>
@@ -50,7 +48,7 @@ class FooterNav extends React.Component {
           <TouchableOpacity onPress={() => navigate('CheckOut')}>
           <Text style={styles.navText}>Check Out</Text>
           </TouchableOpacity>
-        </Container>
+        </View>
       );
     }
   }
@@ -69,10 +67,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-
-const mapDispatchToProps = (dispatch) => ({
-  navigation: (route) => dispatch(navigation(route))
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(FooterNav);
+export default connect(mapStateToProps, null)(FooterNav);
