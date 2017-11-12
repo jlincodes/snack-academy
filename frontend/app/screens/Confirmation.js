@@ -26,8 +26,6 @@ class Confirmation extends React.Component {
   // let orderConfirmed = require('../images/order_confirmed.png');
   // <Image style={{flex: 7, width: 400}} source={orderConfirmed}/>
 
-
-
   render() {
     const { goBack, navigate } = this.props.navigation;
     let confirmationId = this.props.confirmation.id;
