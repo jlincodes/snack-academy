@@ -51,7 +51,7 @@ class Cart extends React.Component {
             </Text>
           </View>
           <View style={styles.cartHead}>
-            <Text style={styles.cartHeadText}>Item Name</Text>
+            <Text style={styles.cartHeadText}>Snack</Text>
             <Text style={styles.cartHeadText}>Price</Text>
           </View>
           <View style={{flex: 8}}>
@@ -83,12 +83,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginRight: 30,
-    marginLeft: 30
+    marginLeft: 30,
+    marginTop: 20
   },
   cartHeadText: {
-    fontSize: 16,
+    fontSize: 24,
     color: '#444444',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textDecorationLine: 'underline'
   },
   text: {
     fontSize: 16,
