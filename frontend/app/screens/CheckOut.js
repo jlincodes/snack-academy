@@ -49,12 +49,12 @@ class CheckOut extends React.Component {
     return (
       <View style={{flex: 1}}>
         <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: 1, justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', color: 'black'}}>Confirm Order</Text>
+        <View style={{flex: 1, justifyContent: 'center', borderWidth: 2, borderColor: '#d6d7da'}}>
+          <Text style={{alignSelf: 'center', color: 'black', fontSize: 30}}>Confirm Order</Text>
         </View>
         <View style={styles.checkOutHead}>
-          <Text style={styles.checkOutHeadText}>Item</Text>
-          <Text style={styles.checkOutHeadText}>Amount</Text>
+          <Text style={styles.checkOutHeadText}>Snack</Text>
+          <Text style={styles.checkOutHeadText}>Price</Text>
         </View>
         <Order />
         <View style={
@@ -78,12 +78,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginRight: 30,
-    marginLeft: 30
+    marginLeft: 30,
+    marginTop: 20
   },
   checkOutHeadText: {
-    fontSize: 16,
+    fontSize: 24,
     color: '#444444',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textDecorationLine: 'underline'
   },
   text: {
     fontSize: 16,

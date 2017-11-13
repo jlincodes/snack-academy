@@ -19,8 +19,8 @@ class OrderItem extends React.Component {
 
       return (
         <View style={styles.orderItem}>
-          <Text>{product.name}</Text>
-          <Text>{this.handleUSDConversion(product.price)}</Text>
+          <Text style={{fontWeight: 'bold'}}>{product.name}</Text>
+          <Text style={{fontWeight: 'bold'}}>{this.handleUSDConversion(product.price)}</Text>
         </View>
       );
     }
