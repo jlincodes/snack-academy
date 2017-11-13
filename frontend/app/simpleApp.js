@@ -67,7 +67,7 @@ class SimpleApp extends React.Component {
 
     this.props.requestAllProducts();
   }
-  // 
+  //
   // componentDidMount(){
   //   this.setState({loaded: true});
   // }
@@ -78,7 +78,7 @@ class SimpleApp extends React.Component {
     console.log('this is the menu', navigate);
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
-        <HeaderBanner style={{flex: 1}}/>
+        <HeaderBanner />
         <View style={{backgroundColor: '#f7f7f7', flex: 10}}>
           <Menu />
         </View>
