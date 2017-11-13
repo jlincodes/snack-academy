@@ -28,8 +28,6 @@ class Confirmation extends React.Component {
     this.props.clearCart();
     navigate('SimpleApp');
   }
-  // let orderConfirmed = require('../images/order_confirmed.png');
-  // <Image style={{flex: 7, width: 400}} source={orderConfirmed}/>
 
   render() {
     let confirmationId = this.props.confirmation.id;
