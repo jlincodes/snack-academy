@@ -48,15 +48,16 @@ class ConfirmationInfo extends React.Component {
       outputRange: ['0deg', '360deg']
     })
 
-    //eventually make this base on today's date and get last two numbers of conf
+    //eventually make this base on today's date and get last two numbers of cong
     let confirmationId = this.props.confirmationId
     if (confirmationId) {
       return(
-        <View style={{flex: 10, backgroundColor: '#f7f7f7', alignItems: 'center'}}>
-          <Text style={styles.text}>Your order has been confirmed.</Text>
-          <Text style={styles.text}>{`Your order number is: #${confirmationId}`}</Text>
-          <Text style={styles.text}>
-          Pick Up Instructions: Your order will be ready for pick up during your break at 3:45 PM.
+        <View style={{flex: 10, backgroundColor: '#f7f7f7', justifyContent: 'space-around', alignItems: 'center'}}>
+          <Text style={{fontSize: 40}}>Confirmed!</Text>
+          <Text style={{fontSize: 30}}>Order Number:</Text>
+          <Text style={{fontSize: 60}}>{confirmationId}</Text>
+          <Text style={{fontSize: 20}}>
+            Pick up at 3:45 PM
           </Text>
         </View>
       )
