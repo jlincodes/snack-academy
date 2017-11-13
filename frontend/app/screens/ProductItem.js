@@ -38,10 +38,9 @@ class ProductItem extends React.Component {
             {`${name}\n${description}\n${price}`}
           </Text>
         </View>
-
-        <Button
-          title='add item to cart'
-          onPress={() => this.props.addItemToCart(product)}/>
+        <TouchableOpacity style={{backgroundColor: '#1485CC', height: '100%', width: '100%', flex: 2, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.addItemToCart(product)}>
+          <Text style={{color: 'white', fontSize: 22, height: '90%'}}>Add to cart</Text>
+        </TouchableOpacity>
       </View>
     );
   }
