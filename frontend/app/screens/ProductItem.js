@@ -29,7 +29,7 @@ class ProductItem extends React.Component {
     let description = product.description;
     let price = this.handleUSDConversion(product.price);
     return (
-      <View>
+      <View style={{ borderWidth: 2, borderColor: '#d6d7da'}}>
         <View style={styles.menuItem}>
           <Image
             style={styles.image}

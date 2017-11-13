@@ -57,7 +57,7 @@ class FooterNav extends React.Component {
 const styles = StyleSheet.create({
   navText: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: 24,
   }
 });
 

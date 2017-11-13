@@ -42,7 +42,8 @@ const Menu = TabNavigator({
      inactiveTintColor: '#666666',
      inactiveBackgroundColor: '#bfbfbf',
      labelStyle: {
-        fontSize: 18,
+        fontSize: 24,
+        fontWeight: 'bold'
       },
       style: {
         backgroundColor: '#d3d3d3'

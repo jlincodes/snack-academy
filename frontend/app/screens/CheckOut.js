@@ -61,10 +61,10 @@ class CheckOut extends React.Component {
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
           <TouchableOpacity onPress={() => navigate('Cart')} disabled={this.state.buttonClicked}>
-            <Text style={{color: '#FFFFFF', fontSize: 18}}>View Cart</Text>
+            <Text style={{color: '#FFFFFF', fontSize: 24}}>View Cart</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.sendOrder()} disabled={this.state.buttonClicked}>
-            <Text style={{color: '#FFFFFF', fontSize: 18}}>Confirm Order</Text>
+            <Text style={{color: '#FFFFFF', fontSize: 24}}>Confirm Order</Text>
           </TouchableOpacity>
         </View>
       </View>

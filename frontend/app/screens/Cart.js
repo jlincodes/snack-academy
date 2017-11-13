@@ -34,7 +34,7 @@ class Cart extends React.Component {
             {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
             alignItems: 'center', backgroundColor: '#1485CC'}}>
             <TouchableOpacity onPress={() => navigate('SimpleApp')}>
-              <Text style={{color: '#FFFFFF', fontSize: 18}}>Back to Menu</Text>
+              <Text style={{color: '#FFFFFF', fontSize: 24}}>Back to Menu</Text>
             </TouchableOpacity>
           </Container>
         </View>
@@ -65,10 +65,10 @@ class Cart extends React.Component {
             {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
             alignItems: 'center', backgroundColor: '#1485CC'}}>
             <TouchableOpacity onPress={() => navigate('SimpleApp')}>
-              <Text style={{color: '#FFFFFF', fontSize: 18}}>Back to Menu</Text>
+              <Text style={{color: '#FFFFFF', fontSize: 24}}>View Menu</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigate('CheckOut')}>
-              <Text style={{color: '#FFFFFF', fontSize: 18}}>Check Out</Text>
+              <Text style={{color: '#FFFFFF', fontSize: 24}}>Check Out</Text>
             </TouchableOpacity>
           </Container>
         </View>
