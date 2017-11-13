@@ -52,12 +52,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 30,
     marginRight: 30,
+    marginTop: 40
   },
   totalText: {
     fontSize: 30,
     color: '#333333',
     fontWeight: 'bold',
-    flex: 1
+    flex: 1,
   },
   total: {
     fontSize: 30,

@@ -23,7 +23,7 @@ class CartItem extends React.Component {
             <Text style={{fontSize: 20, fontWeight: 'bold'}}>{this.handleUSDConversion(product.price)}</Text>
           </View>
           <TouchableOpacity style={{backgroundColor: '#C00A0A', height: '60%', width: '100%', flex: 2, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.deleteItemFromCart(product)}>
-            <Text style={{color: 'white', fontSize: 16, height: '90%'}}>Remove</Text>
+            <Text style={{color: 'white', fontSize: 20, height: '90%'}}>Remove</Text>
           </TouchableOpacity>
         </View>
       );

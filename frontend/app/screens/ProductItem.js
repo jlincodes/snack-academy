@@ -39,7 +39,7 @@ class ProductItem extends React.Component {
           </Text>
         </View>
         <TouchableOpacity style={{backgroundColor: '#1485CC', height: '100%', width: '100%', flex: 2, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.addItemToCart(product)}>
-          <Text style={{color: 'white', fontSize: 22, height: '90%'}}>Add to cart</Text>
+          <Text style={{color: 'white', fontSize: 22, height: '90%'}}>Add to Cart</Text>
         </TouchableOpacity>
       </View>
     );
