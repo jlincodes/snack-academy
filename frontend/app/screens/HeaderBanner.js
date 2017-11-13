@@ -13,10 +13,3 @@ class HeaderBanner extends React.Component {
 }
 
 export default HeaderBanner;
-
-  // <Image source={{uri: "https://res.cloudinary.com/dql6mlrow/image/upload/v1510548598/SnackAcademyLogo.png"}} />
-
-  // <Header style={{ backgroundColor: '#C00A0A'}}>
-  //     <Title style={{color: 'white', fontSize: 30,
-  //       justifyContent: 'center', marginTop: 5}}>SnackAcademy</Title>
-  // </Header>
