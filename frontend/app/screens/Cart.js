@@ -25,7 +25,7 @@ class Cart extends React.Component {
 
       return (
         <View style={{flex: 1, justifyContent: 'center'}}>
-          <HeaderBanner style={{flex: 1}}/>
+          <HeaderBanner />
           <View style={{flex: 9, alignItems: 'center', justifyContent: 'space-around'}}>
             <Image style={{width: 180, height: 180 }} resizeMode="cover" source={{uri: "https://res.cloudinary.com/dql6mlrow/image/upload/v1510175745/comic-characters-2026645_640_aya8y3.png"}} />
             <Text style={{fontSize: 28}}>Cart is Empty</Text>
@@ -44,9 +44,9 @@ class Cart extends React.Component {
 
       return (
         <View style={{flex: 1, justifyContent: 'center'}}>
-          <HeaderBanner style={{flex: 1}}/>
-          <View style={{flex: 1, justifyContent: 'center'}}>
-            <Text style={{alignSelf: 'center', color: 'black', fontSize: 18}}>
+          <HeaderBanner />
+          <View style={{flex: 1, justifyContent: 'center', borderWidth: 2, borderColor: '#d6d7da'}}>
+            <Text style={{alignSelf: 'center', color: 'black', fontSize: 30}}>
               Your Cart
             </Text>
           </View>
@@ -54,7 +54,7 @@ class Cart extends React.Component {
             <Text style={styles.cartHeadText}>Item Name</Text>
             <Text style={styles.cartHeadText}>Price</Text>
           </View>
-          <View style={{flex: 9}}>
+          <View style={{flex: 8}}>
             <FlatList
               data={cart}
               renderItem={({item}) => <CartItem style={styles.text} product={item}/>}

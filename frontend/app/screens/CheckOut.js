@@ -48,7 +48,7 @@ class CheckOut extends React.Component {
     let { navigate } = this.props.navigation;
     return (
       <View style={{flex: 1}}>
-        <HeaderBanner style={{flex: 1}}/>
+        <HeaderBanner />
         <View style={{flex: 1, justifyContent: 'center', borderWidth: 2, borderColor: '#d6d7da'}}>
           <Text style={{alignSelf: 'center', color: 'black', fontSize: 30}}>Confirm Order</Text>
         </View>
