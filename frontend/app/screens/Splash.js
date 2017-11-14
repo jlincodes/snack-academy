@@ -59,8 +59,8 @@ class Splash extends React.Component {
     return (
       <View style={styles.container}>
         <Animated.Image
-          style={{ width: 227, height: 200, transform: [{scale: this.springValue}] }}
-          source={{uri: 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfarennikov/images/1198519/reactjs.png'}}/>
+          style={{ width: 200, height: 200, transform: [{scale: this.springValue}] }}
+          source={{uri: 'https://res.cloudinary.com/dql6mlrow/image/upload/v1510631234/Screen_Shot_2017-11-13_at_7.46.06_PM_ymjyr9.png'}}/>
       </View>
     )
   }
@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'white'
   }
 })
 

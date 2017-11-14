@@ -30,7 +30,7 @@ class CheckOut extends React.Component {
     this.setState({buttonClicked: true});
     let { navigate } = this.props.navigation;
     let order = this.props.formatOrder;
-    console.log(order);
+    
     this.props.clearConfirmation();
     this.props.createOrder(order)
 
@@ -84,8 +84,7 @@ const styles = StyleSheet.create({
   checkOutHeadText: {
     fontSize: 24,
     color: '#444444',
-    fontWeight: 'bold',
-    textDecorationLine: 'underline'
+    fontWeight: 'bold'
   },
   text: {
     fontSize: 16,

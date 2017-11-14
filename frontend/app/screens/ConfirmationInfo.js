@@ -52,7 +52,7 @@ class ConfirmationInfo extends React.Component {
     let confirmationId = this.props.confirmationId
     if (confirmationId) {
       return(
-        <View style={{flex: 10, backgroundColor: '#f7f7f7', justifyContent: 'space-around', alignItems: 'center'}}>
+        <View style={{flex: 10, backgroundColor: 'white', justifyContent: 'space-around', alignItems: 'center'}}>
           <Text style={{fontSize: 40}}>Confirmed!</Text>
           <Text style={{fontSize: 30}}>Order Number:</Text>
           <Text style={{fontSize: 60}}>{confirmationId}</Text>
@@ -63,9 +63,9 @@ class ConfirmationInfo extends React.Component {
       )
     } else {
       return(
-        <View style={{flex: 10, backgroundColor: '#f7f7f7', alignItems: 'center', justifyContent: 'center'}}>
-        <Animated.Image style={{ width: 114, height: 100, transform: [{rotate: spinIt }] }}
-          source={{uri: 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfarennikov/images/1198519/reactjs.png'}}/>
+        <View style={{flex: 10, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'}}>
+          <Animated.Image style={{ width: 200, height: 200, transform: [{rotate: spinIt }] }}
+          resizeMode="cover" source={{uri: 'https://res.cloudinary.com/dql6mlrow/image/upload/v1510631234/Screen_Shot_2017-11-13_at_7.46.06_PM_ymjyr9.png'}}/>
         </View>
       )
     }
