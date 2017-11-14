@@ -29,22 +29,27 @@ class ProductItem extends React.Component {
     let description = product.description;
     let price = this.handleUSDConversion(product.price);
     return (
-      <View style={{ borderWidth: 3, borderColor: '#283954', backgroundColor: 'white'}}>
+      <TouchableOpacity style={{ borderWidth: 2, borderColor: '#283954', backgroundColor: 'white'}} onPress={() => this.props.addItemToCart(product)}>
         <View style={styles.menuItem}>
           <Image
             style={styles.image}
             source={{uri: product.img_url}} />
-          <Text style={styles.text}>
-            {`${name}\n${description}\n${price}`}
-          </Text>
+          <View style={{flex: 1, justifyContent: 'space-around'}}>
+            <Text style={styles.text}>
+              {`${name}\n${description}`}
+            </Text>
+            <Text style={{fontSize: 20}}>{price}</Text>
+          </View>
         </View>
-        <TouchableOpacity style={{backgroundColor: '#1485CC', height: '100%', width: '100%', flex: 2, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.addItemToCart(product)}>
-          <Text style={{color: 'white', fontSize: 22, height: '90%'}}>Add to Cart</Text>
-        </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
+
+
+// <TouchableOpacity style={{backgroundColor: '#1485CC', height: '100%', width: '100%', flex: 2, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.addItemToCart(product)}>
+//   <Text style={{color: 'white', fontSize: 22, height: '90%'}}>Add to Cart</Text>
+// </TouchableOpacity>
 
   const styles = StyleSheet.create({
     menuItem: {

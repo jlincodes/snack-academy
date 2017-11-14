@@ -43,7 +43,8 @@ const Menu = TabNavigator({
      inactiveBackgroundColor: '#bfbfbf',
      labelStyle: {
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+
       },
       style: {
         backgroundColor: '#d3d3d3'
@@ -51,8 +52,8 @@ const Menu = TabNavigator({
       indicatorStyle: {
         backgroundColor: '#1485CC'
       }
-   }
-}
+   },
+ }
 );
 
 // if flexing, the way to change heights of header and footer is by

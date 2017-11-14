@@ -89,8 +89,7 @@ const styles = StyleSheet.create({
   cartHeadText: {
     fontSize: 24,
     color: '#444444',
-    fontWeight: 'bold',
-    textDecorationLine: 'underline'
+    fontWeight: 'bold'
   },
   text: {
     fontSize: 16,
