@@ -33,6 +33,7 @@ class Order extends React.Component {
         <FlatList
           style={{flex: 6}}
           data={order}
+          showsHorizontalScrollIndicator={false}
           renderItem={({item}) => <OrderItem style={styles.text} product={item}/>}
           keyExtractor={(item, index) => index}
         />

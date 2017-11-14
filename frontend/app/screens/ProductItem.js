@@ -29,7 +29,7 @@ class ProductItem extends React.Component {
     let description = product.description;
     let price = this.handleUSDConversion(product.price);
     return (
-      <TouchableOpacity style={{ borderWidth: 2, borderColor: '#283954', backgroundColor: 'white'}} onPress={() => this.props.addItemToCart(product)}>
+      <TouchableOpacity style={{ borderWidth: 1, borderColor: '#1485CC', backgroundColor: 'white'}} onPress={() => this.props.addItemToCart(product)}>
         <View style={styles.menuItem}>
           <Image
             style={styles.image}
@@ -65,9 +65,9 @@ class ProductItem extends React.Component {
       marginLeft: 15
     },
     text: {
-      fontSize: 16,
+      fontSize: 20,
       fontWeight: 'bold',
-      color: '#555555'
+      color: 'black'
     }
   });
 

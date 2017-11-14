@@ -57,6 +57,7 @@ class Cart extends React.Component {
           <View style={{flex: 8}}>
             <FlatList
               data={cart}
+              showsHorizontalScrollIndicator={false}
               renderItem={({item}) => <CartItem style={styles.text} product={item}/>}
               keyExtractor={(item, index) => index}
             />
