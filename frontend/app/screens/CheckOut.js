@@ -30,7 +30,7 @@ class CheckOut extends React.Component {
     this.setState({buttonClicked: true});
     let { navigate } = this.props.navigation;
     let order = this.props.formatOrder;
-    console.log(order);
+    
     this.props.clearConfirmation();
     this.props.createOrder(order)
 
@@ -48,23 +48,23 @@ class CheckOut extends React.Component {
     let { navigate } = this.props.navigation;
     return (
       <View style={{flex: 1}}>
-        <HeaderBanner style={{flex: 1}}/>
-        <View style={{flex: 1, justifyContent: 'center'}}>
-          <Text style={{alignSelf: 'center', color: 'black'}}>Confirm Order</Text>
+        <HeaderBanner />
+        <View style={{flex: 1, justifyContent: 'center', borderWidth: 2, borderColor: '#d6d7da'}}>
+          <Text style={{alignSelf: 'center', color: 'black', fontSize: 30}}>Confirm Order</Text>
         </View>
         <View style={styles.checkOutHead}>
-          <Text style={styles.checkOutHeadText}>Item</Text>
-          <Text style={styles.checkOutHeadText}>Amount</Text>
+          <Text style={styles.checkOutHeadText}>Snack</Text>
+          <Text style={styles.checkOutHeadText}>Price</Text>
         </View>
         <Order />
         <View style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
           <TouchableOpacity onPress={() => navigate('Cart')} disabled={this.state.buttonClicked}>
-            <Text style={{color: '#FFFFFF', fontSize: 18}}>View Cart</Text>
+            <Text style={{color: '#FFFFFF', fontSize: 24}}>View Cart</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.sendOrder()} disabled={this.state.buttonClicked}>
-            <Text style={{color: '#FFFFFF', fontSize: 18}}>Confirm Order</Text>
+            <Text style={{color: '#FFFFFF', fontSize: 24}}>Confirm Order</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -78,10 +78,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginRight: 30,
-    marginLeft: 30
+    marginLeft: 30,
+    marginTop: 20
   },
   checkOutHeadText: {
-    fontSize: 16,
+    fontSize: 24,
     color: '#444444',
     fontWeight: 'bold'
   },

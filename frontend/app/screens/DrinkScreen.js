@@ -28,6 +28,7 @@ class DrinksScreen extends React.Component {
       <View>
         <FlatList
           data={drinks}
+          showsHorizontalScrollIndicator={false}
           renderItem={({item}) => <ProductItem product={item}/>}
           keyExtractor={(item, index) => index}
         />

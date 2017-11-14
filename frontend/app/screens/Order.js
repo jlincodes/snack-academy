@@ -33,12 +33,13 @@ class Order extends React.Component {
         <FlatList
           style={{flex: 6}}
           data={order}
+          showsHorizontalScrollIndicator={false}
           renderItem={({item}) => <OrderItem style={styles.text} product={item}/>}
           keyExtractor={(item, index) => index}
         />
       <View style={styles.orderTotal}>
           <Text style={styles.totalText}>Total Amount:</Text>
-          <Text style={styles.totalText}>{total}</Text>
+          <Text style={styles.total}>{total}</Text>
         </View>
       </View>
     );
@@ -47,16 +48,24 @@ class Order extends React.Component {
 const styles = StyleSheet.create({
   orderTotal: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    margin: 10,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     marginLeft: 30,
     marginRight: 30,
+    marginTop: 40
   },
   totalText: {
-    fontSize: 16,
+    fontSize: 30,
     color: '#333333',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    flex: 1,
+  },
+  total: {
+    fontSize: 30,
+    color: '#333333',
+    fontWeight: 'bold',
+    flex: 2
   },
   text: {
     fontSize: 16,

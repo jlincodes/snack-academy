@@ -51,33 +51,36 @@ class Signup extends React.Component {
   }
 
 
-
+//resize mode contain is very useful
   render() {
 
     return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <HeaderBanner style={{ flex: 1, width: '100%'}}/>
-        <View style={{flex:4}} />
-        <LoginButton
-          readPermissions={["public_profile", "email"]}
-          onLoginFinished={
-            (error, result) => {
-              if (error) {
-                alert("login has error: " + result.error);
-              } else if (result.isCancelled) {
-                alert("login is cancelled.");
-              } else {
-                AccessToken.getCurrentAccessToken().then(
-                  (data) => {
-                    const token = data.accessToken;
-                    this.initUser(token)
-                  }
-                )
+      <View style={{flex: 1, backgroundColor: '#C00A0A' }}>
+        <View style={{flex: 1.6}} />
+        <View style={{flex: 1.3, backgroundColor: '#C00A0A', justifyContent: 'center', alignItems: 'center'}}>
+            <Image style={{width: '100%', height: '100%', margin: 20}} resizeMode='contain' source={{uri: 'https://res.cloudinary.com/dql6mlrow/image/upload/v1510652505/Screen_Shot_2017-11-14_at_1.40.59_AM_gbt9wu.png'}} />
+        </View>
+        <View style={{flex:2, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}} >
+          <LoginButton
+            readPermissions={["public_profile", "email"]}
+            onLoginFinished={
+              (error, result) => {
+                if (error) {
+                  alert("login has error: " + result.error);
+                } else if (result.isCancelled) {
+                  alert("login is cancelled.");
+                } else {
+                  AccessToken.getCurrentAccessToken().then(
+                    (data) => {
+                      const token = data.accessToken;
+                      this.initUser(token)
+                    }
+                  )
+                }
               }
             }
-          }
-          onLogoutFinished={() => alert("logout.")}/>
-        <View style={{flex: 2}} />
+            onLogoutFinished={() => alert("logout.")}/>
+        </View>
       </View>
     );
   }

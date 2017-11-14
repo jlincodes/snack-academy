@@ -42,7 +42,7 @@ class Confirmation extends React.Component {
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
           <TouchableOpacity onPress={() => this.handleBackToMenu()}>
-            <Text style={{color: '#FFFFFF', fontSize: 18}}>Back to Menu</Text>
+            <Text style={{color: '#FFFFFF', fontSize: 24}}>Back to Menu</Text>
           </TouchableOpacity>
         </View>
       </View>

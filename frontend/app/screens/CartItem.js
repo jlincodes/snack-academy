@@ -17,12 +17,14 @@ class CartItem extends React.Component {
   render() {
       let product = this.props.product;
       return (
-        <View>
+        <View style={{ flex: 2, borderWidth: 2, borderColor: '#d6d7da'}}>
           <View style={styles.cartItem}>
-            <Text>{product.name}</Text>
-            <Text>{this.handleUSDConversion(product.price)}</Text>
+            <Text style={{fontSize: 20, fontWeight: 'bold'}}>{product.name}</Text>
+            <Text style={{fontSize: 20, fontWeight: 'bold'}}>{this.handleUSDConversion(product.price)}</Text>
           </View>
-          <Button title='Remove' onPress={() => this.props.deleteItemFromCart(product)}/>
+          <TouchableOpacity style={{backgroundColor: '#C00A0A', height: '60%', width: '100%', flex: 2, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.deleteItemFromCart(product)}>
+            <Text style={{color: 'white', fontSize: 20, height: '90%'}}>Remove</Text>
+          </TouchableOpacity>
         </View>
       );
     }

@@ -29,23 +29,27 @@ class ProductItem extends React.Component {
     let description = product.description;
     let price = this.handleUSDConversion(product.price);
     return (
-      <View>
+      <TouchableOpacity style={{ borderWidth: 1, borderColor: '#1485CC', backgroundColor: 'white'}} onPress={() => this.props.addItemToCart(product)}>
         <View style={styles.menuItem}>
           <Image
             style={styles.image}
             source={{uri: product.img_url}} />
-          <Text style={styles.text}>
-            {`${name}\n${description}\n${price}`}
-          </Text>
+          <View style={{flex: 1, justifyContent: 'space-around'}}>
+            <Text style={styles.text}>
+              {`${name}\n${description}`}
+            </Text>
+            <Text style={{fontSize: 20}}>{price}</Text>
+          </View>
         </View>
-
-        <Button
-          title='add item to cart'
-          onPress={() => this.props.addItemToCart(product)}/>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
+
+
+// <TouchableOpacity style={{backgroundColor: '#1485CC', height: '100%', width: '100%', flex: 2, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}} onPress={() => this.props.addItemToCart(product)}>
+//   <Text style={{color: 'white', fontSize: 22, height: '90%'}}>Add to Cart</Text>
+// </TouchableOpacity>
 
   const styles = StyleSheet.create({
     menuItem: {
@@ -61,8 +65,9 @@ class ProductItem extends React.Component {
       marginLeft: 15
     },
     text: {
-      fontSize: 16,
-      color: '#555555'
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: 'black'
     }
   });
 
