@@ -48,7 +48,7 @@ class Splash extends React.Component {
     Animated.timing(
       this.spinValue,
       {
-        toValue: 1,
+        toValue: 2,
         duration: 4000,
         easing: Easing.linear
       }
@@ -64,8 +64,8 @@ class Splash extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Animated.Image style={{ width: 200, height: 200, transform: [{rotate: spinIt }] }}
-        resizeMode="cover" source={{uri: 'https://res.cloudinary.com/dql6mlrow/image/upload/v1510631234/Screen_Shot_2017-11-13_at_7.46.06_PM_ymjyr9.png'}}/>
+        <Animated.Image style={{ width: 280, height: 280, transform: [{rotate: spinIt }] }}
+        resizeMode="cover" source={{uri: 'https://res.cloudinary.com/dql6mlrow/image/upload/v1510647163/Screen_Shot_2017-11-14_at_12.11.24_AM_mk0m86.png'}}/>
       </View>
     )
   }
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: '#C00A0A'
   }
 })
 

@@ -34,7 +34,7 @@ class ConfirmationInfo extends React.Component {
     Animated.timing(
       this.spinValue,
       {
-        toValue: 1,
+        toValue: 2,
         duration: 4000,
         easing: Easing.linear
       }
