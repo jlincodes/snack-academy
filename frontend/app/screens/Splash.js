@@ -21,11 +21,11 @@ import { verifyUser } from '../actions/user_actions.js'
 class Splash extends React.Component {
   constructor () {
     super()
-    this.springValue = new Animated.Value(0.3)
+    this.spinValue = new Animated.Value(0)
   }
 
   componentDidMount() {
-    this.spring()
+    this.spin()
     AccessToken.getCurrentAccessToken().then(token => {
       if (token) {
         console.log(token);
@@ -43,24 +43,29 @@ class Splash extends React.Component {
   }
 
 
-  spring() {
-    this.springValue.setValue(0.3)
-    Animated.spring(
-      this.springValue,
+  spin() {
+    this.spinValue.setValue(0)
+    Animated.timing(
+      this.spinValue,
       {
         toValue: 1,
-        friction: 1,
+        duration: 4000,
+        easing: Easing.linear
       }
-    ).start()
+    ).start(() => this.spin())
   }
 
+
   render () {
+    const spinIt = this.spinValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '360deg']
+    })
 
     return (
       <View style={styles.container}>
-        <Animated.Image
-          style={{ width: 200, height: 200, transform: [{scale: this.springValue}] }}
-          source={{uri: 'https://res.cloudinary.com/dql6mlrow/image/upload/v1510631234/Screen_Shot_2017-11-13_at_7.46.06_PM_ymjyr9.png'}}/>
+        <Animated.Image style={{ width: 200, height: 200, transform: [{rotate: spinIt }] }}
+        resizeMode="cover" source={{uri: 'https://res.cloudinary.com/dql6mlrow/image/upload/v1510631234/Screen_Shot_2017-11-13_at_7.46.06_PM_ymjyr9.png'}}/>
       </View>
     )
   }
