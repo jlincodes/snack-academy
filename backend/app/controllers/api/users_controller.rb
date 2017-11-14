@@ -1,6 +1,10 @@
 class Api::UsersController < ApplicationController
 
   def index
+    puts "Params are #{params}"
+    puts "params[user] is #{params[:user]}"
+    puts "params[user][fbId] is #{params[:user][:fbId]}"
+    
     @user = User.find_by(fbId: params[:user][:fbId])
     if @user
       render :show
