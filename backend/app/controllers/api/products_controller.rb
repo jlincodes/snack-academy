@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.where("inventory > 0")
   end
 
   def create
