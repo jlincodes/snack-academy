@@ -9,12 +9,12 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-import { Container } from 'native-base';
+
 import Order from './Order.js';
 import HeaderBanner from './HeaderBanner.js';
 import {connect} from 'react-redux';
 
-import {createOrder, receiveConfirmation} from '../actions/cart_actions.js';
+import {createOrder, receiveConfirmation, clearConfirmation} from '../actions/cart_actions.js';
 import {receiveOrderErrors} from '../actions/errors_actions.js';
 import { formatOrder } from '../reducers/selectors.js';
 
@@ -27,11 +27,13 @@ class CheckOut extends React.Component {
 
 // make sure to reset back to true
   sendOrder(){
-    this.setState({buttonClicked: false});
+    this.setState({buttonClicked: true});
     let { navigate } = this.props.navigation;
     let order = this.props.formatOrder;
     console.log(order);
-    this.props.createOrder(order);
+    this.props.clearConfirmation();
+    this.props.createOrder(order)
+
     navigate('Confirmation');
   }
 
@@ -55,7 +57,7 @@ class CheckOut extends React.Component {
           <Text style={styles.checkOutHeadText}>Amount</Text>
         </View>
         <Order />
-        <Container style={
+        <View style={
           {flex: 1, flexDirection: 'row', justifyContent: 'space-around',
           alignItems: 'center', backgroundColor: '#1485CC'}}>
           <TouchableOpacity onPress={() => navigate('Cart')} disabled={this.state.buttonClicked}>
@@ -64,7 +66,7 @@ class CheckOut extends React.Component {
           <TouchableOpacity onPress={() => this.sendOrder()} disabled={this.state.buttonClicked}>
             <Text style={{color: '#FFFFFF', fontSize: 18}}>Confirm Order</Text>
           </TouchableOpacity>
-        </Container>
+        </View>
       </View>
     );
   }
@@ -96,6 +98,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createOrder: (order) => dispatch(createOrder(order)),
+  clearConfirmation: () => dispatch(clearConfirmation()),
   receiveConfirmation: () => dispatch(receiveConfirmation()),
   receiveOrderErrors: (errors) => dispatch(receiveOrderErrors(errors))
 });
