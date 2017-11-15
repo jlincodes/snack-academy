@@ -12,7 +12,8 @@ import ProductItem from './ProductItem.js'
 class DrinksScreen extends React.Component {
 
   static navigationOptions = {
-    title: 'Drinks', //refers to name of displayed button
+    title: 'Drinks' //refers to name of displayed button
+
   };
 
   componentWillMount() {

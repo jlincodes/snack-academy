@@ -11,37 +11,23 @@ import {
 
 import { connect } from 'react-redux';
 
+import {initializeUser, verifyUser} from '../actions/user_actions.js';
+import NewCardPage from '../stripe_page.js';
+import StripeLogoPage from './StripeLogoPage.js'
+
 import {
   AccessToken
 } from 'react-native-fbsdk';
 
-import { verifyUser } from '../actions/user_actions.js'
+
 
 
 class Splash extends React.Component {
   constructor () {
     super()
     this.spinValue = new Animated.Value(0)
+    this.initUser = this.initUser.bind(this)
   }
-
-  componentDidMount() {
-    this.spin()
-    AccessToken.getCurrentAccessToken().then(token => {
-      if (token) {
-        console.log(token);
-        const fbId = parseInt(token.userID)
-        const userObject = {fbId: fbId}
-        console.log(userObject);
-        this.props.verifyUser(userObject)
-        // firebase.database().ref(`/users/${token.userID}`)
-        //         .on('value', (snap) => this.props.receiveCurrentUser(snap.val()));
-        setTimeout(()=>  this.props.navigation.navigate('SimpleApp'), 2000)
-      } else {
-        setTimeout(()=>  this.props.navigation.navigate('Signup'), 2000)
-      }
-    });
-  }
-
 
   spin() {
     this.spinValue.setValue(0)
@@ -54,6 +40,63 @@ class Splash extends React.Component {
       }
     ).start(() => this.spin())
   }
+
+  initUser(token) {
+    const { goBack, navigate } = this.props.navigation;
+    console.log('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token);
+
+    fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
+    .then((response) => response.json())
+    .then((json) => {
+      const user = {email: json.email, name: json.name, fbId: json.id}
+      this.props.initializeUser(user)
+      navigate('StripeLogoPage')
+    })
+    .catch((error) => {
+      console.log(error);
+      // reject('ERROR GETTING DATA FROM FACEBOOK')
+    })
+
+  }
+
+  componentDidMount() {
+    this.spin()
+    AccessToken.getCurrentAccessToken().then(token => {
+      if(!token) {
+        setTimeout(() => this.props.navigation.navigate('Signup'), 2000)
+      } else {
+
+        const fbId = parseInt(token.userID)
+        const userObject = {fbId: fbId}
+        this.props.verifyUser(userObject).then(() => {
+          setTimeout(()=>  this.props.navigation.navigate('SimpleApp'), 2000)
+        }, () => this.initUser(token.accessToken))
+      }
+      // }).catch(() => setTimeout(() => this.props.navigation.navigate('Signup'), 2000))
+    })
+  }
+
+
+  // componentDidMount() {
+  //   this.spin()
+  //   AccessToken.getCurrentAccessToken().then(token => {
+  //     if (token) {
+  //       console.log(token);
+  //       const fbId = parseInt(token.userID)
+  //       const userObject = {fbId: fbId}
+  //       console.log(userObject);
+  //       this.props.verifyUser(userObject)
+  //       // firebase.database().ref(`/users/${token.userID}`)
+  //       //         .on('value', (snap) => this.props.receiveCurrentUser(snap.val()));
+  //       setTimeout(()=>  this.props.navigation.navigate('SimpleApp'), 2000)
+  //     } else {
+  //       setTimeout(()=>  this.props.navigation.navigate('Signup'), 2000)
+  //     }
+  //   });
+  // }
+
+
+
 
 
   render () {
@@ -80,9 +123,13 @@ const styles = StyleSheet.create({
   }
 })
 
-
-const mapDispatchToProps = (dispatch) => ({
-  verifyUser: (facebookID) => dispatch(verifyUser(facebookID))
+const mapStateToProps = (state) => ({
+  userName: state.user.name
 });
 
-export default connect(null, mapDispatchToProps)(Splash);
+const mapDispatchToProps = (dispatch) => ({
+  verifyUser: (facebookID) => dispatch(verifyUser(facebookID)),
+  initializeUser: (user) => dispatch(initializeUser(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Splash);
