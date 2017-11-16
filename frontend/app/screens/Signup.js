@@ -29,7 +29,6 @@ class Signup extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = {email: ''}
     this.initUser = this.initUser.bind(this)
   }
 
@@ -39,8 +38,7 @@ class Signup extends React.Component {
     fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
     .then((response) => response.json())
     .then((json) => {
-      this.setState({email: json.email, name: json.name, fbId: json.id})
-      const user = this.state
+      const user = {email: json.email, name: json.name, fbId: json.id}
       this.props.initializeUser(user)
       navigate('StripeLogoPage')
     })
