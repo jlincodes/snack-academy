@@ -14,7 +14,7 @@ The SnackAcademy mobile app is built on React Native / Redux and utilizes Stripe
 
 ![Alt text](assets/authentication.gif?raw=true "Facebook SDK Authentication")
 
-We utilized integrated Facebook authentication using Facebook SDK in both our React Native components and Xcode. We chose this strategy in order to take advantage of users' permanent, unique Facebook ID. This allowed us to build our front-end and database logic so that we could synchronize a customer's account including past orders and payment credentials across devices.
+We integrated Facebook authentication using Facebook SDK in both our React Native components and Xcode. We chose this strategy in order to take advantage of users' permanent, unique Facebook ID. This allowed us to synchronize a customer's account including past orders and payment credentials across devices.
 
 
 ## Stripe API Integration
@@ -26,7 +26,7 @@ Our project integrated Stripe's API in both the front and backend. This allows t
 ## Intuitive Products Menu
 ![Alt text](assets/menu2.gif?raw=true "Product Menu")
 
-We utilized several React Native features, such as React Navigation and dynamic Flatlists, in order to create a simple, yet user-friendly menu to browse products. Most importantly, the product list is dynamically retrieved from our Heroku backend allowing for nimble marketing of our merchandise and inventory control.
+We utilized several React Native features, such as React Navigation and dynamic flatlists, in order to create a simple, yet user-friendly menu to browse products. Most importantly, the product list is dynamically retrieved from our Heroku backend allowing for nimble marketing of our merchandise and inventory control.
 
 
 ## Real-time Redux-enabled Checkout Cart
