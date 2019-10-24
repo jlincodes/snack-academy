@@ -1,7 +1,9 @@
 class Api::OrdersController < ApplicationController
 
   def create
+    # sets api key
     Stripe.api_key = ENV['SECRET_KEY']
+    # creates order with specified user and 'ordered' status
     @order = Order.new(order_params)
     user = User.find_by(fbId: params[:order][:fbId])
     if user
